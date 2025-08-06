@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Payum Iwak</title>
+    <title>Payum Iwak - Produk Perawatan Alami oleh Nelayan Perempuan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -17,7 +17,7 @@
       .hero-gradient {
         background: linear-gradient(135deg, #f5f7fa 0%, #e4f2ff 100%);
       }
-      /* .wave-divider {
+      .wave-divider {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -30,7 +30,7 @@
         display: block;
         width: calc(100% + 1.3px);
         height: 100px;
-      } */
+      }
       .product-card {
         transition: all 0.3s ease;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -53,29 +53,48 @@
   </head>
   <body>
     <!-- Header/Navbar -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 items-center">
+    <header class="bg-white fixed w-full z-50 shadow-sm">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
           <div class="flex items-center">
-            <img src="img/logo.jpg" alt="Logo Payum Iwak" class="h-8 w-auto" />
-            <span class="ml-2 text-xl font-semibold text-blue-600"
-              >Payum Iwak</span
-            >
+            <div class="flex-shrink-0 flex items-center">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/67dfbf4e-7c55-49f6-868a-542a394f9a6b.png"
+                alt="Logo Payum Iwak - ilustrasi ikan dan gelombang dalam warna biru dan putih"
+                class="h-8 w-auto"
+              />
+              <span class="ml-2 text-xl font-semibold text-blue-600"
+                >Payum Iwak</span
+              >
+            </div>
           </div>
-          <nav class="hidden md:flex space-x-8">
-            <a href="index.html" class="text-blue-600 font-medium">Beranda</a>
-            <a href="produk.html" class="text-gray-500 hover:text-blue-600"
-              >Katalog</a
+          <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+            <a
+              href="#produk"
+              class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium"
+              >Produk</a
             >
-            <a href="#tentang" class="text-gray-500 hover:text-blue-600"
+            <a
+              href="#tentang"
+              class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium"
               >Tentang Kami</a
             >
-            <a href="#kontak" class="text-gray-500 hover:text-blue-600"
+            <a
+              href="#bahan"
+              class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium"
+              >Bahan Alami</a
+            >
+            <a
+              href="#kontak"
+              class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium"
               >Kontak</a
             >
-          </nav>
-          <div class="md:hidden">
-            <button class="text-gray-500 hover:text-blue-600">
+          </div>
+          <div class="md:hidden flex items-center">
+            <button
+              id="menu-toggle"
+              class="text-gray-500 hover:text-blue-600 focus:outline-none"
+            >
               <svg
                 class="h-6 w-6"
                 fill="none"
@@ -92,7 +111,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
 
     <!-- Mobile Menu -->
@@ -102,7 +121,7 @@
     >
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <a
-          href="produk.html"
+          href="#produk"
           class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-blue-600"
           >Produk</a
         >
@@ -111,11 +130,11 @@
           class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-blue-600"
           >Tentang Kami</a
         >
-        <!-- <a
+        <a
           href="#bahan"
           class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-blue-600"
           >Bahan Alami</a
-        > -->
+        >
         <a
           href="#kontak"
           class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-blue-600"
@@ -133,13 +152,14 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero-gradient pt-36 pb-40 relative overflow-hidden">
+    <section class="hero-gradient pt-32 pb-20 relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-20">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
           <div class="mb-10 lg:mb-0">
             <h1 class="text-4xl font-bold text-gray-900 mb-4 leading-tight">
-              Perawatan Alami <br />
-              <span class="text-blue-600"> oleh Nelayan Perempuan</span>
+              Perawatan Alami<span class="text-blue-600">
+                oleh Nelayan Perempuan</span
+              >
             </h1>
             <p class="text-lg text-gray-600 mb-8 max-w-lg">
               Produk perawatan tubuh premium berbahan dasar alami hasil olahan
@@ -163,7 +183,7 @@
               </a>
             </div>
           </div>
-          <!-- <div class="relative">
+          <div class="relative">
             <img
               src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d56d869b-ea34-465b-addd-e521945a6de8.png"
               alt="Kelompok perempuan nelayan sedang bekerja membuat produk sabun dan skincare dengan bahan alami di pantai"
@@ -175,57 +195,10 @@
             <div
               class="absolute -top-4 -right-4 h-20 w-20 bg-yellow-200 rounded-lg -z-10"
             ></div>
-          </div> -->
-          <div class="md:w-1/2 grid grid-cols-2 grid-rows-2 gap-4">
-            <div
-              class="bg-blue-200 rounded-xl flex justify-center items-center p-6"
-            >
-              <img
-                alt="Yellow sweatshirt with green circular logo on chest, displayed on light blue rounded square background"
-                class="max-w-full max-h-full object-contain"
-                height="120"
-                src="img/1.png"
-                width="120"
-              />
-            </div>
-            <div
-              class="bg-pink-200 rounded-xl flex justify-center items-center p-6"
-            >
-              <img
-                alt="White tote bag with sunflower design, displayed on light pink rounded square background"
-                class="max-w-full max-h-full object-contain"
-                height="120"
-                src="img/2.png"
-                width="120"
-              />
-            </div>
-            <div
-              class="bg-pink-200 rounded-xl flex justify-center items-center p-6"
-            >
-              <img
-                alt="White T-shirt with gray circle logo on chest, displayed on light yellow rounded square background"
-                class="max-w-full max-h-full object-contain"
-                height="120"
-                src="img/2.png"
-                width="120"
-              />
-            </div>
-            <div
-              class="bg-blue-200 rounded-xl flex justify-center items-center p-6"
-            >
-              <img
-                alt="Light blue baseball cap with logo, displayed on light green rounded square background"
-                class="max-w-full max-h-full object-contain"
-                height="120"
-                src="img/1.png"
-                width="120"
-              />
-            </div>
           </div>
         </div>
       </div>
-
-      <!-- <div class="wave-divider">
+      <div class="wave-divider">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +210,7 @@
             class="fill-current text-white"
           ></path>
         </svg>
-      </div> -->
+      </div>
     </section>
 
     <!-- Produk Section -->
@@ -260,13 +233,13 @@
           >
             <div class="mb-4">
               <img
-                src="img/sabun alami.png"
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bbcfa7d0-4910-4d22-94e5-136542db68ad.png"
                 alt="Sabun alami berwarna krem dengan motif gelombang dan aroma lemon dalam kemasan kertas daur ulang"
                 class="w-full h-48 object-contain"
               />
             </div>
             <h3 class="text-xl font-semibold text-gray-900 mb-2">
-              Sabun Alami
+              Sabun Alami Payum
             </h3>
             <p class="text-gray-600 mb-4">
               Sabun lembut dengan ekstrak rumput laut dan minyak kelapa untuk
@@ -275,7 +248,7 @@
             <div class="flex justify-between items-center">
               <span class="text-lg font-semibold text-blue-600">Rp35.000</span>
               <button
-                class="px-2 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md text-sm font-medium"
+                class="px-4 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md text-sm font-medium"
               >
                 Pesan Sekarang
               </button>
@@ -288,20 +261,22 @@
           >
             <div class="mb-4">
               <img
-                src="img/Scrub.png"
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a3be1b14-709c-4d07-861b-d9cb55f23291.png"
                 alt="Body scrub berwarna coklat dengan tekstur kasar dari garam laut dan aroma vanilla dalam toples kaca"
                 class="w-full h-48 object-contain"
               />
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Body Scrub</h3>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              Body Scrub Laut
+            </h3>
             <p class="text-gray-600 mb-4">
-              Dibuat dari garam laut alami dan minyak kelapa untuk membuat kulit
-              halus dan lembut.
+              Dibuat dari garam laut alami dan minyak kelapa untuk kulit halus
+              dan lembut.
             </p>
             <div class="flex justify-between items-center">
               <span class="text-lg font-semibold text-blue-600">Rp55.000</span>
               <button
-                class="px-2 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md text-sm font-medium"
+                class="px-4 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md text-sm font-medium"
               >
                 Pesan Sekarang
               </button>
@@ -314,13 +289,13 @@
           >
             <div class="mb-4">
               <img
-                src="img/Body butter.png"
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b1571727-8d6e-4417-9d41-95bf274ee0f0.png"
                 alt="Body butter krim dalam toples kayu dengan tekstur lembut berwarna putih dan aroma bunga melati"
                 class="w-full h-48 object-contain"
               />
             </div>
             <h3 class="text-xl font-semibold text-gray-900 mb-2">
-              Body Butter
+              Body Butter Payum
             </h3>
             <p class="text-gray-600 mb-4">
               Pelembab intensif dengan shea butter dan minyak zaitun untuk kulit
@@ -329,7 +304,7 @@
             <div class="flex justify-between items-center">
               <span class="text-lg font-semibold text-blue-600">Rp65.000</span>
               <button
-                class="px-2 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md text-sm font-medium"
+                class="px-4 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md text-sm font-medium"
               >
                 Pesan Sekarang
               </button>
@@ -342,7 +317,7 @@
           >
             <div class="mb-4">
               <img
-                src="img/lipbalm.png"
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/db8ff576-63ef-491f-b702-9efbfcd1e0c0.png"
                 alt="Lipbalm dalam kemasan tabung kecil warna-warni dengan aroma buah-buahan tropis"
                 class="w-full h-48 object-contain"
               />
@@ -357,7 +332,7 @@
             <div class="flex justify-between items-center">
               <span class="text-lg font-semibold text-blue-600">Rp25.000</span>
               <button
-                class="px-2 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md text-sm font-medium"
+                class="px-4 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md text-sm font-medium"
               >
                 Pesan Sekarang
               </button>
@@ -368,12 +343,12 @@
     </section>
 
     <!-- Tentang Kami Section -->
-    <section id="tentang" class="py-20 bg-gray-50 pt-36 pb-36">
+    <section id="tentang" class="py-20 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
           <div class="mb-10 lg:mb-0 order-2 lg:order-1">
             <img
-              src="img/Screenshot 2025-08-06 184321.png"
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e14a53f8-3566-4d54-b9d9-c6ef24c23057.png"
               alt="Foto kelompok perempuan nelayan Payum sedang berdiskusi dan bekerja sama membuat produk di tepi pantai"
               class="rounded-lg shadow-xl w-full h-auto"
             />
@@ -405,6 +380,87 @@
                 <div class="text-gray-700">Bahan Kimia</div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bahan Alami Section -->
+    <section id="bahan" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Bahan Alami Kami
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Bahan-bahan premium pilihan yang kami gunakan dalam produk Payum
+            Iwak
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <!-- Bahan 1 -->
+          <div class="text-center">
+            <div class="ingredient-icon mb-4">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f20cef22-5004-4a34-988f-e3aed20cf6ed.png"
+                alt="Ilustrasi rumput laut dalam warna hijau dan coklat"
+                class="h-8 w-8"
+              />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              Rumput Laut
+            </h3>
+            <p class="text-gray-600 text-sm">
+              Kaya mineral untuk menutrisi dan melembabkan kulit
+            </p>
+          </div>
+
+          <!-- Bahan 2 -->
+          <div class="text-center">
+            <div class="ingredient-icon mb-4">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/71a21482-bed3-4785-a8e8-d3ad82411671.png"
+                alt="Ilustrasi garam laut dalam bentuk kristal putih"
+                class="h-8 w-8"
+              />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Garam Laut</h3>
+            <p class="text-gray-600 text-sm">
+              Eksfoliasi alami untuk kulit mati dan mengangkat sel-sel mati
+            </p>
+          </div>
+
+          <!-- Bahan 3 -->
+          <div class="text-center">
+            <div class="ingredient-icon mb-4">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7a814e7e-16ad-4360-bb70-1edfc8022af2.png"
+                alt="Ilustrasi minyak kelapa dalam botol kaca dengan warna putih kekuningan"
+                class="h-8 w-8"
+              />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              Minyak Kelapa
+            </h3>
+            <p class="text-gray-600 text-sm">
+              Pelembab alami yang kaya akan vitamin E
+            </p>
+          </div>
+
+          <!-- Bahan 4 -->
+          <div class="text-center">
+            <div class="ingredient-icon mb-4">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3ef5ba88-738f-4563-ac2c-98df418242c9.png"
+                alt="Ilustrasi madu berwarna emas dalam sendok kayu"
+                class="h-8 w-8"
+              />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Madu</h3>
+            <p class="text-gray-600 text-sm">
+              Anti bakteri alami dan pelembab untuk kulit
+            </p>
           </div>
         </div>
       </div>
@@ -499,7 +555,7 @@
               </svg>
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  d="M9.049 2.927c.3.-921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                 />
               </svg>
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -509,7 +565,7 @@
               </svg>
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c.-783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                 />
               </svg>
             </div>
@@ -587,7 +643,7 @@
             href="#produk"
             class="px-6 py-3 border border-white text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 shadow-md"
           >
-            Lihat Katalog
+            Lihat Produk
           </a>
         </div>
       </div>
@@ -673,7 +729,7 @@
                 <div class="ml-3">
                   <p class="text-lg font-medium text-gray-900">Alamat</p>
                   <p class="text-gray-600">
-                    Pantai Payum, Kecamatan Merauke, Papua Selatan
+                    Desa Payum, Kecamatan Merauke, Papua Selatan
                   </p>
                 </div>
               </div>
@@ -707,19 +763,6 @@
             </div>
           </div>
           <div>
-            <iframe
-              allowfullscreen=""
-              height="400"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.9279279279277!2d-99.176927684692!3d19.4326079868869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff2a0a7a1a1f%3A0x7a7a7a7a7a7a7a7a!2sMexico%20City!5e0!3m2!1sen!2smx!4v1698652800000!5m2!1sen!2smx"
-              style="border: 0"
-              title="Map showing location of Rushttee Custom T-shirt Printing Company"
-              width="100%"
-            >
-            </iframe>
-          </div>
-          <!-- <div>
             <div class="bg-white p-6 rounded-lg shadow-md">
               <h3 class="text-xl font-semibold text-gray-900 mb-4">
                 Kirim Pesan
@@ -772,7 +815,7 @@
                 </button>
               </form>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </section>
@@ -780,51 +823,105 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Tentang Payum Iwak</h3>
-            <p class="text-gray-300 text-sm">
-              Kelompok Usaha Perempuan Nelayan Payum yang memproduksi produk
-              perawatan tubuh alami berbahan dasar hasil laut.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Kontak Kami</h3>
-            <p class="text-gray-300 text-sm mb-2">
-              Pantai Payum, Kecamatan Merauke, Papua Selatan
-            </p>
-            <p class="text-gray-300 text-sm">Email: info@payumiwak.com</p>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Ikuti Kami</h3>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-300 hover:text-white">
-                <span class="sr-only">Facebook</span>
-                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    fill-rule="evenodd"
-                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </a>
-              <a href="#" class="text-gray-300 hover:text-white">
-                <span class="sr-only">Instagram</span>
-                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    fill-rule="evenodd"
-                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </a>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="col-span-1">
+            <div class="flex items-center">
+              <img
+                src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7c0d366b-3452-49cb-b72d-c0c4039df12f.png"
+                alt="Logo kecil Payum Iwak - ilustrasi ikan dalam bentuk sederhana"
+                class="h-8 w-auto"
+              />
+              <span class="ml-2 text-xl font-semibold">Payum Iwak</span>
             </div>
+            <p class="mt-4 text-gray-300 text-sm">
+              Usaha perempuan nelayan Payum memproduksi produk perawatan tubuh
+              alami dengan bahan-bahan hasil olahan laut.
+            </p>
           </div>
-        </div>
-        <div
-          class="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-400"
-        >
-          <p>&copy; 2025 Payum Iwak. Seluruh hak cipta dilindungi.</p>
+          <div>
+            <h3
+              class="text-sm font-semibold text-gray-100 tracking-wider uppercase mb-4"
+            >
+              Produk
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-300 hover:text-white text-sm"
+                  >Sabun Alami</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-white text-sm"
+                  >Body Scrub</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-white text-sm"
+                  >Body Butter</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-white text-sm"
+                  >Lipbalm</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3
+              class="text-sm font-semibold text-gray-100 tracking-wider uppercase mb-4"
+            >
+              Link Cepat
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#tentang"
+                  class="text-gray-300 hover:text-white text-sm"
+                  >Tentang Kami</a
+                >
+              </li>
+              <li>
+                <a href="#bahan" class="text-gray-300 hover:text-white text-sm"
+                  >Bahan Alami</a
+                >
+              </li>
+              <li>
+                <a href="#kontak" class="text-gray-300 hover:text-white text-sm"
+                  >Kontak</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-white text-sm"
+                  >Blog</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3
+              class="text-sm font-semibold text-gray-100 tracking-wider uppercase mb-4"
+            >
+              Berlangganan
+            </h3>
+            <p class="text-gray-300 text-sm mb-4">
+              Dapatkan informasi dan penawaran terbaru dari Payum Iwak langsung
+              ke email Anda.
+            </p>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="Alamat email"
+                class="px-3 py-2 border border-gray-700 rounded-l-md text-sm w-full bg-gray-800 text-white focus:outline-none focus:ring-1 focus:ring-blue-500"
+              />
+              <button
+                type="submit"
+                class="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm"
+              >
+                Daftar
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </footer>
