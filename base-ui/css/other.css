@@ -1,0 +1,43 @@
+.other {
+  padding: 0 10% 1.4rem;
+}
+
+.other h3 {
+  margin-bottom: 0.5rem;
+}
+
+.other .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.other .grid .card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: 1px solid #d3d6d8;
+  padding: 0.8rem;
+}
+.other .grid .card:hover {
+  border: 1px solid var(--secondary);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.other .grid .card img {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.other .grid .card .card-content .nama-petani {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.other .grid .card .card-content p {
+  font-size: 0.9rem;
+  font-weight: 200;
+  line-height: 1.6;
+}
