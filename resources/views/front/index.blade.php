@@ -11,7 +11,7 @@
           <div class="mb-10 lg:mb-0 md:w-1/2">
             <h1 class="text-5xl font-bold text-gray-900 mb-4 leading-tight">
               Perawatan Alami <br />
-              <span class="text-blue-600">Nelayan Perempuan</span>
+              <span class="text-blue-500">Nelayan Perempuan</span>
             </h1>
             <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
               Produk perawatan tubuh berbahan dasar alami hasil olahan Kelompok
@@ -19,14 +19,14 @@
               dan mendukung pemberdayaan perempuan pesisir.
             </p>
             <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
-              <a href="#produk" class="px-6 py-3 text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 shadow-md">Lihat Produk</a>
-              <a href="#tentang" class="px-6 py-3 text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 shadow-md">Tentang Kami</a>
+              <a href="#produk" class="px-6 py-3 text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-700 shadow-md transition duration-300">Lihat Produk</a>
+              <a href="#tentang" class="px-6 py-3 text-base font-medium rounded-md text-blue-500 bg-white hover:bg-gray-100 shadow-md transition duration-300">Tentang Kami</a>
             </div>
           </div>
 
           <!-- Bagian Grid Gambar -->
           <div class="md:w-1/2 grid grid-cols-2 grid-rows-2 gap-4">
-            <div class="bg-blue-200 rounded-xl flex justify-center items-center p-6">
+            <div class="bg-pink-200 rounded-xl flex justify-center items-center p-6">
               <img src="{{asset('img/lip-balm-1.png')}}" class="max-w-full max-h-full object-contain" width="120" height="120" />
             </div>
             <div class="bg-blue-300 rounded-xl flex justify-center items-center p-6">
@@ -35,11 +35,10 @@
             <div class="bg-blue-300 rounded-xl flex justify-center items-center p-6">
               <img src="{{asset('img/lip-balm-1.png')}}" class="max-w-full max-h-full object-contain" width="120" height="120" />
             </div>
-            <div class="bg-blue-200 rounded-xl flex justify-center items-center p-6">
+            <div class="bg-pink-200 rounded-xl flex justify-center items-center p-6">
               <img src="{{asset('img/lip-balm-1.png')}}" class="max-w-full max-h-full object-contain" width="120" height="120" />
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -78,9 +77,9 @@
               semua jenis kulit.
             </p>
             <div class="flex justify-between items-center">
-              <span class="text-lg font-semibold text-blue-600">Rp35.000</span>
+              <span class="text-lg font-semibold text-blue-500">Rp.35,000</span>
               <button
-                class="px-2 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md text-sm font-medium"
+                class="px-2 py-2 bg-blue-50 text-blue-500 hover:bg-blue-100 rounded-md text-sm font-medium"
               >
                 Pesan Sekarang
               </button>
@@ -104,9 +103,9 @@
               halus dan lembut.
             </p>
             <div class="flex justify-between items-center">
-              <span class="text-lg font-semibold text-blue-600">Rp55.000</span>
+              <span class="text-lg font-semibold text-blue-500">Rp.55,000</span>
               <button
-                class="px-2 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md text-sm font-medium"
+                class="px-2 py-2 bg-blue-50 text-blue-500 hover:bg-blue-100 rounded-md text-sm font-medium"
               >
                 Pesan Sekarang
               </button>
@@ -132,9 +131,9 @@
               super lembut.
             </p>
             <div class="flex justify-between items-center">
-              <span class="text-lg font-semibold text-blue-600">Rp65.000</span>
+              <span class="text-lg font-semibold text-blue-500">Rp.65,000</span>
               <button
-                class="px-2 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md text-sm font-medium"
+                class="px-2 py-2 bg-blue-50 text-blue-500 hover:bg-blue-100 rounded-md text-sm font-medium"
               >
                 Pesan Sekarang
               </button>
@@ -160,9 +159,9 @@
               berbagai varian rasa.
             </p>
             <div class="flex justify-between items-center">
-              <span class="text-lg font-semibold text-blue-600">Rp25.000</span>
+              <span class="text-lg font-semibold text-blue-500">Rp.25,000</span>
               <button
-                class="px-2 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md text-sm font-medium"
+                class="px-2 py-2 bg-blue-50 text-blue-500 hover:bg-blue-100 rounded-md text-sm font-medium"
               >
                 Pesan Sekarang
               </button>
@@ -202,11 +201,11 @@
             </p>
             <div class="grid grid-cols-2 gap-4 mt-8">
               <div class="bg-white p-4 rounded-lg shadow-sm">
-                <div class="text-blue-600 font-bold text-3xl mb-2">100%</div>
+                <div class="text-blue-500 font-bold text-3xl mb-2">100%</div>
                 <div class="text-gray-700">Bahan Alami</div>
               </div>
               <div class="bg-white p-4 rounded-lg shadow-sm">
-                <div class="text-blue-600 font-bold text-3xl mb-2">0%</div>
+                <div class="text-blue-500 font-bold text-3xl mb-2">0%</div>
                 <div class="text-gray-700">Bahan Kimia</div>
               </div>
             </div>
@@ -236,7 +235,7 @@
               />
               <div class="ml-4">
                 <h4 class="font-semibold text-gray-900">Dewi Lestari</h4>
-                <p class="text-blue-600 text-sm">Pelanggan Setia</p>
+                <p class="text-blue-500 text-sm">Pelanggan Setia</p>
               </div>
             </div>
             <p class="text-gray-600">
@@ -283,7 +282,7 @@
               />
               <div class="ml-4">
                 <h4 class="font-semibold text-gray-900">Rina Darmawan</h4>
-                <p class="text-blue-600 text-sm">Pelanggan Baru</p>
+                <p class="text-blue-500 text-sm">Pelanggan Baru</p>
               </div>
             </div>
             <p class="text-gray-600">
@@ -330,7 +329,7 @@
               />
               <div class="ml-4">
                 <h4 class="font-semibold text-gray-900">Sinta Wijaya</h4>
-                <p class="text-blue-600 text-sm">Penggemar Lipbalm</p>
+                <p class="text-blue-500 text-sm">Penggemar Lipbalm</p>
               </div>
             </div>
             <p class="text-gray-600">
@@ -370,7 +369,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 bg-blue-600">
+    <section class="py-16 bg-blue-500">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold text-white mb-6">
           Siap Merasakan Manfaat Produk Alami Kami?
@@ -384,13 +383,13 @@
         >
           <a
             href="https://wa.me/6281234567890"
-            class="px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-100 shadow-md"
+            class="px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-500 bg-white hover:bg-gray-100 shadow-md"
           >
             Pesan via WhatsApp
           </a>
           <a
             href="#produk"
-            class="px-6 py-3 border border-white text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 shadow-md"
+            class="px-6 py-3 border border-white text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 shadow-md"
           >
             Lihat Katalog
           </a>
@@ -412,7 +411,7 @@
               <div class="flex">
                 <div class="flex-shrink-0">
                   <svg
-                    class="h-6 w-6 text-blue-600"
+                    class="h-6 w-6 text-blue-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -435,7 +434,7 @@
               <div class="flex">
                 <div class="flex-shrink-0">
                   <svg
-                    class="h-6 w-6 text-blue-600"
+                    class="h-6 w-6 text-blue-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -456,7 +455,7 @@
               <div class="flex">
                 <div class="flex-shrink-0">
                   <svg
-                    class="h-6 w-6 text-blue-600"
+                    class="h-6 w-6 text-blue-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -488,7 +487,7 @@
                 Ikuti Kami
               </h3>
               <div class="flex space-x-4">
-                <a href="#" class="text-gray-500 hover:text-blue-600">
+                <a href="#" class="text-gray-500 hover:text-blue-500">
                   <span class="sr-only">Facebook</span>
                   <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                     <path
@@ -498,7 +497,7 @@
                     />
                   </svg>
                 </a>
-                <a href="#" class="text-gray-500 hover:text-blue-600">
+                <a href="#" class="text-gray-500 hover:text-blue-500">
                   <span class="sr-only">Instagram</span>
                   <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                     <path
@@ -571,7 +570,7 @@
                 </div>
                 <button
                   type="submit"
-                  class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   Kirim Pesan
                 </button>
