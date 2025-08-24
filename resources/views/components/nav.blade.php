@@ -8,19 +8,19 @@
             >
           </div>
           <nav class="hidden md:flex space-x-8">
-            <a href="{{route('front.index')}}#hero" class="text-gray-500 hover:text-blue-600">Beranda</a>
-            <a href="produk.html" class="text-gray-500 hover:text-blue-600"
+            <a href="{{route('front.index')}}#hero" class="text-gray-500 hover:text-blue-600 transition duration-300">Beranda</a>
+            <a href="{{route('front.katalog')}}" class="text-gray-500 hover:text-blue-600 transition duration-300"
               >Katalog</a
             >
-            <a href="{{route('front.index')}}#tentang" class="text-gray-500 hover:text-blue-600"
+            <a href="{{route('front.index')}}#tentang" class="text-gray-500 hover:text-blue-600 transition duration-300"
               >Tentang Kami</a
             >
-            <a href="{{route('front.index')}}#kontak" class="text-gray-500 hover:text-blue-600"
+            <a href="{{route('front.index')}}#kontak" class="text-gray-500 hover:text-blue-600 transition duration-300"
               >Kontak</a
             >
           </nav>
           <div class="md:hidden">
-            <button class="text-gray-500 hover:text-blue-600">
+            <button class="text-gray-500 hover:text-blue-600 transition duration-300">
               <svg
                 class="h-6 w-6"
                 fill="none"

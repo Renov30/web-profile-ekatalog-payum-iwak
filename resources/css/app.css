@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 @layer base {
+    :root {
+        --color-primary: #2970a7;
+        --color-dark: #0f172a;
+        --color-secondary: #1e293b;
+        --color-accent: #f39c12;
+        --color-fourth: #205781;
+    }
+
     body {
-        font-family: "Poppins", sans-serif;
+        font-family: "Inter", sans-serif;
         scroll-behavior: smooth;
     }
 
@@ -42,5 +50,12 @@
         border-radius: 50%;
         background-color: #f8fafc;
         margin: 0 auto;
+    }
+    .pagination-btn {
+        transition: all 0.2s ease;
+    }
+    .pagination-btn:hover {
+        background-color: #2563eb;
+        color: white;
     }
 }
