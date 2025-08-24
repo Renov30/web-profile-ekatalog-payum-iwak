@@ -46,6 +46,31 @@ class FrontController extends Controller
         return view('front.data', compact('semua', 'distriks'));
     }
 
+    public function katalog(Request $request)
+    {
+        $query = Lahan::query();
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('name', 'LIKE', "%{$search}%")
+                ->orWhere('nama_petani', 'LIKE', "%{$search}%")
+                ->orWhereHas('distrik', function ($q) use ($search) {
+                    $q->where('name', 'LIKE', "%{$search}%");
+                })
+                ->orWhere('alamat', 'LIKE', "%{$search}%");
+        }
+
+        // Filter berdasarkan distrik jika ada
+        if ($request->has('distrik') && !empty($request->distrik)) {
+            $query->where('distrik_id', $request->distrik);
+        }
+
+        $semua = $query->paginate(8);
+        $distriks = Distrik::all(); // Ambil daftar distrik untuk dropdown
+
+        return view('front.katalog', compact('semua', 'distriks'));
+    }
+
     public function detail(Lahan $lahan, Request $request)
     {
         // Load relasi yang diperlukan
