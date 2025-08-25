@@ -12,6 +12,17 @@ export default {
     ],
 
     theme: {
+        container: {
+            center: true,
+            padding: "1rem",
+            screens: {
+                sm: "100%", // biar full di layar kecil
+                md: "100%",
+                lg: "100%",
+                xl: "1280px", // sama dengan max-w-7xl
+                "2xl": "1280px", // jangan lebih lebar dari 7xl
+            },
+        },
         extend: {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],

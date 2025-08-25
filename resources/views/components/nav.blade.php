@@ -1,41 +1,27 @@
-    <header class="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 items-center">
-          <div class="flex items-center">
-            <img src="{{asset('img/Logo.png')}}" alt="Logo Payum Iwak" class="h-8 w-auto" />
-            <span class="ml-2 text-xl font-semibold text-blue-600"
-              >Payum Iwak</span
-            >
-          </div>
-          <nav class="hidden md:flex space-x-8">
-            <a href="{{route('front.index')}}#hero" class="text-gray-500 hover:text-blue-600 transition duration-300">Beranda</a>
-            <a href="{{route('front.katalog')}}" class="text-gray-500 hover:text-blue-600 transition duration-300"
-              >Katalog</a
-            >
-            <a href="{{route('front.index')}}#tentang" class="text-gray-500 hover:text-blue-600 transition duration-300"
-              >Tentang Kami</a
-            >
-            <a href="{{route('front.index')}}#kontak" class="text-gray-500 hover:text-blue-600 transition duration-300"
-              >Kontak</a
-            >
-          </nav>
-          <div class="md:hidden">
-            <button class="text-gray-500 hover:text-blue-600 transition duration-300">
-              <svg
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
+    <!-- Header -->
+    <header class="ocean-gradient text-white shadow-lg fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white p-2 rounded-full">
+                        <img src="{{ asset('img/Logo.png') }}" alt="Logo Payum Iwak" class="h-7 w-auto" />
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">Payum Iwak</h1>
+                        <p class="text-blue-100 text-xs">
+                            Kelompok Usaha Perempuan Nelayan
+                        </p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#home" class="hover:text-blue-200 transition-colors">Beranda</a>
+                    <a href="#products" class="hover:text-blue-200 transition-colors">Produk</a>
+                    <a href="#about" class="hover:text-blue-200 transition-colors">Tentang</a>
+                    <a href="#contact" class="hover:text-blue-200 transition-colors">Kontak</a>
+                </nav>
+                <button class="md:hidden text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
         </div>
-      </div>
     </header>
