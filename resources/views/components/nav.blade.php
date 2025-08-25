@@ -9,15 +9,17 @@
                     <div>
                         <h1 class="text-xl font-bold">Payum Iwak</h1>
                         <p class="text-blue-100 text-xs">
-                            Kelompok Usaha Perempuan Nelayan
+                            Kelompok Usaha Perempuan Nelayan Pantai Payum
                         </p>
                     </div>
                 </div>
                 <nav class="hidden md:flex space-x-6">
-                    <a href="#home" class="hover:text-blue-200 transition-colors">Beranda</a>
-                    <a href="#products" class="hover:text-blue-200 transition-colors">Produk</a>
-                    <a href="#about" class="hover:text-blue-200 transition-colors">Tentang</a>
-                    <a href="#contact" class="hover:text-blue-200 transition-colors">Kontak</a>
+                    <a href="{{ route('front.index') }}#home" class="hover:text-blue-200 transition-colors">Beranda</a>
+                    <a href="{{ route('front.index') }}#products"
+                        class="hover:text-blue-200 transition-colors">Produk</a>
+                    <a href="{{ route('front.index') }}#about" class="hover:text-blue-200 transition-colors">Tentang</a>
+                    <a href="{{ route('front.index') }}#contact"
+                        class="hover:text-blue-200 transition-colors">Kontak</a>
                 </nav>
                 <button class="md:hidden text-white">
                     <i class="fas fa-bars text-xl"></i>
