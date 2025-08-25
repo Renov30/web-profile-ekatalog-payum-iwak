@@ -13,7 +13,7 @@
                     <div class="inline-block bg-white bg-opacity-20 px-4 py-2 rounded-full mb-6">
                         <span class="text-sm font-medium">Natural Beauty Care Products</span>
                     </div>
-                    <h1 class="text-5xl md:text-5xl font-bold mb-6 leading-tight">
+                    <h1 class="text-5xl font-bold mb-6 leading-tight">
                         Kecantikan Alami dari
                         <span class="text-yellow-300">Laut Indonesia</span>
                     </h1>
@@ -38,23 +38,23 @@
                 <div class="text-center floating-animation h-full flex items-center justify-center mt-10">
                     <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/96b7d006-826c-4e0a-97d7-6a337f0ea785.png"
                         alt="Collection of natural beauty care products including handmade soap bars, body scrub jars, body butter containers, and lip balm tubes arranged artistically with seashells and marine elements on a clean white background"
-                        class="rounded-2xl shadow-2xl mx-auto max-w-full h-auto" />
+                        class="rounded-2xl shadow-2xl mx-auto max-w-full h-auto max-h-[500px]" />
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="py-20 bg-white">
+    <section id="products" class="pt-24 py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <div class="inline-block bg-blue-100 px-6 py-2 rounded-full mb-4">
-                    <span class="text-blue-600 font-semibold">Katalog Produk</span>
+                    <span class="text-blue-600 text-sm font-semibold">Katalog Produk</span>
                 </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
                     Produk Unggulan Kami
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-gray-600 max-w-2xl mx-auto">
                     Rangkaian produk perawatan kulit alami yang diformulasikan khusus
                     dengan bahan-bahan berkualitas tinggi
                 </p>
@@ -82,7 +82,7 @@
                             <i class="fas fa-soap text-blue-500 mr-2"></i>
                             <span class="text-sm text-blue-500 font-medium">Sabun Alami</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">
                             Sabun Natural
                         </h3>
                         <p class="text-gray-600 mb-4 leading-relaxed">
@@ -93,15 +93,15 @@
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center">
                                 <div class="flex text-yellow-400">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
                                 </div>
-                                <span class="text-sm text-gray-500 ml-2">(4.9)</span>
+                                <span class="text-xs text-gray-500 ml-2">(4.9)</span>
                             </div>
-                            <span class="text-2xl font-bold text-blue-600">Rp 25.000</span>
+                            <span class="text-lg font-bold text-blue-600">Rp 25.000</span>
                         </div>
                         <button
                             class="w-full btn-primary text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
@@ -131,7 +131,7 @@
                             <i class="fas fa-spa text-green-500 mr-2"></i>
                             <span class="text-sm text-green-500 font-medium">Body Care</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Body Scrub</h3>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Body Scrub</h3>
                         <p class="text-gray-600 mb-4 leading-relaxed">
                             Scrub tubuh dengan butiran halus yang mengangkat sel kulit mati
                             dan memberikan kelembutan maksimal pada kulit.
@@ -139,15 +139,15 @@
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center">
                                 <div class="flex text-yellow-400">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star-half-alt fa-xs"></i>
                                 </div>
-                                <span class="text-sm text-gray-500 ml-2">(4.7)</span>
+                                <span class="text-xs text-gray-500 ml-2">(4.7)</span>
                             </div>
-                            <span class="text-2xl font-bold text-blue-600">Rp 35.000</span>
+                            <span class="text-lg font-bold text-blue-600">Rp 35.000</span>
                         </div>
                         <button
                             class="w-full btn-primary text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
@@ -177,7 +177,7 @@
                             <i class="fas fa-hand-holding-heart text-purple-500 mr-2"></i>
                             <span class="text-sm text-purple-500 font-medium">Moisturizer</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Body Butter</h3>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Body Butter</h3>
                         <p class="text-gray-600 mb-4 leading-relaxed">
                             Pelembab intensif dengan tekstur kaya yang memberikan nutrisi
                             mendalam untuk kulit kering dan sensitif.
@@ -185,15 +185,15 @@
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center">
                                 <div class="flex text-yellow-400">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
                                 </div>
-                                <span class="text-sm text-gray-500 ml-2">(5.0)</span>
+                                <span class="text-xs text-gray-500 ml-2">(5.0)</span>
                             </div>
-                            <span class="text-2xl font-bold text-blue-600">Rp 45.000</span>
+                            <span class="text-lg font-bold text-blue-600">Rp 45.000</span>
                         </div>
                         <button
                             class="w-full btn-primary text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
@@ -223,7 +223,7 @@
                             <i class="fas fa-kiss-wink-heart text-pink-500 mr-2"></i>
                             <span class="text-sm text-pink-500 font-medium">Lip Care</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Lip Balm</h3>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Lip Balm</h3>
                         <p class="text-gray-600 mb-4 leading-relaxed">
                             Pelembab bibir alami dengan formula lembut yang melindungi bibir
                             dari kekeringan dan memberikan kilau natural.
@@ -231,15 +231,15 @@
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center">
                                 <div class="flex text-yellow-400">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star fa-xs"></i>
+                                    <i class="fas fa-star-half-alt fa-xs"></i>
                                 </div>
-                                <span class="text-sm text-gray-500 ml-2">(4.8)</span>
+                                <span class="text-xs text-gray-500 ml-2">(4.8)</span>
                             </div>
-                            <span class="text-2xl font-bold text-blue-600">Rp 15.000</span>
+                            <span class="text-lg font-bold text-blue-600">Rp 15.000</span>
                         </div>
                         <button
                             class="w-full btn-primary text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
@@ -248,6 +248,13 @@
                         </button>
                     </div>
                 </div>
+            </div>
+            <div class="text-right mt-10">
+                <a href="{{ route('front.katalog') }}"
+                    class="text-lg text-blue-400 font-medium hover:text-blue-500 transition-all ease-in-out mr-3">
+                    Lihat Selengkapnya >>
+                    <i class="fas fa-cart-plus ml-2"></i>
+                </a>
             </div>
 
             <!-- Product Benefits -->
@@ -258,7 +265,7 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="text-center">
                         <div class="bg-white p-4 rounded-full w-16 h-16 mx-auto mb-6 shadow-lg">
-                            <i class="fas fa-leaf text-green-500 text-2xl mt-2"></i>
+                            <i class="fas fa-leaf text-green-500 text-2xl"></i>
                         </div>
                         <h4 class="text-xl font-bold text-gray-800 mb-3">100% Natural</h4>
                         <p class="text-gray-600">
@@ -267,7 +274,7 @@
                     </div>
                     <div class="text-center">
                         <div class="bg-white p-4 rounded-full w-16 h-16 mx-auto mb-6 shadow-lg">
-                            <i class="fas fa-heart text-red-500 text-2xl mt-2"></i>
+                            <i class="fas fa-heart text-red-500 text-2xl"></i>
                         </div>
                         <h4 class="text-xl font-bold text-gray-800 mb-3">Handmade</h4>
                         <p class="text-gray-600">
@@ -276,7 +283,7 @@
                     </div>
                     <div class="text-center">
                         <div class="bg-white p-4 rounded-full w-16 h-16 mx-auto mb-6 shadow-lg">
-                            <i class="fas fa-award text-yellow-500 text-2xl mt-2"></i>
+                            <i class="fas fa-award text-yellow-500 text-2xl"></i>
                         </div>
                         <h4 class="text-xl font-bold text-gray-800 mb-3">Berkualitas</h4>
                         <p class="text-gray-600">
@@ -289,26 +296,26 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-50">
+    <section id="about" class="pt-24 py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <div class="inline-block bg-blue-100 px-6 py-2 rounded-full mb-6">
-                        <span class="text-blue-600 font-semibold">Tentang Kami</span>
+                        <span class="text-blue-600 text-sm font-semibold">Tentang Kami</span>
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">
                         Kelompok Usaha
                         <span class="text-blue-600">Perempuan Nelayan</span>
-                        Payum
+                        Pantai Payum
                     </h2>
-                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    <p class="text text-gray-600 mb-6 leading-relaxed">
                         Payum Iwak adalah kelompok usaha yang dibentuk oleh para perempuan
-                        nelayan di kawasan pesisir. Kami berkomitmen untuk menghadirkan
+                        nelayan di kawasan pesisir Pantai Payum Kabupaten Merauke. Kami berkomitmen untuk menghadirkan
                         produk perawatan kulit alami berkualitas tinggi yang terinspirasi
                         dari kekayaan laut Indonesia.
                     </p>
-                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                        Dengan pengalaman bertahun-tahun dan dedikasi tinggi, kami
+                    <p class="text text-gray-600 mb-8 leading-relaxed">
+                        Dengan kerja keras dan dedikasi tinggi, kami
                         mengolah bahan-bahan alami menjadi produk yang tidak hanya
                         bermanfaat untuk kecantikan, tetapi juga ramah lingkungan dan
                         mendukung ekonomi lokal.
@@ -352,9 +359,9 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <div class="inline-block bg-blue-100 px-6 py-2 rounded-full mb-4">
-                    <span class="text-blue-600 font-semibold">Testimoni Pelanggan</span>
+                    <span class="text-blue-600 text-sm font-semibold">Testimoni Pelanggan</span>
                 </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
                     Apa Kata Mereka?
                 </h2>
                 <div class="section-divider w-24"></div>
@@ -435,17 +442,17 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 ocean-gradient text-white relative overflow-hidden">
+    <section id="contact" class="pt-24 py-20 ocean-gradient text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
                 <div class="inline-block bg-white bg-opacity-20 px-6 py-2 rounded-full mb-4">
                     <span class="text-white font-semibold">Hubungi Kami</span>
                 </div>
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                <h2 class="text-4xl font-bold mb-4">
                     Mari Berkolaborasi
                 </h2>
-                <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+                <p class="text-md text-blue-100 max-w-2xl mx-auto">
                     Tertarik dengan produk kami? Atau ingin bermitra dengan Payum Iwak?
                     Jangan ragu untuk menghubungi kami!
                 </p>
@@ -454,7 +461,7 @@
             <div class="grid md:grid-cols-3 gap-8 mb-12">
                 <div class="text-center bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
                     <div class="bg-white p-4 rounded-full w-16 h-16 mx-auto mb-6">
-                        <i class="fas fa-phone text-blue-600 text-2xl mt-2"></i>
+                        <i class="fas fa-phone text-blue-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Telepon</h3>
                     <p class="text-blue-100">+62 812-3456-7890</p>
@@ -462,7 +469,7 @@
 
                 <div class="text-center bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
                     <div class="bg-white p-4 rounded-full w-16 h-16 mx-auto mb-6">
-                        <i class="fas fa-envelope text-blue-600 text-2xl mt-2"></i>
+                        <i class="fas fa-envelope text-blue-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Email</h3>
                     <p class="text-blue-100">info@payumiwak.com</p>
@@ -470,7 +477,7 @@
 
                 <div class="text-center bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
                     <div class="bg-white p-4 rounded-full w-16 h-16 mx-auto mb-6">
-                        <i class="fas fa-map-marker-alt text-blue-600 text-2xl mt-2"></i>
+                        <i class="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Alamat</h3>
                     <p class="text-blue-100">
@@ -481,22 +488,26 @@
 
             <div class="text-center">
                 <div class="flex justify-center space-x-6 mb-8">
-                    <a href="#" class="bg-white bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transition-all">
+                    <a href="#"
+                        class="bg-white bg-opacity-20 w-12 h-12 flex items-center justify-center rounded-full hover:bg-opacity-30 transition-all">
                         <i class="fab fa-whatsapp text-2xl"></i>
                     </a>
-                    <a href="#" class="bg-white bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transition-all">
+                    <a href="#"
+                        class="bg-white bg-opacity-20 w-12 h-12 flex items-center justify-center rounded-full hover:bg-opacity-30 transition-all">
                         <i class="fab fa-instagram text-2xl"></i>
                     </a>
-                    <a href="#" class="bg-white bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transition-all">
+                    <a href="#"
+                        class="bg-white bg-opacity-20 w-12 h-12 flex items-center justify-center rounded-full hover:bg-opacity-30 transition-all">
                         <i class="fab fa-facebook text-2xl"></i>
                     </a>
-                    <a href="#" class="bg-white bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transition-all">
+                    <a href="#"
+                        class="bg-white bg-opacity-20 w-12 h-12 flex items-center justify-center rounded-full hover:bg-opacity-30 transition-all">
                         <i class="fab fa-twitter text-2xl"></i>
                     </a>
                 </div>
 
                 <button
-                    class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all shadow-lg">
+                    class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-100 transition-all shadow-lg">
                     <i class="fas fa-paper-plane mr-2"></i>
                     Kirim Pesan
                 </button>
