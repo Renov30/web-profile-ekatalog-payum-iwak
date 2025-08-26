@@ -22,10 +22,6 @@
     @yield('content')
     <!-- javascript -->
     <script src="{{ asset('js/filament/script.js') }}"></script>
-    <!-- feather icons -->
-    <script>
-        feather.replace();
-    </script>
     @stack('after-scripts')
 </body>
 
