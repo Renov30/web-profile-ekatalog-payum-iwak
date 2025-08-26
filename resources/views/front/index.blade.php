@@ -249,9 +249,9 @@
                     </div>
                 </div>
             </div>
-            <div class="text-right mt-10">
+            <div class="text-right mt-8">
                 <a href="{{ route('front.katalog') }}"
-                    class="text-lg text-blue-400 font-medium hover:text-blue-500 transition-all ease-in-out mr-3">
+                    class="text-base text-blue-400 font-medium hover:text-blue-500 transition-all ease-in-out mr-3">
                     Lihat Selengkapnya >>
                     <i class="fas fa-cart-plus ml-2"></i>
                 </a>

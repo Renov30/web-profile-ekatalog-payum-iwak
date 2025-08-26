@@ -1,75 +1,24 @@
-// lama
-// // toggle kelas aktif
-// const navbarNav = document.querySelector(".navbar-nav");
-// // ketika hamburger menu di klik
-// document.querySelector("#hamburger-menu").onclick = () => {
-//   navbarNav.classList.toggle("active");
-// };
-
-// // klik diluar sidebar untuk menghilangkan nav
-// const hamburger = document.querySelector("#hamburger-menu");
-
-// document.addEventListener("click", function (e) {
-//   if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
-//     navbarNav.classList.remove("active");
-//   }
-// });
-
-// baru
 // Toggle kelas aktif untuk navbar
-const navbarNav = document.querySelector(".navbar-nav");
-const hamburger = document.querySelector("#hamburger-menu");
+document.addEventListener("DOMContentLoaded", function () {
+    const navbarNav = document.getElementById("navbarNav");
+    const hamburger = document.getElementById("hamburger-menu");
 
-hamburger.addEventListener("click", function (e) {
-    e.preventDefault(); // Mencegah kembali ke atas
-    navbarNav.classList.toggle("active");
+    // Toggle menu
+    hamburger.addEventListener("click", function () {
+        navbarNav.classList.toggle("hidden");
+    });
+
+    // Klik di luar menu untuk menutup
+    document.addEventListener("click", function (e) {
+        if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
+            if (!navbarNav.classList.contains("hidden")) {
+                navbarNav.classList.add("hidden");
+            }
+        }
+    });
 });
 
-// Klik di luar navbar untuk menutupnya
-document.addEventListener("click", function (e) {
-    if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
-        navbarNav.classList.remove("active");
-    }
-});
-
-const toggleViewBtn = document.getElementById("toggleViewBtn");
-const cardView = document.getElementById("cardView");
-const tableView = document.getElementById("tableView");
-
-toggleViewBtn.addEventListener("click", () => {
-    cardView.classList.toggle("hidden");
-    tableView.classList.toggle("hidden");
-    if (cardView.classList.contains("hidden")) {
-        toggleViewBtn.id = "toggleViewBtnTable";
-        toggleViewBtn.innerHTML = '<i data-feather="table"></i>';
-    } else {
-        toggleViewBtn.id = "toggleViewBtn";
-        toggleViewBtn.innerHTML = '<i data-feather="image"></i>';
-    }
-    feather.replace();
-});
-
-function openLightbox(src) {
-    document.getElementById("lightbox-img").src = src;
-    document.getElementById("lightbox").style.display = "flex";
-    document.getElementById("nav").style.zIndex = "0";
-}
-
-function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
-    document.getElementById("nav").style.zIndex = "9999";
-}
-
-function toggleGallery() {
-    const gallery = document.getElementById("gallery");
-    gallery.classList.toggle("rows");
-    const showMoreText = document.querySelector(".show-more");
-    if (gallery.classList.contains("rows")) {
-        showMoreText.textContent = "Show Less";
-    } else {
-        showMoreText.textContent = "Show More";
-    }
-}
+// new
 
 // Smooth scrolling functions
 function scrollToProducts() {
@@ -84,29 +33,13 @@ function scrollToAbout() {
     });
 }
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-            });
-        }
-    });
-});
-
 // Header background change on scroll
 window.addEventListener("scroll", function () {
-    const header = document.querySelector("header");
+    const header = document.getElementById("main-header");
     if (window.scrollY > 100) {
-        header.style.background = "rgba(13, 110, 253, 0.95)";
-        header.style.backdropFilter = "blur(10px)";
+        header.classList.add("scrolled");
     } else {
-        header.style.background = "";
-        header.style.backdropFilter = "";
+        header.classList.remove("scrolled");
     }
 });
 
@@ -128,16 +61,18 @@ document.querySelectorAll("button").forEach((button) => {
 });
 
 // Heart icon toggle
-document.querySelectorAll(".fa-heart").forEach((heart) => {
-    heart.addEventListener("click", function () {
-        this.classList.toggle("text-red-500");
-        this.classList.toggle("text-gray-400");
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".fa-heart").forEach((heart) => {
+        heart.addEventListener("click", function () {
+            this.classList.toggle("text-red-500");
+            this.classList.toggle("text-gray-400");
 
-        if (this.classList.contains("text-red-500")) {
-            console.log("Added to wishlist");
-        } else {
-            console.log("Removed from wishlist");
-        }
+            if (this.classList.contains("text-red-500")) {
+                console.log("Added to wishlist");
+            } else {
+                console.log("Removed from wishlist");
+            }
+        });
     });
 });
 
@@ -163,11 +98,3 @@ document.querySelectorAll(".product-card").forEach((card) => {
     card.style.transition = "all 0.6s ease";
     observer.observe(card);
 });
-
-// Mobile menu toggle (placeholder)
-document
-    .querySelector('button[class*="md:hidden"]')
-    .addEventListener("click", function () {
-        console.log("Mobile menu toggled");
-        // In real implementation, this would toggle mobile menu
-    });

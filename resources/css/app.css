@@ -102,7 +102,12 @@
         margin: 2rem auto;
     }
 
-    .navbar-nav.active {
-        transform: translateX(0);
+    #main-header {
+        background: transparent;
+    }
+
+    #main-header.scrolled {
+        background: rgba(13, 110, 253, 0.95); /* biru semi-transparan */
+        backdrop-filter: blur(10px);
     }
 }
