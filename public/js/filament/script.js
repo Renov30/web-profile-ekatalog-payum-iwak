@@ -35,11 +35,13 @@ function scrollToAbout() {
 
 // Header background change on scroll
 window.addEventListener("scroll", function () {
-    const header = document.getElementById("main-header");
+    const header = document.querySelector("header");
     if (window.scrollY > 100) {
-        header.classList.add("scrolled");
+        header.style.background = "rgba(13, 110, 253, 0.95)";
+        header.style.backdropFilter = "blur(10px)";
     } else {
-        header.classList.remove("scrolled");
+        header.style.background = "";
+        header.style.backdropFilter = "";
     }
 });
 
@@ -93,6 +95,27 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe product cards for animation
 document.querySelectorAll(".product-card").forEach((card) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(30px)";
+    card.style.transition = "all 0.6s ease";
+    observer.observe(card);
+});
+
+document.querySelectorAll(".why-choose").forEach((card) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(30px)";
+    card.style.transition = "all 0.6s ease";
+    observer.observe(card);
+});
+
+document.querySelectorAll(".they-said").forEach((card) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(30px)";
+    card.style.transition = "all 0.6s ease";
+    observer.observe(card);
+});
+
+document.querySelectorAll(".contact-box").forEach((card) => {
     card.style.opacity = "0";
     card.style.transform = "translateY(30px)";
     card.style.transition = "all 0.6s ease";
