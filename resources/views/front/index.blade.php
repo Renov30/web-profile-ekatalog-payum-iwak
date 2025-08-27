@@ -24,7 +24,7 @@
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button onclick="scrollToProducts()"
-                            class="btn-primary text-white px-8 py-4 rounded-full font-semibold shadow-lg">
+                            class="btn-secondary px-8 py-4 rounded-full font-semibold shadow-lg">
                             <i class="fas fa-shopping-cart mr-2"></i>
                             Lihat Produk
                         </button>
@@ -258,7 +258,7 @@
             </div>
 
             <!-- Product Benefits -->
-            <div class="mt-20 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl p-8 md:p-12">
+            <div class="why-choose mt-20 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl p-8 md:p-12">
                 <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">
                     Mengapa Memilih Produk Kami?
                 </h3>
@@ -367,7 +367,7 @@
                 <div class="section-divider w-24"></div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="they-said grid md:grid-cols-3 gap-8">
                 <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl shadow-lg">
                     <div class="flex text-yellow-400 mb-4">
                         <i class="fas fa-star"></i>
@@ -391,7 +391,7 @@
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl shadow-lg">
+                <div class="they-said bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl shadow-lg">
                     <div class="flex text-yellow-400 mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -414,7 +414,7 @@
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl shadow-lg">
+                <div class="they-said bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl shadow-lg">
                     <div class="flex text-yellow-400 mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -459,7 +459,7 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <div class="text-center bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
+                <div class="contact-box text-center bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
                     <div class="bg-white p-4 rounded-full w-16 h-16 mx-auto mb-6">
                         <i class="fas fa-phone text-blue-600 text-2xl"></i>
                     </div>
@@ -467,7 +467,7 @@
                     <p class="text-blue-100">+62 812-3456-7890</p>
                 </div>
 
-                <div class="text-center bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
+                <div class="contact-box text-center bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
                     <div class="bg-white p-4 rounded-full w-16 h-16 mx-auto mb-6">
                         <i class="fas fa-envelope text-blue-600 text-2xl"></i>
                     </div>
@@ -475,7 +475,7 @@
                     <p class="text-blue-100">info@payumiwak.com</p>
                 </div>
 
-                <div class="text-center bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
+                <div class="contact-box text-center bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
                     <div class="bg-white p-4 rounded-full w-16 h-16 mx-auto mb-6">
                         <i class="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
                     </div>

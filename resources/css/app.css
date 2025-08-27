@@ -19,16 +19,31 @@
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
 
-    .ocean-gradient {
+    #home {
+        position: relative;
         background: linear-gradient(
             135deg,
             #74b9ff 0%,
             #0984e3 50%,
             #2d3436 100%
         );
+        overflow: hidden;
     }
 
-    .hero-pattern {
+    #home::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("../../public/img/foto-bersama-3.png") center/cover
+            no-repeat;
+        opacity: 0.08;
+        z-index: 0;
+    }
+
+    #home::after {
+        content: "";
+        position: absolute;
+        inset: 0;
         background-image: radial-gradient(
                 circle at 20% 80%,
                 rgba(120, 119, 198, 0.3) 0%,
@@ -44,7 +59,40 @@
                 rgba(120, 119, 198, 0.15) 0%,
                 transparent 50%
             );
+        z-index: 1;
     }
+
+    #home > * {
+        position: relative;
+        z-index: 2; /* supaya konten tetap di atas semua */
+    }
+
+    .ocean-gradient {
+        background: linear-gradient(
+            135deg,
+            #74b9ff 0%,
+            #0984e3 50%,
+            #2d3436 100%
+        );
+    }
+
+    /* .hero-pattern {
+        background-image: radial-gradient(
+                circle at 20% 80%,
+                rgba(120, 119, 198, 0.3) 0%,
+                transparent 50%
+            ),
+            radial-gradient(
+                circle at 80% 20%,
+                rgba(255, 255, 255, 0.15) 0%,
+                transparent 50%
+            ),
+            radial-gradient(
+                circle at 40% 40%,
+                rgba(120, 119, 198, 0.15) 0%,
+                transparent 50%
+            );
+    } */
 
     .product-card {
         transition: all 0.3s ease;
@@ -93,6 +141,17 @@
         background: linear-gradient(45deg, #0984e3, #74b9ff);
         transform: translateY(-2px);
         box-shadow: 0 10px 25px rgba(116, 185, 255, 0.4);
+    }
+
+    .btn-secondary {
+        background: linear-gradient(45deg, #fde047, #facc15, #eab308);
+        transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background: linear-gradient(45deg, #eab308, #facc15, #fde047);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(250, 204, 21, 0.2);
     }
 
     .section-divider {

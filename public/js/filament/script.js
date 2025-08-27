@@ -36,12 +36,16 @@ function scrollToAbout() {
 // Header background change on scroll
 window.addEventListener("scroll", function () {
     const header = document.querySelector("header");
-    if (window.scrollY > 100) {
-        header.style.background = "rgba(13, 110, 253, 0.95)";
-        header.style.backdropFilter = "blur(10px)";
+    if (window.scrollY > 50) {
+        // header.style.background = "rgba(13, 110, 253, 0.95)";
+        // header.style.backdropFilter = "blur(10px)";
+        header.classList.add("ocean-gradient");
+        header.classList.add("shadow-lg");
     } else {
-        header.style.background = "";
-        header.style.backdropFilter = "";
+        // header.style.background = "";
+        // header.style.backdropFilter = "";
+        header.classList.remove("ocean-gradient");
+        header.classList.remove("shadow-lg");
     }
 });
 
