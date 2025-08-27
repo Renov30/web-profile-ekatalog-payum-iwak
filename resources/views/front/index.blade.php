@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="text-center floating-animation h-full flex items-center justify-center mt-10">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/96b7d006-826c-4e0a-97d7-6a337f0ea785.png"
+                    <img src="{{ asset('img/Hero img.png') }}"
                         alt="Collection of natural beauty care products including handmade soap bars, body scrub jars, body butter containers, and lip balm tubes arranged artistically with seashells and marine elements on a clean white background"
                         class="rounded-2xl shadow-2xl mx-auto max-w-full h-auto max-h-[500px]" />
                 </div>
@@ -65,7 +65,7 @@
                 <!-- Sabun -->
                 <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
                     <div class="relative">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6dc92a0e-6300-4644-b548-4dd1d755ad56.png"
+                        <img src="{{ asset('img/Sabun Natural img.png') }}"
                             alt="Handcrafted natural soap bars in various colors including sea salt white, seaweed green, and ocean blue, arranged on a bamboo tray with dried flowers and marine botanicals"
                             class="w-full h-64 object-cover" />
                         <div class="absolute top-4 left-4">
@@ -114,7 +114,7 @@
                 <!-- Body Scrub -->
                 <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
                     <div class="relative">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8b7de3d9-5e21-4c1c-82c9-5cef0fcd7304.png"
+                        <img src="{{ asset('img/Body Scrub img.png') }}"
                             alt="Luxurious body scrub jars with sea salt and coffee grounds, displayed with wooden spoons and tropical leaves on a marble surface with soft natural lighting"
                             class="w-full h-64 object-cover" />
                         <div class="absolute top-4 left-4">
@@ -160,7 +160,7 @@
                 <!-- Body Butter -->
                 <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
                     <div class="relative">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3fa28cde-c54c-4226-bf2c-aeedf81dd824.png"
+                        <img src="{{ asset('img/Body Butter img.png') }}"
                             alt="Rich body butter cream in elegant glass jars with gold lids, surrounded by shea butter, coconut oil, and fresh tropical flowers on a clean white wooden background"
                             class="w-full h-64 object-cover" />
                         <div class="absolute top-4 left-4">
@@ -206,7 +206,7 @@
                 <!-- Lip Balm -->
                 <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
                     <div class="relative">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3f1d7c29-8824-43fa-9bcb-190b3c9eb6f0.png"
+                        <img src="{{ asset('img/Lip Balm img.png') }}"
                             alt="Collection of natural lip balm tubes in various flavors with colorful labels, arranged with fresh fruits and herbs like strawberry, mint, and vanilla on a pastel pink background"
                             class="w-full h-64 object-cover" />
                         <div class="absolute top-4 left-4">
@@ -346,7 +346,7 @@
                     </button>
                 </div>
                 <div class="text-center">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7cec901e-4580-416a-ad71-ff589d7a7aa4.png"
+                    <img src="{{ asset('img/Tentang Kami img.png') }}"
                         alt="Group photo of women fisherman cooperative members working together in their natural beauty product workshop, showing traditional Indonesian coastal community spirit with ocean backdrop"
                         class="rounded-2xl shadow-2xl max-w-full h-auto" />
                 </div>
@@ -381,7 +381,7 @@
                         lembut dan sehat. Produk lokal terbaik yang pernah saya coba."
                     </p>
                     <div class="flex items-center">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2f97aa72-bc0d-4b4a-af84-a4cd15e9ad07.png"
+                        <img src="{{ asset('img/Sari Dewi.png') }}"
                             alt="Portrait of satisfied female customer with glowing healthy skin smiling warmly"
                             class="w-12 h-12 rounded-full mr-4" />
                         <div>
@@ -404,7 +404,7 @@
                         melembabkan. Wanginya juga natural dan menenangkan."
                     </p>
                     <div class="flex items-center">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/75d83a42-9d45-493e-9728-7c6a93dc5ab9.png"
+                        <img src="{{ asset('img/Maya Putri.png') }}"
                             alt="Portrait of happy young woman with clear radiant skin holding natural beauty products"
                             class="w-12 h-12 rounded-full mr-4" />
                         <div>
@@ -428,7 +428,7 @@
                         terjangkau."
                     </p>
                     <div class="flex items-center">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ac740eaa-400c-472f-b43d-4b23efacc050.png"
+                        <img src="{{ asset('img/Rina Sari.png') }}"
                             alt="Portrait of mature woman with healthy glowing skin showing satisfaction and confidence"
                             class="w-12 h-12 rounded-full mr-4" />
                         <div>
