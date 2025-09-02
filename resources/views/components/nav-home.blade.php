@@ -3,15 +3,17 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
-                    <div class="bg-white p-2 rounded-full">
-                        <img src="{{ asset('img/Logo.png') }}" alt="Logo Payum Iwak" class="h-7 w-auto" />
-                    </div>
-                    <div>
-                        <h1 class="text-xl font-bold">Payum Iwak</h1>
-                        <p class="text-blue-100 text-xs">
-                            Kelompok Usaha Perempuan Nelayan Pantai Payum
-                        </p>
-                    </div>
+                    <a href="{{ route('front.index') }}" class="flex items-center space-x-4">
+                        <div class="bg-white p-2 rounded-full">
+                            <img src="{{ asset('img/Logo.png') }}" alt="Logo Payum Iwak" class="h-7 w-auto" />
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold">Payum Iwak</h1>
+                            <p class="text-blue-100 text-xs">
+                                Kelompok Usaha Perempuan Nelayan Pantai Payum
+                            </p>
+                        </div>
+                    </a>
                 </div>
                 <nav id="navbarNav" class="hidden md:flex space-x-6">
                     <a href="{{ route('front.index') }}#home" class="hover:text-blue-200 transition-colors">Beranda</a>
