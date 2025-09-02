@@ -251,7 +251,7 @@
             </div>
             <div class="text-right mt-8">
                 <a href="{{ route('front.katalog') }}"
-                    class="text-base text-blue-400 font-medium hover:text-blue-500 transition-all ease-in-out mr-3">
+                    class="text-base text-blue-600 font-medium hover:text-blue-400 transition-all ease-in-out mr-3">
                     Lihat Selengkapnya >>
                     <i class="fas fa-cart-plus ml-2"></i>
                 </a>
@@ -322,25 +322,26 @@
                     </p>
 
                     <div class="grid grid-cols-2 gap-6 mb-8">
-                        <div class="bg-white p-4 rounded-xl shadow-md">
+                        <div class="tentang-box bg-white p-4 rounded-xl shadow-md">
                             <div class="text-2xl font-bold text-blue-600 mb-2">5+</div>
                             <div class="text-gray-600">Tahun Pengalaman</div>
                         </div>
-                        <div class="bg-white p-4 rounded-xl shadow-md">
+                        <div class="tentang-box bg-white p-4 rounded-xl shadow-md">
                             <div class="text-2xl font-bold text-blue-600 mb-2">1000+</div>
                             <div class="text-gray-600">Pelanggan Puas</div>
                         </div>
-                        <div class="bg-white p-4 rounded-xl shadow-md">
+                        <div class="tentang-box bg-white p-4 rounded-xl shadow-md">
                             <div class="text-2xl font-bold text-blue-600 mb-2">4</div>
                             <div class="text-gray-600">Produk Unggulan</div>
                         </div>
-                        <div class="bg-white p-4 rounded-xl shadow-md">
+                        <div class="tentang-box bg-white p-4 rounded-xl shadow-md">
                             <div class="text-2xl font-bold text-blue-600 mb-2">100%</div>
                             <div class="text-gray-600">Bahan Alami</div>
                         </div>
                     </div>
 
-                    <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
+                    <button
+                        class="tentang-box btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
                         <i class="fas fa-users mr-2"></i>
                         Bergabung Dengan Kami
                     </button>
