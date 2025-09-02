@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 @section('title', 'Home')
 @section('content')
-    <x-nav />
+    <x-nav-home />
     <!-- Hero Section -->
     <section id="home"
         class="relative ocean-gradient text-white min-h-screen overflow-hidden hero-pattern flex items-center">

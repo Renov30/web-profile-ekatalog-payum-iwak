@@ -1,12 +1,12 @@
 @extends('front.layouts.app')
 @section('title', 'Katalog')
 @section('content')
-    <x-nav />
+    <x-nav-katalog />
     <!-- Breadcrumb -->
     <div class="container mx-auto px-6 py-4">
         <nav class="text-sm text-gray-600">
             <ol class="flex items-center space-x-2">
-                <li><a href="#" class="hover:text-blue-600">Beranda</a></li>
+                <li><a href="{{ route('front.index') }}#home" class="hover:text-blue-600">Beranda</a></li>
                 <li><i class="fas fa-chevron-right text-gray-400"></i></li>
                 <li class="text-blue-600 font-medium">Katalog Produk</li>
             </ol>

@@ -1,25 +1,23 @@
-// Toggle kelas aktif untuk navbar
-document.addEventListener("DOMContentLoaded", function () {
-    const navbarNav = document.getElementById("navbarNav");
-    const hamburger = document.getElementById("hamburger-menu");
+// toggle tombol navbar mobile
+// document.addEventListener("DOMContentLoaded", function () {
+//     const navbarNav = document.getElementById("navbarNav");
+//     const hamburger = document.getElementById("hamburger-menu");
 
-    // Toggle menu
-    hamburger.addEventListener("click", function () {
-        navbarNav.classList.toggle("hidden");
-    });
+//     // Toggle menu
+//     hamburger.addEventListener("click", function () {
+//         navbarNav.classList.toggle("hidden");
+//     });
 
-    // Klik di luar menu untuk menutup
-    document.addEventListener("click", function (e) {
-        if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
-            if (!navbarNav.classList.contains("hidden")) {
-                navbarNav.classList.add("hidden");
-            }
-        }
-    });
-});
+//     // Klik di luar menu untuk menutup
+//     document.addEventListener("click", function (e) {
+//         if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
+//             if (!navbarNav.classList.contains("hidden")) {
+//                 navbarNav.classList.add("hidden");
+//             }
+//         }
+//     });
+// });
 
-// for home
-// for home
 // for home
 
 // Smooth scrolling functions
@@ -37,20 +35,39 @@ function scrollToAbout() {
 
 // Header background change on scroll
 window.addEventListener("scroll", function () {
-    // const header = document.querySelector("header");
     const headerHome = document.getElementById("home-header");
+
+    // kalau elementnya ga ada, langsung stop
+    if (!headerHome) return;
+
     if (window.scrollY > 50) {
-        // header.style.background = "rgba(13, 110, 253, 0.95)";
-        // header.style.backdropFilter = "blur(10px)";
-        headerHome.classList.add("ocean-gradient");
-        headerHome.classList.add("shadow-lg");
+        headerHome.classList.add("ocean-gradient", "shadow-lg");
     } else {
-        // header.style.background = "";
-        // header.style.backdropFilter = "";
-        headerHome.classList.remove("ocean-gradient");
-        headerHome.classList.remove("shadow-lg");
+        headerHome.classList.remove("ocean-gradient", "shadow-lg");
     }
 });
+
+// kalau mau setiap navbar punya efek scroll
+// window.addEventListener("scroll", function () {
+//     const headerHome = document.getElementById("home-header");
+//     const headerCatalog = document.getElementById("catalog-header");
+
+//     if (headerHome) {
+//         if (window.scrollY > 50) {
+//             headerHome.classList.add("ocean-gradient", "shadow-lg");
+//         } else {
+//             headerHome.classList.remove("ocean-gradient", "shadow-lg");
+//         }
+//     }
+
+//     if (headerCatalog) {
+//         if (window.scrollY > 50) {
+//             headerCatalog.classList.add("bg-white", "shadow-md");
+//         } else {
+//             headerCatalog.classList.remove("bg-white", "shadow-md");
+//         }
+//     }
+// });
 
 // Add to cart functionality (placeholder)
 document.querySelectorAll("button").forEach((button) => {
@@ -136,8 +153,6 @@ document.querySelectorAll(".tentang-box").forEach((card) => {
     observer.observe(card);
 });
 
-// for katalog
-// for katalog
 // for katalog
 
 // Products Database
