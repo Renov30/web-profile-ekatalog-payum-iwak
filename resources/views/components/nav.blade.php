@@ -1,5 +1,5 @@
     <!-- Header -->
-    <header class="text-white fixed top-0 left-0 w-full z-50 transition-all duration-300">
+    <header id="home-header" class="text-white fixed top-0 left-0 w-full z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
