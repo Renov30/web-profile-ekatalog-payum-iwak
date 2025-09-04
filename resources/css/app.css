@@ -290,4 +290,112 @@
     .loading.active {
         display: block;
     }
+
+    /* for detail produk */
+
+    .product-image {
+        transition: all 0.3s ease;
+    }
+
+    .product-image:hover {
+        transform: scale(1.05);
+    }
+
+    .thumbnail {
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .thumbnail:hover,
+    .thumbnail.active {
+        border-color: #74b9ff;
+        transform: scale(1.05);
+    }
+
+    .quantity-btn {
+        transition: all 0.3s ease;
+    }
+
+    .quantity-btn:hover {
+        background: #74b9ff;
+        color: white;
+        transform: scale(1.1);
+    }
+
+    .tab-button {
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .tab-button.active {
+        color: #74b9ff;
+    }
+
+    .tab-button.active::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(45deg, #74b9ff, #0984e3);
+        border-radius: 2px;
+    }
+
+    .review-star {
+        color: #ffc107;
+    }
+
+    .progress-bar {
+        background: #e9ecef;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        background: linear-gradient(45deg, #74b9ff, #0984e3);
+        height: 8px;
+        border-radius: 10px;
+        transition: width 0.3s ease;
+    }
+
+    .floating-cart {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .floating-cart.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .zoom-container {
+        overflow: hidden;
+        cursor: zoom-in;
+    }
+
+    .zoom-image {
+        transition: transform 0.3s ease;
+    }
+
+    .zoom-container:hover .zoom-image {
+        transform: scale(1.2);
+    }
+
+    .badge-new {
+        background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+    }
+
+    .badge-bestseller {
+        background: linear-gradient(45deg, #fdcb6e, #e17055);
+    }
+
+    .badge-organic {
+        background: linear-gradient(45deg, #00b894, #00cec9);
+    }
 }

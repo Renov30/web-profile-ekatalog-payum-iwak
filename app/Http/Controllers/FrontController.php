@@ -2,82 +2,103 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Distrik;
+use App\Models\KategoriProduk;
 use App\Models\Galeri;
-use App\Models\Lahan;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
     public function index()
     {
-        $jumlahLuas = Lahan::sum('luas_lahan');
-        // $jumlahProduksi = Lahan::sum('hasil_produksi');
-        $jumlahDistrik = Distrik::count();
-        $jumlahLahan = Lahan::count();
-        $jumlahProduksi = Lahan::join('produksis', 'lahans.id', '=', 'produksis.lahan_id')
-            ->selectRaw('SUM(produksis.hasil_produksi) as total_produksi')
-            ->value('total_produksi'); // Ambil satu nilai total saja
-        return view('front.index', compact('jumlahLuas', 'jumlahProduksi', 'jumlahDistrik', 'jumlahLahan'));
+        $jumlahLuas = Produk::sum('luas_lahan');
+        $jumlahKategoriProduk = KategoriProduk::count();
+        $jumlahLahan = Produk::count();
+        return view('front.index', compact('jumlahLuas', 'jumlahKategoriProduk', 'jumlahLahan'));
     }
 
     public function data(Request $request)
     {
-        $query = Lahan::query();
+        $query = Produk::query();
 
         if ($request->has('search')) {
             $search = $request->input('search');
             $query->where('name', 'LIKE', "%{$search}%")
                 ->orWhere('nama_petani', 'LIKE', "%{$search}%")
-                ->orWhereHas('distrik', function ($q) use ($search) {
+                ->orWhereHas('kategoriproduk', function ($q) use ($search) {
                     $q->where('name', 'LIKE', "%{$search}%");
                 })
                 ->orWhere('alamat', 'LIKE', "%{$search}%");
         }
 
-        // Filter berdasarkan distrik jika ada
-        if ($request->has('distrik') && !empty($request->distrik)) {
-            $query->where('distrik_id', $request->distrik);
+        // Filter berdasarkan kategoriproduk jika ada
+        if ($request->has('kategoriproduk') && !empty($request->kategoriproduk)) {
+            $query->where('kategoriproduk_id', $request->kategoriproduk);
         }
 
         $semua = $query->paginate(8);
-        $distriks = Distrik::all(); // Ambil daftar distrik untuk dropdown
+        $kategoriproduks = KategoriProduk::all(); // Ambil daftar kategoriproduk untuk dropdown
 
-        return view('front.data', compact('semua', 'distriks'));
+        return view('front.data', compact('semua', 'kategoriproduks'));
     }
 
     public function katalog(Request $request)
     {
-        $query = Lahan::query();
+        $query = Produk::query();
 
         if ($request->has('search')) {
             $search = $request->input('search');
             $query->where('name', 'LIKE', "%{$search}%")
                 ->orWhere('nama_petani', 'LIKE', "%{$search}%")
-                ->orWhereHas('distrik', function ($q) use ($search) {
+                ->orWhereHas('kategoriproduk', function ($q) use ($search) {
                     $q->where('name', 'LIKE', "%{$search}%");
                 })
                 ->orWhere('alamat', 'LIKE', "%{$search}%");
         }
 
-        // Filter berdasarkan distrik jika ada
-        if ($request->has('distrik') && !empty($request->distrik)) {
-            $query->where('distrik_id', $request->distrik);
+        // Filter berdasarkan kategoriproduk jika ada
+        if ($request->has('kategoriproduk') && !empty($request->kategoriproduk)) {
+            $query->where('kategoriproduk_id', $request->kategoriproduk);
         }
 
         $semua = $query->paginate(8);
-        $distriks = Distrik::all(); // Ambil daftar distrik untuk dropdown
+        $kategoriproduks = KategoriProduk::all(); // Ambil daftar kategoriproduk untuk dropdown
 
-        return view('front.katalog', compact('semua', 'distriks'));
+        return view('front.katalog', compact('semua', 'kategoriproduks'));
     }
 
-    public function detail(Lahan $lahan, Request $request)
+    public function detailProduk(Request $request)
+    {
+        $query = Produk::query();
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('name', 'LIKE', "%{$search}%")
+                ->orWhere('nama_petani', 'LIKE', "%{$search}%")
+                ->orWhereHas('kategoriproduk', function ($q) use ($search) {
+                    $q->where('name', 'LIKE', "%{$search}%");
+                })
+                ->orWhere('alamat', 'LIKE', "%{$search}%");
+        }
+
+        // Filter berdasarkan kategoriproduk jika ada
+        if ($request->has('kategoriproduk') && !empty($request->kategoriproduk)) {
+            $query->where('kategoriproduk_id', $request->kategoriproduk);
+        }
+
+        $semua = $query->paginate(8);
+        $kategoriproduks = KategoriProduk::all(); // Ambil daftar kategoriproduk untuk dropdown
+
+        return view('front.detail-produk', compact('semua', 'kategoriproduks'));
+    }
+
+    public function detail(Produk $produk, Request $request)
     {
         // Load relasi yang diperlukan
-        $lahan->load(['distrik', 'galeri', 'produksi']);
+        $produk->load(['kategoriproduk', 'galeri', 'produksi']);
 
         // Ambil daftar tahun produksi unik
-        $tahunProduksi = $lahan->produksi
+        $tahunProduksi = $produk->produksi
             ->map(fn($item) => \Carbon\Carbon::parse($item->tanggal_produksi)->year)
             ->unique()
             ->sort()
@@ -87,7 +108,7 @@ class FrontController extends Controller
         $tahunDipilih = $request->input('tahun');
 
         // Ambil data produksi dengan filter tahun jika ada
-        $produksi = $lahan->produksi()
+        $produksi = $produk->produksi()
             ->when($tahunDipilih, function ($query) use ($tahunDipilih) {
                 return $query->whereYear('tanggal_produksi', $tahunDipilih);
             })
@@ -95,26 +116,26 @@ class FrontController extends Controller
             ->get();
 
         // Hitung total hasil produksi
-        $totalProduksi = $produksi->sum('hasil_produksi');
+        // $totalProduksi = $produksi->sum('hasil_produksi');
 
-        // Ambil data lahan lain (untuk tampilan sidebar atau rekomendasi)
-        $semua = Lahan::where('id', '!=', $lahan->id)->get();
+        // Ambil data produk lain (untuk tampilan sidebar atau rekomendasi)
+        $semua = Produk::where('id', '!=', $produk->id)->get();
 
-        return view('front.detail', compact('lahan', 'semua', 'produksi', 'tahunProduksi', 'tahunDipilih', 'totalProduksi'));
+        return view('front.detail', compact('produk', 'semua', 'produksi', 'tahunProduksi', 'tahunDipilih', 'totalProduksi'));
     }
 
     public function peta(Request $request)
     {
-        $query = Lahan::select('id', 'name', 'slug', 'alamat', 'longitude', 'latitude', 'distrik_id');
+        $query = Produk::select('id', 'name', 'slug', 'alamat', 'longitude', 'latitude', 'kategoriproduk_id');
 
-        // Filter berdasarkan distrik jika ada
-        if ($request->has('distrik') && !empty($request->distrik)) {
-            $query->where('distrik_id', $request->distrik);
+        // Filter berdasarkan kategoriproduk jika ada
+        if ($request->has('kategoriproduk') && !empty($request->kategoriproduk)) {
+            $query->where('kategoriproduk_id', $request->kategoriproduk);
         }
 
         $lahans = $query->get();
-        $distriks = Distrik::all(); // Ambil daftar distrik untuk dropdown
+        $kategoriproduks = KategoriProduk::all(); // Ambil daftar kategoriproduk untuk dropdown
 
-        return view('front.peta', compact('lahans', 'distriks'));
+        return view('front.peta', compact('lahans', 'kategoriproduks'));
     }
 }
