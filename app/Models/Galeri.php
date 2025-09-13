@@ -11,12 +11,12 @@ class Galeri extends Model
     //
     use SoftDeletes;
     protected $fillable = [
-        'lahan_id',
+        'product_id',
         'gambar',
     ];
 
-    public function lahan(): BelongsTo
+    public function produk(): BelongsTo
     {
-        return $this->belongsTo(Lahan::class, 'lahan_id');
+        return $this->belongsTo(Produk::class, 'product_id');
     }
 }
