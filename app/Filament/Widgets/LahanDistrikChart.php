@@ -2,10 +2,10 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\Lahan;
+use App\Models\Produk;
 use Filament\Widgets\ChartWidget;
 
-class LahanDistrikChart extends ChartWidget
+class LahanKategoriProdukChart extends ChartWidget
 {
     protected static ?int $sort = 1;
     public function getColumns(): int
@@ -14,16 +14,16 @@ class LahanDistrikChart extends ChartWidget
     }
 
     protected static bool $isLazy = false;
-    protected static ?string $heading = 'Jumlah Lahan Per Distrik';
+    protected static ?string $heading = 'Jumlah Produk Per Kategori Produk';
 
     protected function getData(): array
     {
-        $data = Lahan::selectRaw('distrik_id, COUNT(*) as total')
-            ->groupBy('distrik_id')
-            ->with('distrik')
+        $data = Produk::selectRaw('kategori_id, COUNT(*) as total')
+            ->groupBy('kategori_id')
+            ->with('kategoriproduk')
             ->get();
         return [
-            'labels' => $data->pluck('distrik.name')->toArray(),
+            'labels' => $data->pluck('kategoriproduk.name')->toArray(),
             'datasets' => [
                 [
                     'data' => $data->pluck('total')->toArray(),

@@ -2,9 +2,9 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\Distrik;
+use App\Models\KategoriProduk;
 use App\Models\Galeri;
-use App\Models\Lahan;
+use App\Models\Produk;
 use App\Models\User;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
@@ -19,20 +19,20 @@ class StatsOverview extends BaseWidget
     protected static bool $isLazy = false;
     protected function getStats(): array
     {
-        $distrik = Distrik::count();
-        $lahan = Lahan::count();
-        $jumlahLuas = Lahan::sum('luas_lahan');
+        $kategoriproduk = KategoriProduk::count();
+        $produk = Produk::count();
+        // $jumlahLuas = Produk::sum('luas_lahan');
         return [
-            //
-            Stat::make('Jumlah distrik', $distrik . ' Distrik')
-                ->description('Data distrik yang didapatkan')
+
+            Stat::make('Jumlah kategori produk', $kategoriproduk . ' Kategori')
+                ->description('Data kategori produk yang didapatkan')
                 ->Icon('heroicon-o-map'),
-            Stat::make('Jumlah lahan', $lahan . ' Lahan')
-                ->description('Data lahan berdasarkan distrik')
+            Stat::make('Jumlah produk', $produk . ' Produk')
+                ->description('Data produk berdasarkan kategori produk')
                 ->Icon('heroicon-o-map-pin'),
-            Stat::make('Total Luas Lahan', $jumlahLuas . ' hektar')
-                ->description('Total luas seluruh lahan di Merauke')
-                ->Icon('heroicon-o-information-circle'),
+            // Stat::make('Total Luas Produk', $jumlahLuas . ' hektar')
+            //     ->description('Total luas seluruh produk di Merauke')
+            //     ->Icon('heroicon-o-information-circle'),
         ];
     }
 }
