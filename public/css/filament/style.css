@@ -484,7 +484,7 @@ footer .credit a {
     margin-bottom: 1rem;
 }
 
-.photo-grid .filter-distrik select {
+.photo-grid .filter-kategoriproduk select {
     border: none;
     border-radius: 0.5rem;
     color: var(--font);
@@ -492,7 +492,7 @@ footer .credit a {
     font-weight: 300;
 }
 
-.photo-grid .filter-distrik option {
+.photo-grid .filter-kategoriproduk option {
     font-size: 1rem;
     color: var(--font);
     font-weight: 300;
@@ -505,11 +505,11 @@ footer .credit a {
     margin-bottom: 1rem;
 }
 
-.top-peta .filter-distrik {
+.top-peta .filter-kategoriproduk {
     margin-left: auto;
 }
 
-.top-peta .filter-distrik select {
+.top-peta .filter-kategoriproduk select {
     color: var(--font);
     font-size: 1rem;
     font-weight: 300;
@@ -518,7 +518,7 @@ footer .credit a {
     background-color: var(--white);
 }
 
-.top-peta .filter-distrik option {
+.top-peta .filter-kategoriproduk option {
     font-size: 1rem;
     color: var(--font);
     font-weight: 300;
