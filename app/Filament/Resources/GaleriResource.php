@@ -38,9 +38,9 @@ class GaleriResource extends Resource
             ->schema([
                 //
                 Select::make('lahan_id')
-                    ->label('Lahan')
+                    ->label('Produk')
                     ->required()
-                    ->relationship('lahan', 'name'),
+                    ->relationship('produk', 'name'),
                 FileUpload::make('gambar')
                     ->label('Foto')
                     ->required()
@@ -52,9 +52,9 @@ class GaleriResource extends Resource
     {
         return $table
             ->columns([
-                //
-                TextColumn::make('lahan.name')
-                    ->label('Lahan')
+                // 
+                TextColumn::make('produk.name')
+                    ->label('Produk')
                     ->sortable()
                     ->searchable(),
                 ImageColumn::make('gambar')
