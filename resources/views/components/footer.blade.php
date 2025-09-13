@@ -5,10 +5,10 @@
             <div>
                 <div class="flex items-center space-x-3 mb-6">
                     <div class="bg-white p-2 rounded-full">
-                        <img src="{{ asset('img/Logo.png') }}" alt="Logo Payum Iwak" class="h-7">
+                        <img src="{{ asset('img/Logo.png') }}" alt="Logo Payum Iwag" class="h-7">
                     </div>
                     <div>
-                        <h3 class="text font-bold">Payum Iwak</h3>
+                        <h3 class="text font-bold">Payum Iwag</h3>
                         <p class="text-gray-400 text-sm">Natural Beauty Care</p>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
 
         <div class="text-sm border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>
-                © 2025 Payum Iwak. Semua hak dilindungi.
+                © 2025 Payum Iwag. Semua hak dilindungi.
             </p>
         </div>
     </div>
