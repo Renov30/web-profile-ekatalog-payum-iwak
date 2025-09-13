@@ -10,9 +10,9 @@
                 <li><i class="fas fa-chevron-right text-gray-400"></i></li>
                 <li><a href="katalog.html" class="hover:text-blue-600">Katalog</a></li>
                 <li><i class="fas fa-chevron-right text-gray-400"></i></li>
-                <li><span id="breadcrumbCategory" class="hover:text-blue-600 cursor-pointer">Sabun</span></li>
+                <li><span id="breadcrumbCategory" class="hover:text-blue-600 cursor-pointer">-</span></li>
                 <li><i class="fas fa-chevron-right text-gray-400"></i></li>
-                <li class="text-blue-600 font-medium" id="breadcrumbProduct">Sabun Natural Sea Salt</li>
+                <li class="text-blue-600 font-medium" id="breadcrumbProduct">-</li>
             </ol>
         </nav>
     </div>
@@ -25,31 +25,25 @@
                 <div class="space-y-4">
                     <!-- Main Image -->
                     <div class="zoom-container rounded-2xl overflow-hidden bg-gray-100">
-                        <img id="mainImage"
-                            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/922e1af1-cb33-40b0-9694-0c6356bcbbdb.png"
-                            alt="Handcrafted sea salt soap bar with natural white color and embedded sea salt crystals, photographed on driftwood with seashells and ocean background"
-                            class="zoom-image w-full h-96 object-cover" />
+                        <img id="mainImage" src="" alt="" class="zoom-image w-full h-96 object-cover" />
                     </div>
 
                     <!-- Thumbnail Images -->
-                    <div class="flex space-x-2 overflow-x-auto">
-                        <img onclick="changeMainImage(this)"
-                            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8aae4182-0478-45a9-a17e-6349d8a6e0f5.png"
+                    <div id="thumbnails" class="flex space-x-2"></div>
+                    {{-- <div class="flex space-x-2 overflow-x-auto">
+                        <img onclick="changeMainImage(this)" src=""
                             alt="Close up view of sea salt soap showing natural texture and salt crystals embedded in the soap surface"
                             class="thumbnail active w-20 h-20 object-cover rounded-lg border-2 border-gray-200 flex-shrink-0" />
-                        <img onclick="changeMainImage(this)"
-                            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/aba33c38-097a-492f-957b-b12b1bffcfe0.png"
+                        <img onclick="changeMainImage(this)" src=""
                             alt="Sea salt soap lathering with rich natural foam on wet hands with water droplets"
                             class="thumbnail w-20 h-20 object-cover rounded-lg border-2 border-gray-200 flex-shrink-0" />
-                        <img onclick="changeMainImage(this)"
-                            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/af879ef4-05b4-407a-aa58-4f140ad6e742.png"
+                        <img onclick="changeMainImage(this)" src=""
                             alt="Sea salt soap ingredients display showing natural sea salt, coconut oil, and shea butter on wooden background"
                             class="thumbnail w-20 h-20 object-cover rounded-lg border-2 border-gray-200 flex-shrink-0" />
-                        <img onclick="changeMainImage(this)"
-                            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b89d17f6-4f09-4a5a-9f94-284a634dd1a7.png"
+                        <img onclick="changeMainImage(this)" src=""
                             alt="Packaging of sea salt soap with eco-friendly kraft paper wrapping and natural twine ribbon"
                             class="thumbnail w-20 h-20 object-cover rounded-lg border-2 border-gray-200 flex-shrink-0" />
-                    </div>
+                    </div> --}}
                 </div>
 
                 <!-- Product Info -->
@@ -57,14 +51,12 @@
                     <!-- Product Title & Rating -->
                     <div>
                         <div class="flex items-center space-x-2 mb-2">
-                            <span id="productBadge"
-                                class="badge-bestseller text-white px-3 py-1 rounded-full text-sm font-semibold">Best
-                                Seller</span>
                             <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">Stok
                                 Tersedia</span>
+                            <span id="productBadge"
+                                class="badge-bestseller text-white px-3 py-1 rounded-full text-sm font-semibold">-</span>
                         </div>
-                        <h1 id="productTitle" class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">Sabun Natural Sea
-                            Salt</h1>
+                        <h1 id="productTitle" class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">-</h1>
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="flex items-center">
                                 <div class="flex text-yellow-400 mr-2">
@@ -74,15 +66,15 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <span id="productRating" class="text-gray-600">(4.9)</span>
+                                <span id="productRating" class="text-gray-600">(-)</span>
                             </div>
                             <div class="text-gray-400">|</div>
                             <div class="text-gray-600">
-                                <span id="productReviews">156</span> ulasan
+                                <span id="productReviews">-</span> ulasan
                             </div>
                             <div class="text-gray-400">|</div>
                             <div class="text-gray-600">
-                                <span id="productSold">1,250</span> terjual
+                                <span id="productSold">-</span> terjual
                             </div>
                         </div>
                     </div>
@@ -90,26 +82,24 @@
                     <!-- Price -->
                     <div class="border-b pb-6">
                         <div class="flex items-center space-x-4 mb-2">
-                            <span id="productPrice" class="text-4xl font-bold text-blue-600">Rp 25.000</span>
-                            <span id="originalPrice" class="text-2xl text-gray-400 line-through">Rp 30.000</span>
-                            <span class="bg-red-500 text-white px-2 py-1 rounded text-sm font-bold">-17%</span>
+                            <span id="productPrice" class="text-4xl font-bold text-blue-600">Rp -</span>
+                            <span id="originalPrice" class="text-2xl text-gray-400 line-through">Rp -</span>
+                            <span id="discountPercent"
+                                class="bg-red-500 text-white px-2 py-1 rounded text-sm font-bold"></span>
                         </div>
-                        <p class="text-gray-600">Hemat Rp 5.000</p>
+                        <p id="hemat" class="text-gray-600"></p>
                     </div>
 
                     <!-- Product Description -->
                     <div class="border-b pb-6">
                         <h3 class="text-lg font-semibold text-gray-800 mb-3">Deskripsi Produk</h3>
                         <p id="productDescription" class="text-gray-600 leading-relaxed">
-                            Sabun alami dengan garam laut yang membersihkan dan melembabkan kulit secara mendalam.
-                            Dibuat dengan bahan-bahan pilihan berkualitas tinggi untuk memberikan perawatan terbaik bagi
-                            kulit Anda.
-                            Cocok untuk semua jenis kulit dan aman digunakan setiap hari.
+                            -
                         </p>
                     </div>
 
                     <!-- Product Variants -->
-                    <div class="border-b pb-6">
+                    {{-- <div class="border-b pb-6">
                         <h3 class="text-lg font-semibold text-gray-800 mb-3">Pilih Varian</h3>
                         <div class="grid grid-cols-2 gap-3">
                             <button
@@ -123,7 +113,7 @@
                                 <div class="text-xs text-gray-500">300g</div>
                             </button>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- Quantity & Add to Cart -->
                     <div class="border-b pb-6">
@@ -141,9 +131,9 @@
                                     <i class="fas fa-plus"></i>
                                 </button>
                             </div>
-                            <div class="text-gray-600">
+                            {{-- <div class="text-gray-600">
                                 Stok: <span class="font-semibold text-green-600">98 tersisa</span>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="flex space-x-4">
@@ -183,11 +173,11 @@
                                 </button>
                             </div>
                         </div>
-                        <button onclick="toggleWishlist()"
+                        {{-- <button onclick="toggleWishlist()"
                             class="flex items-center space-x-2 text-gray-600 hover:text-red-500 transition-colors">
                             <i class="far fa-heart"></i>
                             <span>Wishlist</span>
-                        </button>
+                        </button> --}}
                     </div>
                 </div>
             </div>
@@ -205,7 +195,7 @@
                     <button onclick="switchTab('ingredients')" class="tab-button py-4 font-semibold">Bahan &
                         Manfaat</button>
                     <button onclick="switchTab('reviews')" class="tab-button py-4 font-semibold">Ulasan (156)</button>
-                    <button onclick="switchTab('shipping')" class="tab-button py-4 font-semibold">Pengiriman</button>
+                    {{-- <button onclick="switchTab('shipping')" class="tab-button py-4 font-semibold">Pengiriman</button> --}}
                 </nav>
             </div>
 
@@ -214,29 +204,31 @@
                 <!-- Description Tab -->
                 <div id="description-tab" class="tab-content">
                     <div class="prose max-w-none">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Tentang Produk Ini</h3>
+                        {{-- <h3 class="text-2xl font-bold text-gray-800 mb-4">Tentang Produk Ini</h3>
                         <p class="text-gray-600 leading-relaxed mb-6">
-                            Sabun Natural Sea Salt adalah produk unggulan dari Payum Iwak yang dibuat dengan teknik
+                            Sabun Natural Sea Salt adalah produk unggulan dari Payum Iwag yang dibuat dengan teknik
                             tradisional
                             dan bahan-bahan alami pilihan. Setiap batang sabun dibuat dengan penuh perhatian untuk
                             memberikan
                             pengalaman mandi yang mewah dan menyehatkan kulit.
-                        </p>
+                        </p> --}}
 
                         <div class="grid md:grid-cols-2 gap-8 mb-8">
                             <div>
                                 <h4 class="text-xl font-semibold text-gray-800 mb-3">Spesifikasi Produk</h4>
-                                <ul class="space-y-2 text-gray-600">
+                                <div id="spesifikasi" class="space y-2 text-gray-600"></div>
+                                {{-- <ul class="space-y-2 text-gray-600">
                                     <li><strong>Berat:</strong> 100 gram</li>
                                     <li><strong>Ukuran:</strong> 8 x 6 x 3 cm</li>
                                     <li><strong>pH Level:</strong> 7-8 (Alkaline)</li>
                                     <li><strong>Shelf Life:</strong> 2 tahun</li>
                                     <li><strong>Kemasan:</strong> Kraft paper eco-friendly</li>
-                                </ul>
+                                </ul> --}}
                             </div>
                             <div>
                                 <h4 class="text-xl font-semibold text-gray-800 mb-3">Keunggulan</h4>
-                                <ul class="space-y-2 text-gray-600">
+                                <div id="keunggulan" class="space y-2 text-gray-600"></div>
+                                {{-- <ul class="space-y-2 text-gray-600">
                                     <li class="flex items-center"><i
                                             class="fas fa-check-circle text-green-500 mr-2"></i>100% Bahan Alami</li>
                                     <li class="flex items-center"><i
@@ -247,32 +239,34 @@
                                             class="fas fa-check-circle text-green-500 mr-2"></i>Ramah Lingkungan</li>
                                     <li class="flex items-center"><i
                                             class="fas fa-check-circle text-green-500 mr-2"></i>Handmade Quality</li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
 
                         <div class="bg-blue-50 rounded-lg p-6">
                             <h4 class="text-xl font-semibold text-blue-800 mb-3">Cara Penggunaan</h4>
-                            <ol class="list-decimal list-inside space-y-2 text-blue-700">
+                            <div id="penggunaan" class="space y-2 text-blue-700"></div>
+                            {{-- <ol class="list-decimal list-inside space-y-2 text-blue-700">
                                 <li>Basahi tubuh dengan air hangat</li>
                                 <li>Gosokkan sabun hingga berbusa</li>
                                 <li>Pijat lembut ke seluruh tubuh</li>
                                 <li>Bilas hingga bersih dengan air</li>
                                 <li>Keringkan dengan handuk lembut</li>
-                            </ol>
+                            </ol> --}}
                         </div>
                     </div>
                 </div>
 
                 <!-- Ingredients Tab -->
                 <div id="ingredients-tab" class="tab-content hidden">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Bahan & Manfaat</h3>
+                    {{-- <h3 class="text-2xl font-bold text-gray-800 mb-6">Bahan & Manfaat</h3> --}}
 
                     <div class="grid md:grid-cols-2 gap-8 mb-8">
                         <div class="space-y-6">
                             <h4 class="text-xl font-semibold text-gray-800">Bahan Utama</h4>
+                            <div id="bahanUtama" class="space y-2 text-gray-600"></div>
 
-                            <div class="space-y-4">
+                            {{-- <div class="space-y-4">
                                 <div class="bg-gray-50 rounded-lg p-4">
                                     <div class="flex items-start space-x-3">
                                         <div
@@ -328,13 +322,14 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="space-y-6">
                             <h4 class="text-xl font-semibold text-gray-800">Manfaat untuk Kulit</h4>
+                            <div id="manfaat" class="space y-2 text-gray-600"></div>
 
-                            <div class="space-y-4">
+                            {{-- <div class="space-y-4">
                                 <div
                                     class="flex items-center space-x-3 p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg">
                                     <i class="fas fa-check-circle text-blue-600 text-xl"></i>
@@ -383,7 +378,7 @@
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -598,7 +593,7 @@
 
                 <!-- Shipping Tab -->
                 <div id="shipping-tab" class="tab-content hidden">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Informasi Pengiriman</h3>
+                    {{-- <h3 class="text-2xl font-bold text-gray-800 mb-6">Informasi Pengiriman</h3> --}}
 
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
@@ -613,7 +608,7 @@
                             </div>
 
                             <div class="space-y-4">
-                                <h4 class="text-lg font-semibold text-gray-800">Estimasi Waktu Pengiriman</h4>
+                                <h4 class="text-lg font-semibold text-gray-800">Estimasi wagtu Pengiriman</h4>
 
                                 <div class="bg-gray-50 rounded-lg p-4">
                                     <div class="flex justify-between items-center mb-2">
@@ -698,7 +693,7 @@
                                 </div>
                                 <ul class="text-sm text-yellow-700 space-y-1">
                                     <li>• Pengiriman tidak dilakukan pada hari Minggu dan libur nasional</li>
-                                    <li>• Untuk daerah terpencil mungkin memerlukan waktu tambahan 1-2 hari</li>
+                                    <li>• Untuk daerah terpencil mungkin memerlukan wagtu tambahan 1-2 hari</li>
                                     <li>• Pastikan alamat pengiriman sudah benar dan lengkap</li>
                                 </ul>
                             </div>
@@ -719,7 +714,7 @@
                 <div class="product-card bg-gray-50 rounded-xl overflow-hidden group cursor-pointer"
                     onclick="viewProduct(2)">
                     <div class="relative">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/11668d83-2ae1-4b93-914f-aab3422a530f.png"
+                        <img src=""
                             alt="Green seaweed detox soap bar with visible seaweed flakes arranged on dark volcanic rocks"
                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
                         <div class="absolute top-3 left-3">
@@ -752,7 +747,7 @@
                 <div class="product-card bg-gray-50 rounded-xl overflow-hidden group cursor-pointer"
                     onclick="viewProduct(3)">
                     <div class="relative">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b0c2f2bb-d189-4a20-975d-50229a449f70.png"
+                        <img src=""
                             alt="Golden honey oat soap bar with visible oat flakes and honey drizzle surrounded by honeycomb"
                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
                         <div class="absolute top-3 left-3">
@@ -781,7 +776,7 @@
                 <div class="product-card bg-gray-50 rounded-xl overflow-hidden group cursor-pointer"
                     onclick="viewProduct(4)">
                     <div class="relative">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fa933983-b5b2-4415-8412-4d30747a2f50.png"
+                        <img src=""
                             alt="Luxurious coffee and sea salt body scrub in clear glass jar with wooden lid surrounded by coffee beans"
                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
                         <div class="absolute top-3 left-3">
@@ -814,7 +809,7 @@
                 <div class="product-card bg-gray-50 rounded-xl overflow-hidden group cursor-pointer"
                     onclick="viewProduct(7)">
                     <div class="relative">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/71d58428-3bd8-4dc4-9556-72088fab42db.png"
+                        <img src=""
                             alt="Rich coconut body butter in elegant white jar with gold accents surrounded by fresh coconut halves"
                             class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
                         <div class="absolute top-3 left-3">
@@ -867,30 +862,80 @@
 
     <script>
         // Product data (would normally come from API/database)
-        const productData = {
-            1: {
-                name: "Sabun Natural Sea Salt",
-                category: "Sabun",
-                price: 25000,
-                originalPrice: 30000,
-                image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/89352d55-da34-4b24-94c1-8dde87dec93d.png",
-                rating: 4.9,
-                reviews: 156,
-                sold: 1250,
-                badge: "bestseller",
-                description: "Sabun alami dengan garam laut yang membersihkan dan melembabkan kulit secara mendalam. Dibuat dengan bahan-bahan pilihan berkualitas tinggi untuk memberikan perawatan terbaik bagi kulit Anda. Cocok untuk semua jenis kulit dan aman digunakan setiap hari.",
-                images: [
-                    "https://placehold.co/600x600",
-                    "https://placehold.co/600x600",
-                    "https://placehold.co/600x600",
-                    "https://placehold.co/600x600"
-                ]
-            }
-        };
-
-        let currentProductId = 1;
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let currentProductId = null;
         let quantity = 1;
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        async function loadProduct() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id') || 1;
+            currentProductId = parseInt(productId);
+
+            try {
+                const response = await fetch(`/api/products/${currentProductId}`);
+                const product = await response.json();
+                const harga = parseInt(product.harga);
+                const diskon = product.diskon ?? 0;
+                const hargaDiskon = harga - (harga * diskon / 100);
+                const hemat = harga - hargaDiskon;
+
+                // title
+                document.getElementById('productTitle').textContent = product.name;
+                document.getElementById('breadcrumbProduct').textContent = product.name;
+                document.getElementById('breadcrumbCategory').textContent = product.kategoriproduk?.slug ??
+                    'uncategorized';
+                // sub title
+                document.getElementById('productRating').textContent = `(${product.reviews_avg_rating ?? 0})`;
+                document.getElementById('productReviews').textContent = product.review ?? 0;
+                document.getElementById('productSold').textContent = product.sold ?? 0;
+                // harga
+                document.getElementById('productPrice').textContent = `Rp ${hargaDiskon.toLocaleString()}`;
+                document.getElementById('originalPrice').textContent = diskon > 0 ? `Rp ${harga.toLocaleString()}` : '';
+                document.getElementById('discountPercent').textContent = diskon > 0 ? `-${diskon}%` : '';
+                document.getElementById('hemat').textContent = diskon > 0 ? `Hemat Rp ${hemat.toLocaleString()}` : '';
+                // deskripsi
+                document.getElementById('productDescription').innerHTML = product.description;
+                // gambar produk
+                document.getElementById('mainImage').src = product.galeri.length > 0 ?
+                    `/storage/${product.galeri[0].gambar}` : '/img/default.jpg';
+                // Render thumbnails
+                const thumbnailsContainer = document.getElementById('thumbnails');
+                thumbnailsContainer.innerHTML = ''; // kosongin dulu
+
+                product.galeri.forEach((g, index) => {
+                    const img = document.createElement('img');
+                    img.src = `/storage/${g.gambar}`;
+                    img.className =
+                        `thumbnail w-20 h-20 object-cover rounded-lg border-2 border-gray-200 flex-shrink-0 cursor-pointer ${index === 0 ? 'active' : ''}`;
+                    img.onclick = () => changeMainImage(img);
+                    thumbnailsContainer.appendChild(img);
+                });
+                // Floating cart
+                document.getElementById('floatingProductImage').src = product.image_url;
+                document.getElementById('floatingProductName').textContent = product.name;
+                document.getElementById('floatingProductPrice').textContent =
+                    `Rp ${parseInt(product.price).toLocaleString()}`;
+
+                // Badge
+                const badge = document.getElementById('productBadge');
+                if (product.badge) {
+                    badge.className = `badge-${product.badge} text-white px-3 py-1 rounded-full text-sm font-semibold`;
+                    badge.textContent = product.badge === 'bestseller' ? 'Best Seller' :
+                        product.badge === 'organic' ? 'Organic' : 'New';
+                } else {
+                    badge.style.display = "none";
+                }
+                // spesifikasi
+                document.getElementById('spesifikasi').innerHTML = product.spesifikasi;
+                document.getElementById('keunggulan').innerHTML = product.keunggulan;
+                document.getElementById('penggunaan').innerHTML = product.penggunaan;
+                document.getElementById('bahanUtama').innerHTML = product.bahan_utama;
+                document.getElementById('manfaat').innerHTML = product.manfaat;
+
+            } catch (err) {
+                console.error("Gagal memuat produk:", err);
+            }
+        }
 
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
@@ -900,38 +945,38 @@
         });
 
         // Load product data
-        function loadProduct() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const productId = urlParams.get('id') || 1;
-            currentProductId = parseInt(productId);
+        // function loadProduct() {
+        //     const urlParams = new URLSearchParams(window.location.search);
+        //     const productId = urlParams.get('id') || 1;
+        //     currentProductId = parseInt(productId);
 
-            if (productData[currentProductId]) {
-                const product = productData[currentProductId];
+        //     if (productData[currentProductId]) {
+        //         const product = productData[currentProductId];
 
-                // Update product info
-                document.getElementById('productTitle').textContent = product.name;
-                document.getElementById('breadcrumbProduct').textContent = product.name;
-                document.getElementById('breadcrumbCategory').textContent = product.category;
-                document.getElementById('productPrice').textContent = `Rp ${product.price.toLocaleString()}`;
-                document.getElementById('originalPrice').textContent = `Rp ${product.originalPrice.toLocaleString()}`;
-                document.getElementById('productRating').textContent = `(${product.rating})`;
-                document.getElementById('productReviews').textContent = product.reviews;
-                document.getElementById('productSold').textContent = product.sold.toLocaleString();
-                document.getElementById('productDescription').textContent = product.description;
-                document.getElementById('mainImage').src = product.image;
+        //         // Update product info
+        //         document.getElementById('productTitle').textContent = product.name;
+        //         document.getElementById('breadcrumbProduct').textContent = product.name;
+        //         document.getElementById('breadcrumbCategory').textContent = product.category;
+        //         document.getElementById('productPrice').textContent = `Rp ${product.price.toLocaleString()}`;
+        //         document.getElementById('originalPrice').textContent = `Rp ${product.originalPrice.toLocaleString()}`;
+        //         document.getElementById('productRating').textContent = `(${product.rating})`;
+        //         document.getElementById('productReviews').textContent = product.reviews;
+        //         document.getElementById('productSold').textContent = product.sold.toLocaleString();
+        //         document.getElementById('productDescription').textContent = product.description;
+        //         document.getElementById('mainImage').src = product.image;
 
-                // Update floating cart
-                document.getElementById('floatingProductImage').src = product.image;
-                document.getElementById('floatingProductName').textContent = product.name;
-                document.getElementById('floatingProductPrice').textContent = `Rp ${product.price.toLocaleString()}`;
+        //         // Update floating cart
+        //         document.getElementById('floatingProductImage').src = product.image;
+        //         document.getElementById('floatingProductName').textContent = product.name;
+        //         document.getElementById('floatingProductPrice').textContent = `Rp ${product.price.toLocaleString()}`;
 
-                // Update badge
-                const badge = document.getElementById('productBadge');
-                badge.className = `badge-${product.badge} text-white px-3 py-1 rounded-full text-sm font-semibold`;
-                badge.textContent = product.badge === 'bestseller' ? 'Best Seller' :
-                    product.badge === 'organic' ? 'Organic' : 'New';
-            }
-        }
+        //         // Update badge
+        //         const badge = document.getElementById('productBadge');
+        //         badge.className = `badge-${product.badge} text-white px-3 py-1 rounded-full text-sm font-semibold`;
+        //         badge.textContent = product.badge === 'bestseller' ? 'Best Seller' :
+        //             product.badge === 'organic' ? 'Organic' : 'New';
+        //     }
+        // }
 
         // Change main image
         function changeMainImage(thumbnail) {
@@ -984,8 +1029,10 @@
         });
 
         // Add to cart
-        function addToCart() {
-            const product = productData[currentProductId];
+        async function addToCart() {
+            const response = await fetch(`/api/products/${currentProductId}`);
+            const product = await response.json();
+
             const existingItem = cart.find(item => item.id === currentProductId);
 
             if (existingItem) {
@@ -993,7 +1040,9 @@
             } else {
                 cart.push({
                     id: currentProductId,
-                    ...product,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image_url,
                     quantity: quantity
                 });
             }
@@ -1044,7 +1093,7 @@
         function shareToWhatsApp() {
             const product = productData[currentProductId];
             const text =
-                `Check out ${product.name} - Rp ${product.price.toLocaleString()} di Payum Iwak! ${window.location.href}`;
+                `Check out ${product.name} - Rp ${product.price.toLocaleString()} di Payum Iwag! ${window.location.href}`;
             window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
         }
 
@@ -1055,7 +1104,7 @@
 
         function shareToTwitter() {
             const product = productData[currentProductId];
-            const text = `Check out ${product.name} from Payum Iwak Natural Beauty Care!`;
+            const text = `Check out ${product.name} from Payum Iwag Natural Beauty Care!`;
             window.open(
                 `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`,
                 '_blank');
@@ -1120,7 +1169,7 @@
             button.addEventListener('click', function() {
                 document.querySelectorAll('.variant-btn').forEach(btn => {
                     btn.classList.remove('active', 'border-blue-600', 'bg-blue-50',
-                    'text-blue-600');
+                        'text-blue-600');
                     btn.classList.add('border-gray-200');
                 });
 
@@ -1128,6 +1177,11 @@
                 this.classList.remove('border-gray-200');
             });
         });
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
     </script>
     <x-footer />
 @endsection
