@@ -11,10 +11,11 @@ class FrontController extends Controller
 {
     public function index()
     {
-        $jumlahLuas = Produk::sum('luas_lahan');
-        $jumlahKategoriProduk = KategoriProduk::count();
-        $jumlahLahan = Produk::count();
-        return view('front.index', compact('jumlahLuas', 'jumlahKategoriProduk', 'jumlahLahan'));
+        // $jumlahLuas = Produk::sum('luas_lahan');
+        // $jumlahKategoriProduk = KategoriProduk::count();
+        // $jumlahLahan = Produk::count();
+        // return view('front.index', compact('jumlahLuas', 'jumlahKategoriProduk', 'jumlahLahan'));
+        return view('front.index');
     }
 
     public function data(Request $request)
@@ -33,7 +34,7 @@ class FrontController extends Controller
 
         // Filter berdasarkan kategoriproduk jika ada
         if ($request->has('kategoriproduk') && !empty($request->kategoriproduk)) {
-            $query->where('kategoriproduk_id', $request->kategoriproduk);
+            $query->where('kategori_id', $request->kategoriproduk);
         }
 
         $semua = $query->paginate(8);
@@ -58,7 +59,7 @@ class FrontController extends Controller
 
         // Filter berdasarkan kategoriproduk jika ada
         if ($request->has('kategoriproduk') && !empty($request->kategoriproduk)) {
-            $query->where('kategoriproduk_id', $request->kategoriproduk);
+            $query->where('kategori_id', $request->kategoriproduk);
         }
 
         $semua = $query->paginate(8);
@@ -83,7 +84,7 @@ class FrontController extends Controller
 
         // Filter berdasarkan kategoriproduk jika ada
         if ($request->has('kategoriproduk') && !empty($request->kategoriproduk)) {
-            $query->where('kategoriproduk_id', $request->kategoriproduk);
+            $query->where('kategori_id', $request->kategoriproduk);
         }
 
         $semua = $query->paginate(8);
@@ -126,11 +127,11 @@ class FrontController extends Controller
 
     public function peta(Request $request)
     {
-        $query = Produk::select('id', 'name', 'slug', 'alamat', 'longitude', 'latitude', 'kategoriproduk_id');
+        $query = Produk::select('id', 'name', 'slug', 'alamat', 'longitude', 'latitude', 'kategori_id');
 
         // Filter berdasarkan kategoriproduk jika ada
         if ($request->has('kategoriproduk') && !empty($request->kategoriproduk)) {
-            $query->where('kategoriproduk_id', $request->kategoriproduk);
+            $query->where('kategori_id', $request->kategoriproduk);
         }
 
         $lahans = $query->get();
