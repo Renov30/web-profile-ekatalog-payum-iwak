@@ -309,7 +309,7 @@
                         Pantai Payum
                     </h2>
                     <p class="text text-gray-600 mb-6 leading-relaxed">
-                        Payum Iwak adalah kelompok usaha yang dibentuk oleh para perempuan
+                        Payum Iwag adalah kelompok usaha yang dibentuk oleh para perempuan
                         nelayan di kawasan pesisir Pantai Payum Kabupaten Merauke. Kami berkomitmen untuk menghadirkan
                         produk perawatan kulit alami berkualitas tinggi yang terinspirasi
                         dari kekayaan laut Indonesia.
@@ -454,7 +454,7 @@
                     Mari Berkolaborasi
                 </h2>
                 <p class="text-md text-blue-100 max-w-2xl mx-auto">
-                    Tertarik dengan produk kami? Atau ingin bermitra dengan Payum Iwak?
+                    Tertarik dengan produk kami? Atau ingin bermitra dengan Payum Iwag?
                     Jangan ragu untuk menghubungi kami!
                 </p>
             </div>
@@ -473,7 +473,7 @@
                         <i class="fas fa-envelope text-blue-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Email</h3>
-                    <p class="text-blue-100">info@payumiwak.com</p>
+                    <p class="text-blue-100">info@payumiwag.com</p>
                 </div>
 
                 <div class="contact-box text-center bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
