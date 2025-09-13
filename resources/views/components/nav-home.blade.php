@@ -5,10 +5,10 @@
                 <div class="flex items-center space-x-4">
                     <a href="{{ route('front.index') }}" class="flex items-center space-x-4">
                         <div class="bg-white p-2 rounded-full">
-                            <img src="{{ asset('img/Logo.png') }}" alt="Logo Payum Iwak" class="h-7 w-auto" />
+                            <img src="{{ asset('img/Logo.png') }}" alt="Logo Payum Iwag" class="h-7 w-auto" />
                         </div>
                         <div>
-                            <h1 class="text-xl font-bold">Payum Iwak</h1>
+                            <h1 class="text-xl font-bold">Payum Iwag</h1>
                             <p class="text-blue-100 text-xs">
                                 Kelompok Usaha Perempuan Nelayan Pantai Payum
                             </p>
