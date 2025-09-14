@@ -21,12 +21,11 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class KategoriProdukResource extends Resource
 {
     protected static ?string $model = KategoriProduk::class;
-
+    protected static ?string $navigationGroup = 'Produk';
     protected static bool $isLazy = false;
-
     protected static ?string $modelLabel = 'Kategori Produk'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Daftar Kategori Produk'; // Label untuk daftar item
-    protected static ?string $navigationLabel = 'Kategori'; // Label di sidebar
+    protected static ?string $navigationLabel = 'Kategori Produk'; // Label di sidebar
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

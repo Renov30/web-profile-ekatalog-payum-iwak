@@ -17,14 +17,12 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ReviewResource extends Resource
 {
     protected static ?string $model = Review::class;
-
+    protected static ?string $navigationGroup = 'Informasi';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
     protected static bool $isLazy = false;
-
-    protected static ?string $modelLabel = 'Review'; // Label untuk satu item
+    protected static ?string $modelLabel = 'Ulasan'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Daftar Ulasan'; // Label untuk daftar item
-    protected static ?string $navigationLabel = 'Reviews'; // Label di sidebar
+    protected static ?string $navigationLabel = 'Ulasan'; // Label di sidebar
 
     public static function form(Form $form): Form
     {

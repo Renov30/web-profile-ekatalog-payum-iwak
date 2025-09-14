@@ -19,9 +19,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class PengaturanWebsiteResource extends Resource
 {
     protected static ?string $model = PengaturanWebsite::class;
-
-    protected static ?string $navigationLabel = 'Informasi'; // Label di sidebar
-
+    protected static ?string $navigationGroup = 'Informasi';
+    protected static ?string $navigationLabel = 'Informasi Web'; // Label di sidebar
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

@@ -27,13 +27,11 @@ use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 class ProdukResource extends Resource
 {
     protected static ?string $model = Produk::class;
-
+    protected static ?string $navigationGroup = 'Produk';
     protected static bool $isLazy = false;
-
     protected static ?string $modelLabel = 'Produk'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Daftar Produk'; // Label untuk daftar item
     protected static ?string $navigationLabel = 'Produk'; // Label di sidebar
-
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
