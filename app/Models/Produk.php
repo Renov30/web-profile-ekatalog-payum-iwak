@@ -60,4 +60,15 @@ class Produk extends Model
     {
         return $this->hasMany(OrderItem::class, 'produk_id');
     }
+
+    public function bahanBakus()
+    {
+        return $this->belongsToMany(BahanBaku::class, 'produk_bahan_bakus')
+            ->withPivot('kuantitas_per_unit');
+    }
+
+    public function produkBahanBakus()
+    {
+        return $this->hasMany(ProdukBahanBaku::class, 'produk_id');
+    }
 }
