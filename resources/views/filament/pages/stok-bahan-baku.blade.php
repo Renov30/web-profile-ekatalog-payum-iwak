@@ -64,7 +64,11 @@
                 @foreach ($produk->bahanBakus as $bahan)
                     <tr>
                         <td class="border px-4 py-2">{{ $bahan->name }}</td>
-                        <td class="border px-4 py-2">{{ $bahan->pivot->kuantitas_per_unit }}</td>
+                        <td class="border px-4 py-2">
+                            {{ fmod($bahan->pivot->kuantitas_per_unit, 1) == 0
+                                ? number_format($bahan->pivot->kuantitas_per_unit, 0)
+                                : rtrim(rtrim(number_format($bahan->pivot->kuantitas_per_unit, 2), '0'), '.') }}
+                        </td>
                         <td class="border px-4 py-2">{{ $bahan->satuan }}</td>
                     </tr>
                 @endforeach
@@ -87,7 +91,11 @@
                 @foreach ($produk->bahanBakus as $bahan)
                     <tr>
                         <td class="border px-4 py-2">{{ $bahan->name }}</td>
-                        <td class="border px-4 py-2">{{ $bahan->pivot->kuantitas_per_unit }}</td>
+                        <td class="border px-4 py-2">
+                            {{ fmod($bahan->pivot->kuantitas_per_unit, 1) == 0
+                                ? number_format($bahan->pivot->kuantitas_per_unit, 0)
+                                : rtrim(rtrim(number_format($bahan->pivot->kuantitas_per_unit, 2), '0'), '.') }}
+                        </td>
                         <td class="border px-4 py-2">{{ $bahan->satuan }}</td>
                     </tr>
                 @endforeach
@@ -110,7 +118,11 @@
                 @foreach ($produk->bahanBakus as $bahan)
                     <tr>
                         <td class="border px-4 py-2">{{ $bahan->name }}</td>
-                        <td class="border px-4 py-2">{{ $bahan->pivot->kuantitas_per_unit }}</td>
+                        <td class="border px-4 py-2">
+                            {{ fmod($bahan->pivot->kuantitas_per_unit, 1) == 0
+                                ? number_format($bahan->pivot->kuantitas_per_unit, 0)
+                                : rtrim(rtrim(number_format($bahan->pivot->kuantitas_per_unit, 2), '0'), '.') }}
+                        </td>
                         <td class="border px-4 py-2">{{ $bahan->satuan }}</td>
                     </tr>
                 @endforeach
@@ -133,7 +145,11 @@
                 @foreach ($produk->bahanBakus as $bahan)
                     <tr>
                         <td class="border px-4 py-2">{{ $bahan->name }}</td>
-                        <td class="border px-4 py-2">{{ $bahan->pivot->kuantitas_per_unit }}</td>
+                        <td class="border px-4 py-2">
+                            {{ fmod($bahan->pivot->kuantitas_per_unit, 1) == 0
+                                ? number_format($bahan->pivot->kuantitas_per_unit, 0)
+                                : rtrim(rtrim(number_format($bahan->pivot->kuantitas_per_unit, 2), '0'), '.') }}
+                        </td>
                         <td class="border px-4 py-2">{{ $bahan->satuan }}</td>
                     </tr>
                 @endforeach
