@@ -1,5 +1,5 @@
 @extends('front.layouts.app')
-@section('title', 'Detail-produk')
+@section('title', 'Detail Produk - Payum Iwak')
 @section('content')
     <x-nav-katalog />
     <!-- Breadcrumb -->

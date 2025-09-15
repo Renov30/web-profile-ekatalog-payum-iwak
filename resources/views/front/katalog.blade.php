@@ -1,6 +1,6 @@
 {{-- blade-formatter-disable --}}
 @extends('front.layouts.app')
-@section('title', 'Katalog')
+@section('title', 'Katalog Produk - Payum Iwak')
 @section('content')
     <x-nav-katalog />
     <!-- Breadcrumb -->
@@ -136,7 +136,7 @@
         let products = [];
         // let currentProducts = [...products];
         let currentProducts = [];
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cart = JSON.parse(localStorage.getItem(" ")) || [];
         let currentPage = 1;
         const productsPerPage = 8;
 
@@ -176,6 +176,23 @@
                 }));
 
                 currentProducts = [...products];
+
+                // 🔹 Sinkronisasi cart dengan produk yang tersedia
+                cart = (JSON.parse(localStorage.getItem("cart")) || [])
+                    // hanya ambil item yang id-nya masih ada di produk
+                    .map(item => {
+                        const match = products.find(p => p.id === item.id);
+                        if (!match) return null;
+                        return {
+                            ...match,                // update data produk terbaru (harga, nama, dsb)
+                            quantity: item.quantity  // tetap simpan quantity user
+                        };
+                    })
+                    .filter(Boolean); // hapus item yang null
+
+                // simpan kembali cart yang sudah disinkronkan
+                localStorage.setItem("cart", JSON.stringify(cart));
+        
             } catch (error) {
                 console.error("Gagal memuat produk:", error);
             }
@@ -840,6 +857,9 @@
     <x-footer />
 @endsection
 {{-- blade-formatter-enable --}}
+
+
+
 
 
 

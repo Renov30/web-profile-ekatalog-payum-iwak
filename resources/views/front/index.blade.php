@@ -1,5 +1,5 @@
 @extends('front.layouts.app')
-@section('title', 'Home')
+@section('title', 'Home - Payum Iwak')
 @section('content')
     <x-nav-home />
     <!-- Hero Section -->
