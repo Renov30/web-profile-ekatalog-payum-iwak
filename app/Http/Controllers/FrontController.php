@@ -93,6 +93,11 @@ class FrontController extends Controller
         return view('front.detail-produk', compact('semua', 'kategoriproduks'));
     }
 
+    public function pesanWhatsapp()
+    {
+        return view('front.pesan-whatsapp');
+    }
+
     public function detail(Produk $produk, Request $request)
     {
         // Load relasi yang diperlukan
