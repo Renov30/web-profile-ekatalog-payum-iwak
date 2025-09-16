@@ -8,6 +8,7 @@ use App\Helpers\EnumStatusHelper;
 use App\Models\OrderItem;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -31,7 +32,15 @@ class OrderItemsResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Select::make('produk_id')
+                    ->label('Pilih Produk')
+                    ->required()
+                    ->relationship('produk', 'name'),
+                TextInput::make('kuantitas')
+                    ->label('Jumlah')
+                    ->numeric()
+                    ->required()
+                    ->minValue(1),
             ]);
     }
 
@@ -51,32 +60,34 @@ class OrderItemsResource extends Resource
                     ->label('Jumlah')
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('order.status')
-                    ->label('Status Pesanan')
-                    ->badge()
-                    ->colors([
-                        'warning' => 'menunggu konfirmasi',
-                        'success' => 'dikonfirmasi',
-                        'info'    => 'dalam proses',
-                        'primary' => 'pengemasan',
-                        'purple'  => 'pengiriman',
-                        'emerald' => 'selesai',
-                        'danger'  => 'dibatalkan',
-                    ])
+                TextColumn::make('harga_satuan')
+                    ->label('Harga Satuan')
                     ->sortable()
-                    ->searchable(),
-                SelectColumn::make('status_proses')
-                    ->label("Status Proses")
-                    ->options(EnumStatusHelper::getEnumValues('order_items', 'status_proses'))
+                    ->searchable()
+                    ->money('IDR')
+                    ->getStateUsing(function (OrderItem $record) {
+                        if (!$record->produk) return 0;
+
+                        $harga = $record->produk->harga;
+                        $diskon = $record->produk->diskon ?? 0;
+
+                        return $harga - ($harga * $diskon / 100);
+                    }),
+
+                TextColumn::make('harga_subtotal')
+                    ->label('Harga Subtotal')
                     ->sortable()
-                    ->searchable(),
-                TextColumn::make('tanggal_mulai')
-                    ->label('Tanggal Mulai Produksi')
-                    ->formatStateUsing(function ($state) {
-                        return $state === '0000-00-00' ? '0000-00-00' : $state;
-                    })
-                    ->sortable()
-                    ->searchable(),
+                    ->searchable()
+                    ->money('IDR')
+                    ->getStateUsing(function (OrderItem $record) {
+                        if (!$record->produk) return 0;
+
+                        $harga = $record->produk->harga;
+                        $diskon = $record->produk->diskon ?? 0;
+                        $hargaDiskon = $harga - ($harga * $diskon / 100);
+
+                        return $hargaDiskon * $record->kuantitas;
+                    }),
             ])
             ->filters([
                 //
@@ -105,5 +116,10 @@ class OrderItemsResource extends Resource
             'create' => Pages\CreateOrderItems::route('/create'),
             'edit' => Pages\EditOrderItems::route('/{record}/edit'),
         ];
+    }
+
+    public static function canCreate(): bool
+    {
+        return false; // tombol New / Create tidak akan muncul
     }
 }
