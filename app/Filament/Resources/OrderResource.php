@@ -8,6 +8,7 @@ use App\Helpers\EnumStatusHelper;
 use App\Models\Order;
 use App\Models\Produk;
 use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -40,6 +41,10 @@ class OrderResource extends Resource
                     ->label('Nama Pembeli')
                     ->required()
                     ->maxLength(255),
+                DatePicker::make('tanggal_order')
+                    ->label('Tanggal Pesan')
+                    ->default(now())
+                    ->required(),
                 TextInput::make('no_hp')
                     ->label('No Handphone')
                     ->required()
@@ -48,34 +53,51 @@ class OrderResource extends Resource
                     ->label('Alamat')
                     ->required()
                     ->rows(5),
-                Select::make('status')
-                    ->label('Status')
-                    ->options(EnumStatusHelper::getEnumValues('orders', 'status'))
-                    ->required(),
-                Repeater::make('orderItem') // relasi order -> orderItem
+                Repeater::make('orderItem')
                     ->label('Daftar Produk')
-                    ->relationship() // otomatis simpan ke relasi
                     ->columnSpanFull()
+                    ->relationship()
+                    ->afterStateUpdated(function ($state, $set) {
+                        // $state adalah seluruh array orderItem
+                        $total = collect($state)->sum(fn($item) => $item['harga_subtotal'] ?? 0);
+                        $set('total_harga', $total);
+                    })
                     ->schema([
                         Select::make('produk_id')
                             ->label('Produk')
                             ->options(Produk::all()->pluck('name', 'id'))
-                            ->searchable()
-                            ->required(),
-
+                            ->reactive()
+                            ->afterStateUpdated(function ($state, $set, $get) {
+                                $produk = Produk::find($state);
+                                if ($produk) {
+                                    $harga = $produk->diskon
+                                        ? $produk->harga - ($produk->harga * $produk->diskon / 100)
+                                        : $produk->harga;
+                                    $set('harga_satuan', $harga);
+                                    $qty = $get('kuantitas') ?? 1;
+                                    $set('harga_subtotal', $harga * $qty);
+                                }
+                            }),
                         TextInput::make('kuantitas')
                             ->label('Kuantitas')
                             ->numeric()
                             ->minValue(1)
-                            ->required(),
-
-                        // Select::make('status_proses')
-                        //     ->label('Status Proses')
-                        //     ->options(EnumStatusHelper::getEnumValues('order_items', 'status_proses'))
-                        //     ->default(fn() => collect(EnumStatusHelper::getEnumValues('order_items', 'status_proses'))->keys()->first()) // ambil nilai pertama
-                        //     ->required(),
+                            ->reactive()
+                            ->afterStateUpdated(function ($state, $set, $get) {
+                                $harga = $get('harga_satuan') ?? 0;
+                                $set('harga_subtotal', $harga * $state);
+                            }),
+                        TextInput::make('harga_satuan')
+                            ->label('Harga Satuan')
+                            ->numeric()
+                            ->disabled(),
+                        TextInput::make('harga_subtotal')
+                            ->label('Subtotal')
+                            ->numeric()
+                            ->disabled()
+                            ->reactive(),
                     ])
-                    ->columns(2) // biar lebih rapih
+                    ->columns(4)
                     ->createItemButtonLabel('Tambah Produk'),
             ]);
     }
@@ -85,7 +107,12 @@ class OrderResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')
-                    ->label("ID Pesanan")
+                    ->label("ID")
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('tanggal_order')
+                    ->label('Tanggal')
+                    ->date()
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('name')
@@ -133,25 +160,46 @@ class OrderResource extends Resource
                     ->money('IDR') // biar diformat uang otomatis
                     ->sortable(),
 
-                SelectColumn::make('status')
+                TextColumn::make('status')
                     ->label("Status")
-                    ->options(EnumStatusHelper::getEnumValues('orders', 'status'))
-                    ->sortable()
+                    ->badge()
+                    ->colors([
+                        'warning' => 'menunggu konfirmasi',
+                        'success' => 'dalam proses',
+                        'emerald' => 'selesai',
+                        'danger'  => 'dibatalkan',
+                    ])
                     ->searchable()
-                    ->afterStateUpdated(function ($state, $record) {
-                        if ($state === 'dalam proses') {
-                            $record->orderItem()->update([
-                                'tanggal_mulai' => now(),
-                                'status_proses' => 'pengumpulan bahan & pengupasan',
-                            ]);
-                        }
-                    }),
+                    ->sortable(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
+                Tables\Actions\Action::make('konfirmasi')
+                    ->label('Konfirmasi')
+                    ->icon('heroicon-o-check-circle')
+                    ->color('success')
+                    ->requiresConfirmation()
+                    ->disabled(fn(Order $record) => $record->status === 'dalam proses')
+                    ->action(function (Order $record) {
+                        $record->update([
+                            'status' => 'dalam proses',
+                        ]);
+                    }),
+                Tables\Actions\Action::make('batalkan')
+                    ->label('Batalkan')
+                    ->icon('heroicon-o-x-circle')
+                    ->color('danger')
+                    ->requiresConfirmation()
+                    ->disabled(fn(Order $record) => $record->status === 'selesai')
+                    ->action(function (Order $record) {
+                        $record->update([
+                            'status' => 'dibatalkan',
+                        ]);
+                    }),
                 Tables\Actions\EditAction::make(),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
