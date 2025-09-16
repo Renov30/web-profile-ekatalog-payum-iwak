@@ -15,10 +15,16 @@ class Order extends Model
         'no_hp',
         'alamat',
         'status',
+        'tanggal_order',
     ];
 
     public function orderItem()
     {
         return $this->hasMany(OrderItem::class, 'order_id');
+    }
+
+    public function production()
+    {
+        return $this->hasOne(OrderProduction::class, 'order_id');
     }
 }
