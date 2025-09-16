@@ -90,12 +90,31 @@ class OrderResource extends Resource
                         TextInput::make('harga_satuan')
                             ->label('Harga Satuan')
                             ->numeric()
-                            ->disabled(),
+                            ->disabled()
+                            ->dehydrated(false)
+                            ->afterStateHydrated(function ($state, $set, $get, $record) {
+                                if ($produk = Produk::find($get('produk_id'))) {
+                                    $harga = $produk->diskon
+                                        ? $produk->harga - ($produk->harga * $produk->diskon / 100)
+                                        : $produk->harga;
+                                    $set('harga_satuan', $harga);
+                                }
+                            }),
                         TextInput::make('harga_subtotal')
                             ->label('Subtotal')
                             ->numeric()
                             ->disabled()
-                            ->reactive(),
+                            ->reactive()
+                            ->dehydrated(false)
+                            ->afterStateHydrated(function ($state, $set, $get, $record) {
+                                if ($produk = Produk::find($get('produk_id'))) {
+                                    $harga = $produk->diskon
+                                        ? $produk->harga - ($produk->harga * $produk->diskon / 100)
+                                        : $produk->harga;
+                                    $qty = $get('kuantitas') ?? 1;
+                                    $set('harga_subtotal', $harga * $qty);
+                                }
+                            }),
                     ])
                     ->columns(4)
                     ->createItemButtonLabel('Tambah Produk'),
