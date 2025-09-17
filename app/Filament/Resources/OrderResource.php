@@ -196,6 +196,15 @@ class OrderResource extends Resource
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
+                Tables\Filters\Filter::make('dibatalkan')
+                    ->label('Pesanan Dibatalkan')
+                    ->query(fn($query) => $query->where('status', 'dibatalkan')),
+                Tables\Filters\Filter::make('menunggu_konfirmasi')
+                    ->label('Pesanan Menunggu Konfirmasi')
+                    ->query(fn($query) => $query->where('status', 'menunggu konfirmasi')),
+                Tables\Filters\Filter::make('dalam_proses')
+                    ->label('Pesanan Dalam Proses')
+                    ->query(fn($query) => $query->where('status', 'dalam proses')),
             ])
             ->actions([
                 Tables\Actions\Action::make('konfirmasi')

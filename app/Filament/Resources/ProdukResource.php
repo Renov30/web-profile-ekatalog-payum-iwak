@@ -12,9 +12,11 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\TextInputColumn;
@@ -76,6 +78,9 @@ class ProdukResource extends Resource
                 RichEditor::make('penggunaan')
                     ->label('Cara Penggunaan')
                     ->columnSpanFull(),
+                Toggle::make('produk_unggulan')
+                    ->label('Apakah ini Produk Unggulan?')
+                    ->default(false),
             ]);
     }
 
