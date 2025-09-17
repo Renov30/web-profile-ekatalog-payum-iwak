@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="text-center floating-animation h-full flex items-center justify-center mt-10">
-                    <img src="{{ asset('img/Hero img.png') }}"
+                    <img src="{{ asset('img/foto-produk-3.jpg') }}"
                         alt="Collection of natural beauty care products including handmade soap bars, body scrub jars, body butter containers, and lip balm tubes arranged artistically with seashells and marine elements on a clean white background"
                         class="rounded-2xl shadow-2xl mx-auto max-w-full h-auto max-h-[500px]" />
                 </div>
@@ -45,7 +45,7 @@
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="pt-24 py-20 bg-white">
+    {{-- <section id="products" class="pt-24 py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <div class="inline-block bg-blue-100 px-6 py-2 rounded-full mb-4">
@@ -293,7 +293,101 @@
                 </div>
             </div>
         </div>
+    </section> --}}
+    <section id="products" class="pt-24 py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <!-- Section Heading -->
+            <div class="text-center mb-16">
+                <div class="inline-block bg-blue-100 px-6 py-2 rounded-full mb-4">
+                    <span class="text-blue-600 text-sm font-semibold">Produk Kami</span>
+                </div>
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    Jelajahi Kategori Produk
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Temukan rangkaian perawatan kulit alami sesuai kebutuhanmu
+                </p>
+                <div class="section-divider w-24"></div>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Sabun -->
+                <div class="product-card bg-blue-50 rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition">
+                    <i class="fas fa-soap text-blue-600 text-4xl m-6"></i>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Sabun Alami</h3>
+                    <p class="text-gray-600 mb-4">Membersihkan sekaligus melembabkan kulit.</p>
+                </div>
+
+                <!-- Body Scrub -->
+                <div class="product-card bg-green-50 rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition">
+                    <i class="fas fa-spa text-green-600 text-4xl m-6"></i>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Body Scrub</h3>
+                    <p class="text-gray-600 mb-4">Angkat sel kulit mati dengan lembut.</p>
+                </div>
+
+                <!-- Body Butter -->
+                <div class="product-card bg-purple-50 rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition">
+                    <i class="fas fa-hand-holding-heart text-purple-600 text-4xl m-6"></i>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Body Butter</h3>
+                    <p class="text-gray-600 mb-4">Pelembab intensif untuk kulit kering.</p>
+                </div>
+
+                <!-- Lip Balm -->
+                <div class="product-card bg-pink-50 rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition">
+                    <i class="fas fa-kiss-wink-heart text-pink-600 text-4xl m-6"></i>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Lip Balm</h3>
+                    <p class="text-gray-600 mb-4">Lindungi dan lembabkan bibirmu.</p>
+                </div>
+            </div>
+
+            <!-- Product Benefits -->
+            <div
+                class="why-choose mt-20 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl p-8 md:p-12 container mx-auto">
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">
+                    Mengapa Memilih Produk Kami?
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="bg-white p-4 rounded-full w-16 h-16 mx-auto mb-6 shadow-lg">
+                            <i class="fas fa-leaf text-green-500 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">100% Natural</h4>
+                        <p class="text-gray-600">
+                            Dibuat dari bahan-bahan alami pilihan tanpa zat kimia berbahaya.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white p-4 rounded-full w-16 h-16 mx-auto mb-6 shadow-lg">
+                            <i class="fas fa-heart text-red-500 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">Handmade</h4>
+                        <p class="text-gray-600">
+                            Setiap produk dibuat dengan tangan penuh perhatian dan cinta.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white p-4 rounded-full w-16 h-16 mx-auto mb-6 shadow-lg">
+                            <i class="fas fa-award text-yellow-500 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-3">Berkualitas</h4>
+                        <p class="text-gray-600">
+                            Telah teruji kualitas dan keamanannya untuk berbagai jenis kulit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- CTA -->
+            <div class="tentang-box text-center mt-12">
+                <a href="{{ route('front.katalog') }}"
+                    class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
+                    Lihat Semua Produk
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
     </section>
+
 
     <!-- About Section -->
     <section id="about" class="pt-24 py-20 bg-gray-50">
@@ -347,7 +441,7 @@
                     </button>
                 </div>
                 <div class="text-center">
-                    <img src="{{ asset('img/Tentang Kami img.png') }}"
+                    <img src="{{ asset('img/foto-bersama-1.jpg') }}"
                         alt="Group photo of women fisherman cooperative members working together in their natural beauty product workshop, showing traditional Indonesian coastal community spirit with ocean backdrop"
                         class="rounded-2xl shadow-2xl max-w-full h-auto" />
                 </div>
@@ -382,7 +476,7 @@
                         lembut dan sehat. Produk lokal terbaik yang pernah saya coba."
                     </p>
                     <div class="flex items-center">
-                        <img src="{{ asset('img/Sari Dewi.png') }}"
+                        <img src="{{ asset('img/foto-review-1.jpg') }}"
                             alt="Portrait of satisfied female customer with glowing healthy skin smiling warmly"
                             class="w-12 h-12 rounded-full mr-4" />
                         <div>
@@ -405,11 +499,11 @@
                         melembabkan. Wanginya juga natural dan menenangkan."
                     </p>
                     <div class="flex items-center">
-                        <img src="{{ asset('img/Maya Putri.png') }}"
+                        <img src="{{ asset('img/foto-review-4.jpg') }}"
                             alt="Portrait of happy young woman with clear radiant skin holding natural beauty products"
                             class="w-12 h-12 rounded-full mr-4" />
                         <div>
-                            <div class="font-semibold text-gray-800">Maya Putri</div>
+                            <div class="font-semibold text-gray-800">Arin Anggawirya</div>
                             <div class="text-sm text-gray-500">Beauty Enthusiast</div>
                         </div>
                     </div>
@@ -429,11 +523,11 @@
                         terjangkau."
                     </p>
                     <div class="flex items-center">
-                        <img src="{{ asset('img/Rina Sari.png') }}"
+                        <img src="{{ asset('img/foto-review-2.jpg') }}"
                             alt="Portrait of mature woman with healthy glowing skin showing satisfaction and confidence"
                             class="w-12 h-12 rounded-full mr-4" />
                         <div>
-                            <div class="font-semibold text-gray-800">Rina Sari</div>
+                            <div class="font-semibold text-gray-800">Widayanto</div>
                             <div class="text-sm text-gray-500">Skincare Lover</div>
                         </div>
                     </div>
