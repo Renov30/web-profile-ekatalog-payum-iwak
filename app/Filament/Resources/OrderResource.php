@@ -6,7 +6,10 @@ use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Resources\OrderResource\RelationManagers;
 use App\Helpers\EnumStatusHelper;
 use App\Models\Order;
+use App\Models\OrderProduction;
+use App\Models\ProductionStage;
 use App\Models\Produk;
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Repeater;
@@ -200,10 +203,25 @@ class OrderResource extends Resource
                     ->icon('heroicon-o-check-circle')
                     ->color('success')
                     ->requiresConfirmation()
-                    ->disabled(fn(Order $record) => $record->status === 'dalam proses')
+                    ->disabled(fn(Order $record) => in_array($record->status, ['dalam proses', 'dibatalkan', 'selesai']))
                     ->action(function (Order $record) {
                         $record->update([
                             'status' => 'dalam proses',
+                        ]);
+
+                        // Ambil stage pertama berdasarkan urutan
+                        $firstStage = ProductionStage::orderBy('urutan')->first();
+
+                        // Hitung total durasi seluruh stage
+                        $totalDurasi = ProductionStage::sum('durasi');
+
+                        // Buat record order_productions
+                        OrderProduction::create([
+                            'id_order' => $record->id,
+                            'id_stage' => $firstStage->id,
+                            'tanggal_mulai' => Carbon::now(),
+                            'waktu_total_produksi' => $totalDurasi,
+                            'persentase_progress' => 0, // produksi baru dimulai
                         ]);
                     }),
                 Tables\Actions\Action::make('batalkan')
@@ -211,11 +229,12 @@ class OrderResource extends Resource
                     ->icon('heroicon-o-x-circle')
                     ->color('danger')
                     ->requiresConfirmation()
-                    ->disabled(fn(Order $record) => $record->status === 'selesai')
+                    ->disabled(fn(Order $record) => in_array($record->status, ['selesai', 'dibatalkan']))
                     ->action(function (Order $record) {
                         $record->update([
                             'status' => 'dibatalkan',
                         ]);
+                        OrderProduction::where('id_order', $record->id)->delete();
                     }),
                 Tables\Actions\EditAction::make(),
 
