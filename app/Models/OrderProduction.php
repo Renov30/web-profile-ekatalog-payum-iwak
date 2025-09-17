@@ -18,7 +18,6 @@ class OrderProduction extends Model
         'tanggal_mulai',
         'waktu_total_produksi',
         'persentase_progress',
-        'current_stage',
     ];
 
     // Relasi ke Order
@@ -30,7 +29,7 @@ class OrderProduction extends Model
     // Relasi ke ProductionStage (stage saat ini)
     public function stage()
     {
-        return $this->belongsTo(ProductionStage::class, 'current_stage', 'urutan');
+        return $this->belongsTo(ProductionStage::class, 'id_stage');
     }
 
     // Accessor untuk menghitung stage dan progress otomatis
@@ -53,7 +52,6 @@ class OrderProduction extends Model
         $progressPercent = min(100, ($daysElapsed / $totalDays) * 100);
 
         return [
-            'current_stage' => $currentStage,
             'persentase_progress' => $progressPercent
         ];
     }
