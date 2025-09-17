@@ -88,6 +88,17 @@ class OrderItemsResource extends Resource
 
                         return $hargaDiskon * $record->kuantitas;
                     }),
+                TextColumn::make('order.status')
+                    ->label("Status")
+                    ->badge()
+                    ->colors([
+                        'warning' => 'menunggu konfirmasi',
+                        'success' => 'dalam proses',
+                        'emerald' => 'selesai',
+                        'danger'  => 'dibatalkan',
+                    ])
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
                 //
