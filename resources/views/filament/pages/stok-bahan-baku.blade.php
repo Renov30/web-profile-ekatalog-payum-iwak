@@ -60,7 +60,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($produks->where('name', 'Sabun Kopi') as $produk)
+            @foreach ($produks->where('name', 'Sabun') as $produk)
                 @foreach ($produk->bahanBakus as $bahan)
                     <tr>
                         <td class="border px-4 py-2">{{ $bahan->name }}</td>
