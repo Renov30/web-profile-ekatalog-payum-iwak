@@ -378,7 +378,7 @@
                 </div>
             </div>
             <!-- CTA -->
-            <div class="tentang-box text-center mt-12">
+            <div class="tentang-box text-center mt-20">
                 <a href="{{ route('front.katalog') }}"
                     class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
                     Lihat Semua Produk
