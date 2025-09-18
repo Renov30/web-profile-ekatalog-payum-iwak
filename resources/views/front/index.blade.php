@@ -527,7 +527,7 @@
                             alt="Portrait of mature woman with healthy glowing skin showing satisfaction and confidence"
                             class="w-12 h-12 rounded-full mr-4" />
                         <div>
-                            <div class="font-semibold text-gray-800">Widayanto</div>
+                            <div class="font-semibold text-gray-800">Yuli Widayanto</div>
                             <div class="text-sm text-gray-500">Skincare Lover</div>
                         </div>
                     </div>
@@ -559,7 +559,7 @@
                         <i class="fas fa-phone text-blue-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Telepon</h3>
-                    <p class="text-blue-100">+62 812-3456-7890</p>
+                    <p class="text-blue-100">+62 822-4811-1790</p>
                 </div>
 
                 <div class="contact-box text-center bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
@@ -567,7 +567,7 @@
                         <i class="fas fa-envelope text-blue-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Email</h3>
-                    <p class="text-blue-100">info@payumiwag.com</p>
+                    <p class="text-blue-100">payumiwag@gmail.com</p>
                 </div>
 
                 <div class="contact-box text-center bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
@@ -576,7 +576,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Alamat</h3>
                     <p class="text-blue-100">
-                        Desa Nelayan Payum<br />Kabupaten Pesisir
+                        Pantai Payum<br />Kabupaten Merauke
                     </p>
                 </div>
             </div>
