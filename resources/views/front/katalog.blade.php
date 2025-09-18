@@ -779,30 +779,58 @@
         }
 
         // Checkout
-        function checkout() {
-            if (cart.length === 0) {
-                showNotification("Keranjang masih kosong!", "error");
-                return;
-            }
+   function checkout() {
+    if (cart.length === 0) {
+        showNotification("Keranjang masih kosong!", "error");
+        return;
+    }
 
-            const total = cart.reduce(
-                (sum, item) => sum + item.price * item.quantity,
-                0
-            );
-            const message = `Halo, saya ingin memesan:\n\n${cart
-          .map(
-            (item) =>
-              `${item.name} x${item.quantity} = Rp ${(
-                                    item.price * item.quantity
-                                    ).toLocaleString()}`
-          )
-          .join("\n")}\n\nTotal: Rp ${total.toLocaleString()}`;
+    let token = document.querySelector('meta[name="csrf-token"]');
+    if (!token) {
+        console.error("CSRF token tidak ditemukan di halaman!");
+        return;
+    }
 
-            const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(
-          message
-        )}`;
-            window.open(whatsappUrl, "_blank");
-        }
+    fetch("/set-cart", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": token.content
+        },
+        body: JSON.stringify({ cart })
+    })
+    .then(res => res.json())
+    .then(() => {
+        window.location.href = "/pesan-whatsapp";
+    })
+    .catch(err => console.error("Error:", err));
+}
+
+        
+        // function checkout() {
+        //     if (cart.length === 0) {
+        //         showNotification("Keranjang masih kosong!", "error");
+        //         return;
+        //     }
+
+        //     const total = cart.reduce(
+        //         (sum, item) => sum + item.price * item.quantity,
+        //         0
+        //     );
+        //     const message = `Halo, saya ingin memesan:\n\n${cart
+        //   .map(
+        //     (item) =>
+        //       `${item.name} x${item.quantity} = Rp ${(
+        //                             item.price * item.quantity
+        //                             ).toLocaleString()}`
+        //   )
+        //   .join("\n")}\n\nTotal: Rp ${total.toLocaleString()}`;
+
+        //     const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(
+        //   message
+        // )}`;
+        //     window.open(whatsappUrl, "_blank");
+        // }
 
         // Toggle wishlist
         function toggleWishlist(productId) {
@@ -857,6 +885,20 @@
     <x-footer />
 @endsection
 {{-- blade-formatter-enable --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

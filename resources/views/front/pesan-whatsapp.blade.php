@@ -1,4 +1,7 @@
 {{-- blade-formatter-disable --}}
+@php
+    $cart = session('cart', []);
+@endphp
 @extends('front.layouts.app')
 @section('title', 'Checkout via WhatsApp - Payum Iwak')
 @section('content')
@@ -8,7 +11,7 @@
       <!-- Selected Products -->
       <div
         id="selectedProducts"
-        class="bg-white rounded-2xl shadow-xl overflow-hidden mt-8"
+        class="bg-white rounded-2xl shadow-lg overflow-hidden mt-8"
       >
         <div class="bg-gradient-to-r from-green-50 to-emerald-100 p-6 border-b">
           <h3 class="text-xl font-bold text-gray-800 mb-2">
@@ -43,7 +46,8 @@
         </div>
 
         <div class="p-6">
-          <form id="customerForm" class="space-y-6">
+          <form id="customerForm" class="space-y-6"  action="{{ route('kirim.pesan') }}" method="POST">
+                @csrf
             <div class="grid md:grid-cols-2 gap-6">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -52,6 +56,7 @@
                 <input
                   type="text"
                   id="customerName"
+                  name="nama"
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Masukkan nama lengkap Anda"
@@ -66,6 +71,7 @@
                 <input
                   type="tel"
                   id="customerPhone"
+                  name="no_hp"
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="08xxxxxxxxxx"
@@ -73,7 +79,7 @@
               </div>
             </div>
 
-            <div>
+            {{-- <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">
                 <i class="fas fa-envelope mr-2 text-red-600"></i>Email
                 (Opsional)
@@ -84,7 +90,7 @@
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="email@example.com"
               />
-            </div>
+            </div> --}}
 
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -94,6 +100,7 @@
               <textarea
                 id="customerAddress"
                 required
+                name="alamat"
                 rows="3"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Masukkan alamat lengkap untuk pengiriman"
@@ -109,6 +116,7 @@
                 <input
                   type="text"
                   id="customerCity"
+                  name="kota"
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Nama kota/kabupaten"
@@ -121,22 +129,49 @@
                 </label>
                 <select
                   id="customerProvince"
+                  name="provinsi"
                   required
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="">Pilih Provinsi</option>
-                  <option value="DKI Jakarta">DKI Jakarta</option>
-                  <option value="Jawa Barat">Jawa Barat</option>
-                  <option value="Jawa Tengah">Jawa Tengah</option>
-                  <option value="Jawa Timur">Jawa Timur</option>
-                  <option value="Banten">Banten</option>
-                  <option value="Yogyakarta">D.I. Yogyakarta</option>
-                  <option value="Bali">Bali</option>
-                  <option value="Sumatera Utara">Sumatera Utara</option>
-                  <option value="Sumatera Selatan">Sumatera Selatan</option>
-                  <option value="Sumatera Barat">Sumatera Barat</option>
-                  <option value="Kalimantan Timur">Kalimantan Timur</option>
-                  <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                <option value="Aceh">Aceh</option>
+                <option value="Sumatera Utara">Sumatera Utara</option>
+                <option value="Sumatera Selatan">Sumatera Selatan</option>
+                <option value="Sumatera Barat">Sumatera Barat</option>
+                <option value="Bengkulu">Bengkulu</option>
+                <option value="Riau">Riau</option>
+                <option value="Kepulauan Riau">Kepulauan Riau</option>
+                <option value="Jambi">Jambi</option>
+                <option value="Lampung">Lampung</option>
+                <option value="Bangka Belitung">Bangka Belitung</option>
+                <option value="Kalimantan Barat">Kalimantan Barat</option>
+                <option value="Kalimantan Timur">Kalimantan Timur</option>
+                <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                <option value="Kalimantan Tengah">Kalimantan Tengah</option>
+                <option value="Kalimantan Utara">Kalimantan Utara</option>
+                <option value="Banten">Banten</option>
+                <option value="DKI Jakarta">DKI Jakarta</option>
+                <option value="Jawa Barat">Jawa Barat</option>
+                <option value="Jawa Tengah">Jawa Tengah</option>
+                <option value="Daerah Istimewa Yogyakarta">Daerah Istimewa Yogyakarta</option>
+                <option value="Jawa Timur">Jawa Timur</option>
+                <option value="Bali">Bali</option>
+                <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+                <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+                <option value="Gorontalo">Gorontalo</option>
+                <option value="Sulawesi Barat">Sulawesi Barat</option>
+                <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                <option value="Sulawesi Utara">Sulawesi Utara</option>
+                <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                <option value="Maluku Utara">Maluku Utara</option>
+                <option value="Maluku">Maluku</option>
+                <option value="Papua Barat">Papua Barat</option>
+                <option value="Papua">Papua</option>
+                <option value="Papua Tengah">Papua Tengah</option>
+                <option value="Papua Pegunungan">Papua Pegunungan</option>
+                <option value="Papua Selatan">Papua Selatan</option>
+                <option value="Papua Barat Daya">Papua Barat Daya</option>
                 </select>
               </div>
 
@@ -147,6 +182,7 @@
                 <input
                   type="text"
                   id="customerPostal"
+                  name="kode_pos"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="12345"
                 />
@@ -165,6 +201,8 @@
                 placeholder="Catatan khusus untuk pesanan Anda..."
               ></textarea>
             </div>
+
+            <input type="hidden" name="wa_message" id="waMessage">
           </form>
 
           <div class="flex space-x-4 mt-8">
@@ -175,12 +213,12 @@
               <i class="fas fa-arrow-left mr-2"></i>
               Kembali
             </button>
-            <button
+            <button 
               onclick="prepareMessage()"
               class="flex-1 btn-primary text-white py-3 rounded-xl font-semibold"
             >
               <i class="fas fa-paper-plane mr-2"></i>
-              Buat Pesan WhatsApp
+              Buat Pesanan
             </button>
           </div>
         </div>
@@ -198,8 +236,8 @@
               <i class="fab fa-whatsapp text-green-600 text-2xl"></i>
             </div>
             <div>
-              <h2 class="text-2xl font-bold">Pesan WhatsApp Siap Dikirim!</h2>
-              <p class="text-green-100">Preview pesan Anda sebelum mengirim</p>
+              <h2 class="text-gray-600 text-2xl font-bold">Pesan WhatsApp Siap Dikirim!</h2>
+              <p class="text-green-600">Preview pesan Anda sebelum mengirim</p>
             </div>
           </div>
         </div>
@@ -315,7 +353,7 @@
       class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center"
     >
       <div
-        class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full mx-4 max-h-96 overflow-hidden"
+        class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full mx-4 overflow-hidden"
       >
         <div class="bg-blue-600 text-white p-4">
           <h3 class="text-lg font-bold">Edit Pesan WhatsApp</h3>
@@ -357,207 +395,16 @@
 
     <script>
       // Product data
-      const products = [
-        {
-          id: 1,
-          name: "Sabun Natural Sea Salt",
-          price: 25000,
-          originalPrice: 30000,
-          image:
-            "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fa575762-f63d-4c2b-8e00-e238d9d66849.png",
-          imageAlt:
-            "Handcrafted sea salt soap bar with natural white color and embedded sea salt crystals",
-          category: "sabun",
-          badge: "bestseller",
-        },
-        {
-          id: 2,
-          name: "Sabun Seaweed Detox",
-          price: 28000,
-          originalPrice: 35000,
-          image: "https://placehold.co/300x200",
-          imageAlt:
-            "Green seaweed detox soap bar with visible seaweed flakes arranged on dark volcanic rocks",
-          category: "sabun",
-          badge: "organic",
-        },
-        {
-          id: 3,
-          name: "Coffee Sea Salt Scrub",
-          price: 35000,
-          originalPrice: 42000,
-          image: "https://placehold.co/300x200",
-          imageAlt:
-            "Luxurious coffee and sea salt body scrub in clear glass jar with wooden lid",
-          category: "body-scrub",
-          badge: "bestseller",
-        },
-        {
-          id: 4,
-          name: "Coconut Paradise Butter",
-          price: 45000,
-          originalPrice: 55000,
-          image: "https://placehold.co/300x200",
-          imageAlt:
-            "Rich coconut body butter in elegant white jar with gold accents",
-          category: "body-butter",
-          badge: "bestseller",
-        },
-        {
-          id: 5,
-          name: "Tropical Fruit Lip Balm Set",
-          price: 45000,
-          originalPrice: 60000,
-          image: "https://placehold.co/300x200",
-          imageAlt:
-            "Set of colorful tropical fruit lip balms in sleek tubes with various flavors",
-          category: "lip-balm",
-          badge: "new",
-        },
-        {
-          id: 6,
-          name: "Honey Oat Soap",
-          price: 30000,
-          originalPrice: null,
-          image: "https://placehold.co/300x200",
-          imageAlt:
-            "Golden honey oat soap bar with visible oat flakes and honey drizzle",
-          category: "sabun",
-          badge: "new",
-        },
-      ];
+      const products = [];
 
-      let selectedProducts = [];
+      let selectedProducts = @json($cart); // ambil dari session
       let currentStep = 1;
       let finalMessage = "";
 
       // Initialize page
       document.addEventListener("DOMContentLoaded", function () {
-        loadProducts();
-        updateStepIndicators();
-      });
-
-      // Load products into grid
-      function loadProducts() {
-        const productGrid = document.getElementById("productGrid");
-        productGrid.innerHTML = products
-          .map((product) => {
-            const discount = product.originalPrice
-              ? Math.round(
-                  ((product.originalPrice - product.price) /
-                    product.originalPrice) *
-                    100
-                )
-              : 0;
-
-            const badgeClass = {
-              bestseller: "bg-orange-500",
-              organic: "bg-green-500",
-              new: "bg-red-500",
-            };
-
-            return `
-                    <div class="product-card bg-gray-50 rounded-xl overflow-hidden border-2 border-gray-200 hover:border-blue-300" 
-                         onclick="toggleProduct(${product.id})">
-                        <div class="relative">
-                            <img src="${product.image}" alt="${
-              product.imageAlt
-            }" class="w-full h-48 object-cover"/>
-                            ${
-                              product.badge
-                                ? `
-                                <div class="absolute top-3 left-3">
-                                    <span class="${
-                                      badgeClass[product.badge]
-                                    } text-white px-2 py-1 rounded-full text-xs font-semibold capitalize">
-                                        ${product.badge}
-                                    </span>
-                                </div>
-                            `
-                                : ""
-                            }
-                            ${
-                              discount > 0
-                                ? `
-                                <div class="absolute top-3 right-3">
-                                    <span class="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
-                                        -${discount}%
-                                    </span>
-                                </div>
-                            `
-                                : ""
-                            }
-                        </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold text-gray-800 mb-2 text-sm">${
-                              product.name
-                            }</h3>
-                            <div class="flex items-center justify-between mb-3">
-                                <div>
-                                    <span class="text-lg font-bold text-blue-600">Rp ${product.price.toLocaleString()}</span>
-                                    ${
-                                      product.originalPrice
-                                        ? `
-                                        <span class="text-sm text-gray-400 line-through ml-1">Rp ${product.originalPrice.toLocaleString()}</span>
-                                    `
-                                        : ""
-                                    }
-                                </div>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="text-xs text-gray-600">Jumlah:</span>
-                                <input type="number" 
-                                       class="quantity-input border border-gray-300 rounded px-2 py-1 text-sm" 
-                                       value="1" min="1" max="99"
-                                       onclick="event.stopPropagation()"
-                                       onchange="updateQuantity(${
-                                         product.id
-                                       }, this.value)">
-                            </div>
-                        </div>
-                    </div>
-                `;
-          })
-          .join("");
-      }
-
-      // Toggle product selection
-      function toggleProduct(productId) {
-        const product = products.find((p) => p.id === productId);
-        const productCard = event.currentTarget;
-        const quantityInput = productCard.querySelector(".quantity-input");
-        const quantity = parseInt(quantityInput.value) || 1;
-
-        const existingIndex = selectedProducts.findIndex(
-          (p) => p.id === productId
-        );
-
-        if (existingIndex !== -1) {
-          // Remove product
-          selectedProducts.splice(existingIndex, 1);
-          productCard.classList.remove("selected");
-        } else {
-          // Add product
-          selectedProducts.push({
-            ...product,
-            quantity: quantity,
-          });
-          productCard.classList.add("selected");
-        }
-
-        updateOrderSummary();
-      }
-
-      // Update quantity
-      function updateQuantity(productId, quantity) {
-        const productIndex = selectedProducts.findIndex(
-          (p) => p.id === productId
-        );
-        if (productIndex !== -1) {
-          selectedProducts[productIndex].quantity = parseInt(quantity) || 1;
           updateOrderSummary();
-        }
-      }
+      });
 
       // Update order summary
       function updateOrderSummary() {
@@ -630,25 +477,6 @@
         updateOrderSummary();
       }
 
-      // Navigate to next step
-      function nextStep() {
-        if (selectedProducts.length === 0) {
-          showNotification("Silakan pilih minimal 1 produk!", "error");
-          return;
-        }
-
-        currentStep = 2;
-        updateStepIndicators();
-        showStep(2);
-      }
-
-      // Navigate to previous step
-      function prevStep() {
-        currentStep = 1;
-        updateStepIndicators();
-        showStep(1);
-      }
-
       // Prepare WhatsApp message
       function prepareMessage() {
         const form = document.getElementById("customerForm");
@@ -661,7 +489,7 @@
         const customerData = {
           name: document.getElementById("customerName").value,
           phone: document.getElementById("customerPhone").value,
-          email: document.getElementById("customerEmail").value,
+          // email: document.getElementById("customerEmail").value,
           address: document.getElementById("customerAddress").value,
           city: document.getElementById("customerCity").value,
           province: document.getElementById("customerProvince").value,
@@ -671,8 +499,12 @@
 
         generateWhatsAppMessage(customerData);
 
-        currentStep = 3;
-        updateStepIndicators();
+        // currentStep = 3;
+        // updateStepIndicators();
+
+         // **update hidden input agar controller menerima pesan yang sama**
+        document.getElementById("waMessage").value = finalMessage;
+
         showStep(3);
 
         // Show typing indicator briefly
@@ -690,16 +522,16 @@
           0
         );
 
-        let message = `🛒 *PESANAN BARU PAYUM IWAK*\n\n`;
-        message += `👤 *Data Pembeli:*\n`;
+        let message = `*PESANAN BARU PAYUM IWAK*\n\n`;
+        message += `*Data Pembeli:*\n`;
         message += `Nama: ${customerData.name}\n`;
         message += `WhatsApp: ${customerData.phone}\n`;
-        if (customerData.email) message += `Email: ${customerData.email}\n`;
-        message += `\n📍 *Alamat Pengiriman:*\n`;
+        // if (customerData.email) message += `Email: ${customerData.email}\n`;
+        message += `\n*Alamat Pengiriman:*\n`;
         message += `${customerData.address}\n`;
         message += `${customerData.city}, ${customerData.province}`;
         if (customerData.postal) message += ` ${customerData.postal}`;
-        message += `\n\n🛍️ *Detail Pesanan:*\n`;
+        message += `\n\n*Detail Pesanan:*\n`;
 
         selectedProducts.forEach((product) => {
           message += `• ${product.name}\n`;
@@ -710,37 +542,78 @@
           ).toLocaleString()}\n\n`;
         });
 
-        message += `💰 *Total Pesanan: Rp ${total.toLocaleString()}*\n\n`;
+        message += `*Total Pesanan: Rp ${total.toLocaleString()}*\n\n`;
 
         if (customerData.notes) {
-          message += `📝 *Catatan:*\n${customerData.notes}\n\n`;
+          message += `*Catatan:*\n${customerData.notes}\n\n`;
         }
 
-        message += `✨ Terima kasih telah memilih produk natural beauty care dari Payum Iwak!\n\n`;
-        message += `Mohon konfirmasi ketersediaan produk dan detail pengiriman. 🙏`;
+        message += `Terima kasih telah memilih produk natural beauty care dari Payum Iwak!\n\n`;
+        message += `Mohon konfirmasi ketersediaan produk dan detail pengiriman.`;
 
         finalMessage = message;
         document.getElementById("messagePreview").textContent = message;
       }
 
       // Send WhatsApp message
+      // function sendWhatsApp() {
+      //   const whatsappNumber = "6281343026394"; // Replace with actual WhatsApp number
+      //   const encodedMessage = encodeURIComponent(finalMessage);
+      //   const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+      //   // Add success animation
+      //   const button = document.getElementById("sendWhatsAppBtn");
+      //   button.classList.add("success-animation");
+
+      //   // Show success notification
+      //   showNotification("Mengarahkan ke WhatsApp...", "success");
+
+      //   // Open WhatsApp
+      //   setTimeout(() => {
+      //     window.open(whatsappURL, "_blank");
+      //     button.classList.remove("success-animation");
+      //   }, 500);
+      // }
+
+      // function sendWhatsApp() {
+      //     const whatsappNumber = "6281343026394";
+      //     const encodedMessage = encodeURIComponent(finalMessage);
+      //     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+      //     const form = document.getElementById("customerForm");
+      //     const formData = new FormData(form);
+
+      //     fetch("/kirim-pesan", {
+      //         method: "POST",
+      //         headers: {
+      //             "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content
+      //         },
+      //         body: formData
+      //     })
+      //     .then(response => {
+      //         // Add success animation
+      //         const button = document.getElementById("sendWhatsAppBtn");
+      //         button.classList.add("success-animation");
+
+      //         showNotification("Menyimpan pesanan & mengarahkan ke WhatsApp...", "success");
+
+      //         setTimeout(() => {
+      //             window.open(whatsappURL, "_blank");
+      //             button.classList.remove("success-animation");
+      //         }, 800);
+      //     })
+      //     .catch(err => {
+      //         console.error(err);
+      //         showNotification("Gagal menyimpan pesanan!", "error");
+      //     });
+      // }
+      
       function sendWhatsApp() {
-        const whatsappNumber = "6281234567890"; // Replace with actual WhatsApp number
-        const encodedMessage = encodeURIComponent(finalMessage);
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-        // Add success animation
-        const button = document.getElementById("sendWhatsAppBtn");
-        button.classList.add("success-animation");
-
-        // Show success notification
-        showNotification("Mengarahkan ke WhatsApp...", "success");
-
-        // Open WhatsApp
-        setTimeout(() => {
-          window.open(whatsappURL, "_blank");
-          button.classList.remove("success-animation");
-        }, 500);
+          const form = document.getElementById("customerForm");
+          form.action = "/kirim-pesan";
+          form.method = "POST";
+           form.target = "_blank";
+          form.submit();
       }
 
       // Direct WhatsApp (floating button)
@@ -786,33 +659,7 @@
           });
       }
 
-      // Update step indicators
-      function updateStepIndicators() {
-        for (let i = 1; i <= 3; i++) {
-          const stepElement = document.getElementById(`step${i}`);
-          const stepText = stepElement.nextElementSibling;
-
-          stepElement.classList.remove("active", "completed");
-          stepText.classList.remove("text-blue-600", "text-green-600");
-          stepText.classList.add("text-gray-500");
-
-          if (i < currentStep) {
-            stepElement.classList.add("completed");
-            stepElement.innerHTML = '<i class="fas fa-check text-white"></i>';
-            stepText.classList.remove("text-gray-500");
-            stepText.classList.add("text-green-600");
-          } else if (i === currentStep) {
-            stepElement.classList.add("active");
-            stepElement.textContent = i;
-            stepText.classList.remove("text-gray-500");
-            stepText.classList.add("text-blue-600");
-          } else {
-            stepElement.textContent = i;
-          }
-        }
-      }
-
-      // Show specific step
+      // // Show specific step
       function showStep(step) {
         document.getElementById("productSelection").classList.add("hidden");
         document.getElementById("customerInfo").classList.add("hidden");
@@ -921,6 +768,8 @@
        <x-footer />
 @endsection
 {{-- blade-formatter-enable --}}
+
+
 
 
 
