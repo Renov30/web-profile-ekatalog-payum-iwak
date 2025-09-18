@@ -78,9 +78,6 @@ class ProdukResource extends Resource
                 RichEditor::make('penggunaan')
                     ->label('Cara Penggunaan')
                     ->columnSpanFull(),
-                Toggle::make('produk_unggulan')
-                    ->label('Apakah ini Produk Unggulan?')
-                    ->default(false),
             ]);
     }
 
