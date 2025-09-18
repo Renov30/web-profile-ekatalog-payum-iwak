@@ -19,7 +19,7 @@ class ProductionStageResource extends Resource
 {
     protected static ?string $model = ProductionStage::class;
     protected static ?string $navigationGroup = 'Pesanan';
-    protected static ?string $navigationLabel = 'Tahap Produksi'; // Label di sidebar
+    protected static ?string $navigationLabel = 'Tahapan Produksi'; // Label di sidebar
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

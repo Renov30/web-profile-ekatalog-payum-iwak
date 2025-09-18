@@ -23,9 +23,9 @@ class OrderItemsResource extends Resource
     protected static ?string $model = OrderItem::class;
     protected static ?string $navigationGroup = 'Pesanan';
     protected static bool $isLazy = false;
-    protected static ?string $modelLabel = 'Entri Pesanan'; // Label untuk satu item
-    protected static ?string $pluralModelLabel = 'Daftar Entri Pesanan'; // Label untuk daftar item
-    protected static ?string $navigationLabel = 'Entri Pesanan'; // Label di sidebar
+    protected static ?string $modelLabel = 'Pesanan per Produk'; // Label untuk satu item
+    protected static ?string $pluralModelLabel = 'Daftar Pesanan per Produk'; // Label untuk daftar item
+    protected static ?string $navigationLabel = 'Pesanan per Produk'; // Label di sidebar
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
