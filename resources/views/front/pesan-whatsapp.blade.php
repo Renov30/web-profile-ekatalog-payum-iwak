@@ -614,6 +614,13 @@
           form.method = "POST";
            form.target = "_blank";
           form.submit();
+
+            // kosongkan cart setelah submit
+            cart = []; // reset variabel cart
+            localStorage.removeItem('cart'); // hapus dari localStorage
+
+            updateCartBadge();       // kalau ada badge jumlah item
+            updateCartDisplay();     // kalau ada tampilan cart di halaman
       }
 
       // Direct WhatsApp (floating button)
@@ -768,6 +775,12 @@
        <x-footer />
 @endsection
 {{-- blade-formatter-enable --}}
+
+
+
+
+
+
 
 
 
