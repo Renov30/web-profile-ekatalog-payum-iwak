@@ -6,9 +6,9 @@
     <div class="container mx-auto px-6 py-4">
         <nav class="text-sm text-gray-600">
             <ol class="flex items-center space-x-2">
-                <li><a href="index.html" class="hover:text-blue-600">Beranda</a></li>
+                <li><a href="{{ route('front.index') }}" class="hover:text-blue-600">Beranda</a></li>
                 <li><i class="fas fa-chevron-right text-gray-400"></i></li>
-                <li><a href="katalog.html" class="hover:text-blue-600">Katalog</a></li>
+                <li><a href="{{ route('front.katalog') }}" class="hover:text-blue-600">Katalog</a></li>
                 <li><i class="fas fa-chevron-right text-gray-400"></i></li>
                 <li><span id="breadcrumbCategory" class="hover:text-blue-600 cursor-pointer">-</span></li>
                 <li><i class="fas fa-chevron-right text-gray-400"></i></li>
@@ -194,7 +194,7 @@
                         Produk</button>
                     <button onclick="switchTab('ingredients')" class="tab-button py-4 font-semibold">Bahan &
                         Manfaat</button>
-                    <button onclick="switchTab('reviews')" class="tab-button py-4 font-semibold">Ulasan (156)</button>
+                    {{-- <button onclick="switchTab('reviews')" class="tab-button py-4 font-semibold">Ulasan (156)</button> --}}
                     {{-- <button onclick="switchTab('shipping')" class="tab-button py-4 font-semibold">Pengiriman</button> --}}
                 </nav>
             </div>
@@ -705,7 +705,7 @@
     </div>
 
     <!-- Related Products -->
-    <div class="container mx-auto px-6 mb-12">
+    {{-- <div class="container mx-auto px-6 mb-12">
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden p-8">
             <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">Produk Terkait</h3>
 
@@ -839,7 +839,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Floating Cart Button -->
     <div id="floatingCart" class="floating-cart">
@@ -859,6 +859,39 @@
             </button>
         </div>
     </div>
+
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar"
+        class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300">
+        <div class="p-6 border-b">
+            <div class="flex justify-between items-center">
+                <h3 class="text-xl font-bold">Keranjang Belanja</h3>
+                <button onclick="toggleCart()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="cartItems" class="flex-1 overflow-y-auto p-6">
+            <div class="text-center text-gray-500 py-20">
+                <i class="fas fa-shopping-cart text-4xl mb-4"></i>
+                <p>Keranjang masih kosong</p>
+            </div>
+        </div>
+        <div id="cartFooter" class="p-6 border-t bg-gray-50">
+            <div class="flex justify-between items-center mb-4">
+                <span class="font-bold text-lg">Total:</span>
+                <span id="cartTotal" class="font-bold text-xl text-blue-600">Rp 0</span>
+            </div>
+            <button onclick="checkout()" class="w-full btn-primary text-white py-3 rounded-xl font-semibold">
+                <i class="fas fa-credit-card mr-2"></i>
+                Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="toggleCart()"></div>
 
     <script>
         // Product data (would normally come from API/database)
@@ -1032,6 +1065,7 @@
         async function addToCart() {
             const response = await fetch(`/api/products/${currentProductId}`);
             const product = await response.json();
+            console.log(product);
 
             const existingItem = cart.find(item => item.id === currentProductId);
 
@@ -1041,8 +1075,14 @@
                 cart.push({
                     id: currentProductId,
                     name: product.name,
-                    price: product.price,
-                    image: product.image_url,
+                    // price: Number(product.price) || 0, // pastikan angka
+                    price: product.diskon > 0 ?
+                        Math.round(parseInt(product.harga) * (1 - product.diskon / 100)) // harga setelah diskon
+                        :
+                        parseInt(product.harga), // kalau tidak ada diskon, harga tetap
+                    // image: product.image_url,
+                    image: product.galeri.length > 0 ?
+                        `/storage/${product.galeri[0].gambar}` : "/img/default.jpg",
                     quantity: quantity
                 });
             }
@@ -1052,11 +1092,128 @@
             showNotification(`${product.name} berhasil ditambahkan ke keranjang!`, 'success');
         }
 
+        // Update cart display
+        function updateCartDisplay() {
+            const cartItems = document.getElementById("cartItems");
+            const cartTotal = document.getElementById("cartTotal");
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="text-center text-gray-500 py-20">
+                        <i class="fas fa-shopping-cart text-4xl mb-4"></i>
+                        <p>Keranjang masih kosong</p>
+                    </div>
+                `;
+                cartTotal.textContent = "Rp 0";
+                return;
+            }
+
+            const total = cart.reduce(
+                (sum, item) => sum + item.price * item.quantity,
+                0
+            );
+
+            cartItems.innerHTML = cart
+                .map(
+                    (item) => `
+                <div class="flex items-center space-x-4 mb-4 pb-4 border-b border-gray-200">
+                    <img src="${item.image}" alt="${
+              item.imageAlt
+            }" class="w-16 h-16 object-cover rounded-lg"/>
+                    <div class="flex-1">
+                        <h4 class="font-medium text-gray-800 text-sm">${
+                          item.name
+                        }</h4>
+                        <p class="text-blue-600 font-semibold">Rp ${item.price.toLocaleString()}</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="updateCartQuantity(${item.id}, ${
+              item.quantity - 1
+            })" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+                            <i class="fas fa-minus text-xs"></i>
+                        </button>
+                        <span class="w-8 text-center font-medium">${
+                          item.quantity
+                        }</span>
+                        <button onclick="updateCartQuantity(${item.id}, ${
+              item.quantity + 1
+            })" class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center">
+                            <i class="fas fa-plus text-xs"></i>
+                        </button>
+                    </div>
+                    <button onclick="removeFromCart(${
+                      item.id
+                    })" class="text-red-500 hover:text-red-700">
+                        <i class="fas fa-trash text-sm"></i>
+                    </button>
+                </div>
+            `
+                )
+                .join("");
+
+            cartTotal.textContent = `Rp ${total.toLocaleString()}`;
+        }
+
+        // Update cart quantity
+        function updateCartQuantity(productId, newQuantity) {
+            if (newQuantity <= 0) {
+                removeFromCart(productId);
+                return;
+            }
+
+            const item = cart.find((item) => item.id === productId);
+            if (item) {
+                item.quantity = newQuantity;
+                localStorage.setItem("cart", JSON.stringify(cart));
+                updateCartBadge();
+                updateCartDisplay();
+            }
+        }
+
+        // Remove from cart
+        function removeFromCart(productId) {
+            cart = cart.filter((item) => item.id !== productId);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartBadge();
+            updateCartDisplay();
+        }
+
         // Buy now
         function buyNow() {
             addToCart();
             // Redirect to checkout or open cart
-            window.location.href = 'katalog.html';
+            // window.location.href = 'katalog.html';
+            toggleCart();
+        }
+
+        // Checkout
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification("Keranjang masih kosong!", "error");
+                return;
+            }
+
+            let token = document.querySelector('meta[name="csrf-token"]');
+            if (!token) {
+                console.error("CSRF token tidak ditemukan di halaman!");
+                return;
+            }
+
+            fetch("/set-cart", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": token.content
+                    },
+                    body: JSON.stringify({
+                        cart
+                    })
+                })
+                .then(res => res.json())
+                .then(() => {
+                    window.location.href = "/pesan-whatsapp";
+                })
+                .catch(err => console.error("Error:", err));
         }
 
         // Update cart badge
@@ -1070,7 +1227,22 @@
         // Toggle cart
         function toggleCart() {
             // Implement cart sidebar toggle
-            console.log('Toggle cart');
+            // console.log('Toggle cart');
+            const sidebar = document.getElementById("cartSidebar");
+            const overlay = document.getElementById("cartOverlay");
+
+            if (sidebar.classList.contains("translate-x-0")) {
+                sidebar.classList.remove("translate-x-0");
+                sidebar.classList.add("translate-x-full");
+                overlay.classList.add("hidden");
+                document.body.style.overflow = "auto";
+            } else {
+                sidebar.classList.remove("translate-x-full");
+                sidebar.classList.add("translate-x-0");
+                overlay.classList.remove("hidden");
+                document.body.style.overflow = "hidden";
+                updateCartDisplay();
+            }
         }
 
         // Show floating cart
@@ -1134,9 +1306,9 @@
         }
 
         // View other product
-        function viewProduct(productId) {
-            window.location.href = `detail-produk.html?id=${productId}`;
-        }
+        // function viewProduct(productId) {
+        //     window.location.href = `detail-produk.html?id=${productId}`;
+        // }
 
         // Show notification
         function showNotification(message, type = 'success') {
