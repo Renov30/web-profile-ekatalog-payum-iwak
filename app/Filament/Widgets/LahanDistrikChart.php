@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Order;
 use App\Models\Produk;
 use Filament\Widgets\ChartWidget;
 
@@ -14,23 +15,21 @@ class LahanKategoriProdukChart extends ChartWidget
     }
 
     protected static bool $isLazy = false;
-    protected static ?string $heading = 'Jumlah Produk Per Kategori Produk';
+    protected static ?string $heading = 'Jumlah Pesanan Masuk';
 
     protected function getData(): array
     {
-        $data = Produk::selectRaw('kategori_id, COUNT(*) as total')
-            ->groupBy('kategori_id')
-            ->with('kategoriproduk')
-            ->get();
+
+        $totalOrders = Order::count();
+
         return [
-            'labels' => $data->pluck('kategoriproduk.name')->toArray(),
+            'labels' => ['Total Pesanan'],
             'datasets' => [
                 [
-                    'data' => $data->pluck('total')->toArray(),
-                    'backgroundColor' => ['#ff6384', '#36a2eb', '#ffcd56'],
+                    'data' => [$totalOrders],
+                    'backgroundColor' => ['#36a2eb'],
                 ],
             ],
-            // 'labels' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         ];
     }
 

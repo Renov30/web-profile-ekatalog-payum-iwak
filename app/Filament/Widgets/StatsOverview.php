@@ -4,6 +4,7 @@ namespace App\Filament\Widgets;
 
 use App\Models\KategoriProduk;
 use App\Models\Galeri;
+use App\Models\Order;
 use App\Models\Produk;
 use App\Models\User;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
@@ -19,20 +20,21 @@ class StatsOverview extends BaseWidget
     protected static bool $isLazy = false;
     protected function getStats(): array
     {
-        $kategoriproduk = KategoriProduk::count();
-        $produk = Produk::count();
-        // $jumlahLuas = Produk::sum('luas_lahan');
+        $pesanan = Order::count();
+        $pesananMenunggu = Order::where('status', 'menunggu konfirmasi')->count();
+        $pesananProses = Order::where('status', 'dalam proses')->count();
+
         return [
 
-            Stat::make('Jumlah kategori produk', $kategoriproduk . ' Kategori')
-                ->description('Data kategori produk yang didapatkan')
-                ->Icon('heroicon-o-map'),
-            Stat::make('Jumlah produk', $produk . ' Produk')
-                ->description('Data produk berdasarkan kategori produk')
-                ->Icon('heroicon-o-map-pin'),
-            // Stat::make('Total Luas Produk', $jumlahLuas . ' hektar')
-            //     ->description('Total luas seluruh produk di Merauke')
-            //     ->Icon('heroicon-o-information-circle'),
+            Stat::make('Total Pesanan', $pesanan . ' Pesanan')
+                ->description('Data jumlah pesanan keseluruhan')
+                ->Icon('heroicon-o-information-circle'),
+            Stat::make('Pesanan Menunggu', $pesananMenunggu . ' Pesanan')
+                ->description('Data jumlah pesanan belum dikonfirmasi')
+                ->Icon('heroicon-o-information-circle'),
+            Stat::make('Pesanan Dikonfirmasi', $pesananProses . ' Pesanan')
+                ->description('Data jumlah pesanan sudah dikonfirmasi')
+                ->Icon('heroicon-o-information-circle'),
         ];
     }
 }
