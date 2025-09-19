@@ -434,11 +434,11 @@
                         </div>
                     </div>
 
-                    <button
+                    {{-- <button
                         class="tentang-box btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
                         <i class="fas fa-users mr-2"></i>
                         Bergabung Dengan Kami
-                    </button>
+                    </button> --}}
                 </div>
                 <div class="text-center">
                     <img src="{{ asset('img/foto-bersama-1.jpg') }}"
