@@ -15,8 +15,15 @@
                     </div>
                 </a>
 
+
                 <div class="flex items-center space-x-6">
                     <!-- Search Bar -->
+                    <div class="hidden md:flex space-x-6">
+                        <a href="{{ route('front.index') }}#home"
+                            class="text-sm hover:text-blue-200 transition-colors">Beranda</a>
+                        <a href="{{ route('front.katalog') }}"
+                            class="text-sm hover:text-blue-200 transition-colors">Katalog</a>
+                    </div>
                     <div class="search-container hidden md:block">
                         <div class="relative">
                             <input type="text" id="searchInput" placeholder="Cari produk..."
