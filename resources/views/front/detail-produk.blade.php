@@ -944,10 +944,10 @@
                     thumbnailsContainer.appendChild(img);
                 });
                 // Floating cart
-                document.getElementById('floatingProductImage').src = product.image_url;
+                document.getElementById('floatingProductImage').src = product.galeri.length > 0 ?
+                    `/storage/${product.galeri[0].gambar}` : '/img/default.jpg';
                 document.getElementById('floatingProductName').textContent = product.name;
-                document.getElementById('floatingProductPrice').textContent =
-                    `Rp ${parseInt(product.price).toLocaleString()}`;
+                document.getElementById('floatingProductPrice').textContent = `Rp ${hargaDiskon.toLocaleString()}`;
 
                 // Badge
                 const badge = document.getElementById('productBadge');
@@ -1226,6 +1226,7 @@
 
         // Toggle cart
         function toggleCart() {
+            floatingCart.classList.remove('show');
             // Implement cart sidebar toggle
             // console.log('Toggle cart');
             const sidebar = document.getElementById("cartSidebar");
