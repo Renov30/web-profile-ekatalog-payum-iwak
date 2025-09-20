@@ -14,12 +14,24 @@ class StokBahanBaku extends Page
     protected static ?string $title = 'Stok Bahan Baku';
     protected static string $view = 'filament.pages.stok-bahan-baku';
 
-    public $produks;
+    public $produksSemua;
+    public $produksDalamProses;
 
     public function mount()
     {
-        $this->produks = Produk::withSum('orderItem', 'kuantitas')
+        $this->produksSemua = Produk::withSum('orderItem', 'kuantitas')
             ->with('bahanBakus')
+            ->get();
+
+        $this->produksDalamProses = Produk::whereHas('orderItem.order', function ($q) {
+            $q->where('status', 'dalam proses');
+        })
+            ->withSum(['orderItem as order_item_sum_kuantitas' => function ($q) {
+                $q->whereHas('order', function ($q2) {
+                    $q2->where('status', 'dalam proses');
+                });
+            }], 'kuantitas')
+            ->with(['bahanBakus'])
             ->get();
     }
 }

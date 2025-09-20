@@ -11,7 +11,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($produks as $produk)
+                    @foreach ($produksDalamProses as $produk)
                         <tr>
                             <td class="border px-4 py-2">{{ $produk->name }}</td>
                             <td class="border px-4 py-2">{{ $produk->order_item_sum_kuantitas ?? 0 }}</td>
@@ -33,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($produks as $produk)
+                    @foreach ($produksDalamProses as $produk)
                         @foreach ($produk->bahanBakus as $bahan)
                             <tr>
                                 <td class="border px-4 py-2">{{ $bahan->name }}</td>
@@ -60,7 +60,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($produks->where('name', 'Sabun') as $produk)
+            @foreach ($produksSemua->where('name', 'Sabun') as $produk)
                 @foreach ($produk->bahanBakus as $bahan)
                     <tr>
                         <td class="border px-4 py-2">{{ $bahan->name }}</td>
@@ -87,7 +87,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($produks->where('name', 'Body Scrub') as $produk)
+            @foreach ($produksSemua->where('name', 'Body Scrub') as $produk)
                 @foreach ($produk->bahanBakus as $bahan)
                     <tr>
                         <td class="border px-4 py-2">{{ $bahan->name }}</td>
@@ -114,7 +114,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($produks->where('name', 'Lip Balm') as $produk)
+            @foreach ($produksSemua->where('name', 'Lip Balm') as $produk)
                 @foreach ($produk->bahanBakus as $bahan)
                     <tr>
                         <td class="border px-4 py-2">{{ $bahan->name }}</td>
@@ -141,7 +141,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($produks->where('name', 'Body Butter') as $produk)
+            @foreach ($produksSemua->where('name', 'Body Butter') as $produk)
                 @foreach ($produk->bahanBakus as $bahan)
                     <tr>
                         <td class="border px-4 py-2">{{ $bahan->name }}</td>
