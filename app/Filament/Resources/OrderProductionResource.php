@@ -21,6 +21,7 @@ class OrderProductionResource extends Resource
 {
     protected static ?string $model = OrderProduction::class;
     protected static ?string $navigationGroup = 'Pesanan';
+    protected static ?int $navigationSort = 4;
     protected static ?string $navigationLabel = 'Daftar Produksi'; // Label di sidebar
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

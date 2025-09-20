@@ -30,6 +30,7 @@ class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
     protected static ?string $navigationGroup = 'Pesanan';
+    protected static ?int $navigationSort = 1;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static bool $isLazy = false;
     protected static ?string $modelLabel = 'Pesanan'; // Label untuk satu item

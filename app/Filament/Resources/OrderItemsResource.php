@@ -22,6 +22,7 @@ class OrderItemsResource extends Resource
 {
     protected static ?string $model = OrderItem::class;
     protected static ?string $navigationGroup = 'Pesanan';
+    protected static ?int $navigationSort = 2;
     protected static bool $isLazy = false;
     protected static ?string $modelLabel = 'Pesanan per Produk'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Daftar Pesanan per Produk'; // Label untuk daftar item

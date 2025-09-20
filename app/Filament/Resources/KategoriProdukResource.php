@@ -22,6 +22,7 @@ class KategoriProdukResource extends Resource
 {
     protected static ?string $model = KategoriProduk::class;
     protected static ?string $navigationGroup = 'Produk';
+    protected static ?int $navigationSort = 1;
     protected static bool $isLazy = false;
     protected static ?string $modelLabel = 'Kategori Produk'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Daftar Kategori Produk'; // Label untuk daftar item

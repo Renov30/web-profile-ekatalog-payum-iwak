@@ -30,6 +30,7 @@ class ProdukResource extends Resource
 {
     protected static ?string $model = Produk::class;
     protected static ?string $navigationGroup = 'Produk';
+    protected static ?int $navigationSort = 2;
     protected static bool $isLazy = false;
     protected static ?string $modelLabel = 'Produk'; // Label untuk satu item
     protected static ?string $pluralModelLabel = 'Daftar Produk'; // Label untuk daftar item
