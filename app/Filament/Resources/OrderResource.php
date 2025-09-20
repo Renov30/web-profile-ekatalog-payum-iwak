@@ -141,7 +141,20 @@ class OrderResource extends Resource
                 TextColumn::make('name')
                     ->label("Nama Pembeli")
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->formatStateUsing(function ($state, $record) {
+                        if ($record->created_at->gt(now()->subDay())) {
+                            return $state . ' NEW';
+                        }
+                        return $state;
+                    })
+                    ->badge() // ini bikin tampilannya kayak badge kecil
+                    ->color(
+                        fn($record) =>
+                        $record->created_at->gt(now()->subDay())
+                            ? 'success' // hijau untuk data baru
+                            : 'gray'    // abu-abu untuk data lama
+                    ),
                 TextColumn::make('no_hp')
                     ->label("No Handphone")
                     ->searchable()
@@ -195,6 +208,7 @@ class OrderResource extends Resource
                     ->searchable()
                     ->sortable(),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
                 Tables\Filters\Filter::make('dibatalkan')
