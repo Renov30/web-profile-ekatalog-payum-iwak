@@ -36,23 +36,55 @@ class OrderProduction extends Model
     public function getProgressAttribute()
     {
         $stages = ProductionStage::orderBy('urutan')->get();
-        $totalDays = $stages->sum('durasi');
-        $daysElapsed = Carbon::now()->diffInDays(Carbon::parse($this->start_date));
+        if ($stages->isEmpty() || !$this->tanggal_mulai) {
+            return [
+                'stage' => null,
+                'persentase_progress' => 0,
+                'hari_berjalan' => 0,
+            ];
+        }
+
+        $totalDurasi = $stages->sum('durasi');
+        $daysElapsed = Carbon::parse($this->tanggal_mulai)->diffInDays(now(), false);
+
+        if ($daysElapsed < 0) {
+            return [
+                'stage' => 'Belum Mulai',
+                'persentase_progress' => 0,
+                'hari_berjalan' => 0,
+            ];
+        }
+
+        // pastikan integer (tanpa koma)
+        $daysElapsed = (int) $daysElapsed;
+
+        $hariBerjalan = $daysElapsed + 1;
+
+        // Kalau sudah lewat dari total durasi → selesai
+        if ($daysElapsed >= $totalDurasi) {
+            return [
+                'stage' => 'Selesai',
+                'persentase_progress' => 100,
+                'hari_berjalan' => $hariBerjalan,
+            ];
+        }
 
         $accumulated = 0;
-        $currentStage = 1;
+        $currentStage = $stages->last();
         foreach ($stages as $stage) {
-            $accumulated += $stage->durasi_hari;
+            $accumulated += $stage->durasi;
             if ($daysElapsed < $accumulated) {
-                $currentStage = $stage->urutan_stage;
+                $currentStage = $stage;
                 break;
             }
         }
 
-        $progressPercent = min(100, ($daysElapsed / $totalDays) * 100);
+        $progressPercent = min(100, ($daysElapsed / $totalDurasi) * 100);
 
         return [
-            'persentase_progress' => $progressPercent
+            'stage' => $currentStage->name,
+            'persentase_progress' => round($progressPercent, 2),
+            'hari_berjalan' => $hariBerjalan,
         ];
     }
 }

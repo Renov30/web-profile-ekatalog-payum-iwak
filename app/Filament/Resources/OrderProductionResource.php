@@ -78,32 +78,49 @@ class OrderProductionResource extends Resource
                     })
                     ->badge()
                     ->color('info'),
-                TextColumn::make('stage.name') // pakai relasi
-                    ->label('Tahapan Produksi')
+                // TextColumn::make('stage.name') // pakai relasi
+                //     ->label('Tahapan Produksi')
+                //     ->badge()
+                //     ->colors([
+                //         'success' => 'Pengumpulan Bahan',
+                //         'warning' => 'Pengolahan Bahan Baku',
+                //         'info' => 'Pengendapan Bahan Baku',
+                //         'emerald'  => 'Pemurnian dan Pengemasan',
+                //     ])
+                //     ->searchable()
+                //     ->sortable(),
+                TextColumn::make('progress.stage')
+                    ->label('Tahap Sekarang')
                     ->badge()
-                    ->colors([
-                        'warning' => 'Pengumpulan Bahan',
-                        'warning' => 'Pengolahan Bahan Baku',
-                        'warning' => 'Pengendapan Bahan Baku',
-                        'warning'  => 'Pemurnian dan Pengemasan',
-                    ])
-                    ->searchable()
+                    ->color('warning')
                     ->sortable(),
+
                 TextColumn::make('tanggal_mulai')
                     ->label('Tanggal Mulai')
                     ->date()
                     ->searchable()
                     ->sortable(),
+
+                TextColumn::make('progress.hari_berjalan')
+                    ->label('Hari Berjalan')
+                    ->formatStateUsing(fn($state) => $state . ' hari'),
+
                 TextColumn::make('waktu_total_produksi')
                     ->label('Waktu Total')
                     ->formatStateUsing(fn($state) => $state . ' hari')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('persentase_progress')
+
+                TextColumn::make('progress.persentase_progress')
                     ->label('Progress (%)')
                     ->formatStateUsing(fn($state) => $state . ' %')
-                    ->searchable()
                     ->sortable(),
+                // TextColumn::make('persentase_progress')
+                //     ->label('Progress (%)')
+                //     ->formatStateUsing(fn($state) => $state . ' %')
+                //     ->searchable()
+                //     ->sortable(),
+
             ])
             ->filters([
                 //
