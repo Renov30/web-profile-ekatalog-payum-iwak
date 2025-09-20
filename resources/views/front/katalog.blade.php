@@ -250,7 +250,7 @@
                 <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100" data-category="${product.category}">
                     <div class="relative group">
                         <a href="${detailUrl}">
-                        <img src="${product.image}" alt="${product.imageAlt}" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
+                        <img src="${product.image}" alt="${product.imageAlt}" class="w-full h-64 object-cover transition-transform duration-500"/>
                         ${product.badge? 
                             `<div class="absolute top-4 left-4">
                                     <span class="${
@@ -274,7 +274,7 @@
                                 </div>
                             `: ""
                         }
-                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 group-hover:translate-y-0 group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 group-hover:translate-y-0 transition-all duration-300 flex items-center justify-center">
                                 <span class="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                                     <i class="fas fa-eye mr-2"></i>Lihat Detail
                                 </span>
@@ -885,6 +885,24 @@
     <x-footer />
 @endsection
 {{-- blade-formatter-enable --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
