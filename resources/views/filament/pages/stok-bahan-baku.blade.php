@@ -21,8 +21,31 @@
             </table>
         </div>
 
+        @php
+            $totalBahan = [];
+
+            foreach ($produksDalamProses as $produk) {
+                $jumlahPesanan = $produk->order_item_sum_kuantitas ?? 0;
+
+                foreach ($produk->bahanBakus as $bahan) {
+                    $idBahan = $bahan->id;
+
+                    if (!isset($totalBahan[$idBahan])) {
+                        $totalBahan[$idBahan] = [
+                            'name' => $bahan->name,
+                            'satuan' => $bahan->satuan,
+                            'kuantitas' => 0,
+                        ];
+                    }
+
+                    $totalBahan[$idBahan]['kuantitas'] += $jumlahPesanan * $bahan->pivot->kuantitas_per_unit;
+                }
+            }
+        @endphp
+
+
         {{-- Tabel 6 --}}
-        <div class="overflow-x-auto">
+        {{-- <div class="overflow-x-auto">
             <h2 class="text-base font-bold mb-2">Total Bahan Dibutuhkan</h2>
             <table class="w-full border dark:border-gray-700">
                 <thead class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
@@ -43,6 +66,27 @@
                                 <td class="border px-4 py-2">{{ $bahan->satuan }}</td>
                             </tr>
                         @endforeach
+                    @endforeach
+                </tbody>
+            </table>
+        </div> --}}
+        <div class="overflow-x-auto">
+            <h2 class="text-base font-bold mb-2">Total Bahan Dibutuhkan</h2>
+            <table class="w-full border dark:border-gray-700">
+                <thead class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+                    <tr>
+                        <th class="px-4 py-2 border">Bahan</th>
+                        <th class="px-4 py-2 border">Kuantitas Dibutuhkan</th>
+                        <th class="px-4 py-2 border">Satuan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($totalBahan as $bahan)
+                        <tr>
+                            <td class="border px-4 py-2">{{ $bahan['name'] }}</td>
+                            <td class="border px-4 py-2">{{ $bahan['kuantitas'] }}</td>
+                            <td class="border px-4 py-2">{{ $bahan['satuan'] }}</td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
