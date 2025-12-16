@@ -229,6 +229,22 @@
             }, 500);
         }
 
+        // Helper function to strip HTML and truncate text
+        function stripHtmlAndTruncate(text, maxLength = 120) {
+            if (!text) return "";
+            // Create a temporary div to strip HTML tags
+            const tempDiv = document.createElement("div");
+            tempDiv.innerHTML = text;
+            let plainText = tempDiv.textContent || tempDiv.innerText || "";
+            // Remove extra whitespace
+            plainText = plainText.replace(/\s+/g, " ").trim();
+            // Truncate if too long
+            if (plainText.length > maxLength) {
+                plainText = plainText.substring(0, maxLength) + "...";
+            }
+            return plainText;
+        }
+
         // Create product card HTML
         function createProductCard(product) {
             const discountPercentage = product.originalPrice ?
@@ -246,6 +262,9 @@
                 discount: "badge-organic",
             };
             const detailUrl = `/katalog/detail-produk?id=${product.id}`;
+            // Strip HTML and get plain text description
+            const shortDescription = stripHtmlAndTruncate(product.description, 120);
+            
             return `
                 <div class="product-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100" data-category="${product.category}">
                     <div class="relative group">
@@ -294,8 +313,8 @@
                             <h3 class="text-xl font-bold text-gray-800 mb-2 hover:text-blue-600 cursor-pointer">${product.name}</h3>
                         </a>
                         
-                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">${
-                          product.description
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-3" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">${
+                          shortDescription
                         }</p>
                         
                         <div class="flex items-center mb-4">
