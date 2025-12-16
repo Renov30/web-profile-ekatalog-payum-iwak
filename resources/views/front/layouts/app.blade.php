@@ -17,6 +17,15 @@
     <!-- my style -->
     @stack('after-styles')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        /* Scale down entire UI to 90% on laptop screens */
+        @media (min-width: 1024px) {
+            html {
+                zoom: 0.9 !important;
+                -ms-zoom: 0.9 !important;
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50">

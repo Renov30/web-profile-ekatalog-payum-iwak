@@ -4,8 +4,8 @@
     <x-nav-home />
     <!-- Hero Section -->
     <section id="home"
-        class="relative ocean-gradient text-white min-h-screen overflow-hidden hero-pattern flex items-center">
-        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        class="relative text-white min-h-screen overflow-hidden flex items-center">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
         <div class="wave"></div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
