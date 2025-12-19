@@ -522,4 +522,81 @@
             transform: scale(1);
         }
     }
+
+    /* Responsive improvements */
+    @media (max-width: 640px) {
+        .container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Better spacing on mobile */
+        section {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        /* Improve button sizes on mobile */
+        button, .btn-primary, .btn-secondary {
+            font-size: 0.875rem;
+            padding: 0.75rem 1.5rem;
+        }
+
+        /* Better image sizing */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Improve card spacing */
+        .product-card {
+            margin-bottom: 1rem;
+        }
+
+        /* Better text sizing */
+        h1 {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+    }
+
+    /* Smooth transitions for all interactive elements */
+    a, button {
+        transition: all 0.3s ease;
+    }
+
+    /* Better focus states for accessibility */
+    button:focus,
+    a:focus,
+    input:focus,
+    select:focus {
+        outline: 2px solid #74b9ff;
+        outline-offset: 2px;
+    }
+
+    /* Improve touch targets on mobile */
+    @media (max-width: 768px) {
+        button, a {
+            min-height: 44px;
+            min-width: 44px;
+        }
+    }
+
+    /* Better scrolling on mobile */
+    @media (max-width: 768px) {
+        html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
 }

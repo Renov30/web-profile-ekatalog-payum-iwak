@@ -15,38 +15,38 @@
     </div>
 
     <!-- Filter Section -->
-    <div class="container mx-auto px-6 mb-8">
-        <div class="bg-white rounded-2xl shadow-lg p-6">
-            <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+    <div class="container mx-auto px-4 sm:px-6 mb-6 sm:mb-8">
+        <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-4 lg:space-y-0">
                 <!-- Category Filter -->
-                <div class="flex flex-wrap gap-3">
+                <div class="flex flex-wrap gap-2 sm:gap-3 w-full lg:w-auto">
                     <button onclick="filterProducts('all')"
-                        class="filter-button active px-6 py-2 rounded-full font-medium bg-gray-100 text-gray-700">
+                        class="filter-button active px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-medium bg-gray-100 text-gray-700 text-xs sm:text-sm">
                         Semua Produk
                     </button>
                     <button onclick="filterProducts('sabun')"
-                        class="filter-button px-6 py-2 rounded-full font-medium bg-gray-100 text-gray-700">
-                        <i class="fas fa-soap mr-2"></i>Sabun
+                        class="filter-button px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-medium bg-gray-100 text-gray-700 text-xs sm:text-sm">
+                        <i class="fas fa-soap mr-1 sm:mr-2"></i>Sabun
                     </button>
                     <button onclick="filterProducts('body-scrub')"
-                        class="filter-button px-6 py-2 rounded-full font-medium bg-gray-100 text-gray-700">
-                        <i class="fas fa-spa mr-2"></i>Body Scrub
+                        class="filter-button px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-medium bg-gray-100 text-gray-700 text-xs sm:text-sm">
+                        <i class="fas fa-spa mr-1 sm:mr-2"></i>Body Scrub
                     </button>
                     <button onclick="filterProducts('body-butter')"
-                        class="filter-button px-6 py-2 rounded-full font-medium bg-gray-100 text-gray-700">
-                        <i class="fas fa-hand-holding-heart mr-2"></i>Body Butter
+                        class="filter-button px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-medium bg-gray-100 text-gray-700 text-xs sm:text-sm">
+                        <i class="fas fa-hand-holding-heart mr-1 sm:mr-2"></i>Body Butter
                     </button>
                     <button onclick="filterProducts('lip-balm')"
-                        class="filter-button px-6 py-2 rounded-full font-medium bg-gray-100 text-gray-700">
-                        <i class="fas fa-kiss-wink-heart mr-2"></i>Lip Balm
+                        class="filter-button px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-medium bg-gray-100 text-gray-700 text-xs sm:text-sm">
+                        <i class="fas fa-kiss-wink-heart mr-1 sm:mr-2"></i>Lip Balm
                     </button>
                 </div>
 
                 <!-- Sort Options -->
-                <div class="flex items-center space-x-4">
-                    <label class="text-gray-600 font-medium">Urutkan:</label>
+                <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full lg:w-auto">
+                    <label class="text-gray-600 font-medium text-sm sm:text-base">Urutkan:</label>
                     <select id="sortSelect" onchange="sortProducts()"
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        class="w-full sm:w-auto px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base">
                         <option value="default">Default</option>
                         <option value="price-low">Harga: Rendah ke Tinggi</option>
                         <option value="price-high">Harga: Tinggi ke Rendah</option>
@@ -67,8 +67,8 @@
     </div>
 
     <!-- Products Grid -->
-    <div class="container mx-auto px-6 mb-12">
-        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    <div class="container mx-auto px-4 sm:px-6 mb-8 sm:mb-12">
+        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             <!-- Products will be dynamically loaded here -->
         </div>
 
@@ -102,7 +102,7 @@
 
     <!-- Shopping Cart Sidebar -->
     <div id="cartSidebar"
-        class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300">
+        class="fixed right-0 top-0 h-full w-full sm:w-80 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300">
         <div class="p-6 border-b">
             <div class="flex justify-between items-center">
                 <h3 class="text-xl font-bold">Keranjang Belanja</h3>
@@ -896,9 +896,23 @@
                 }
             });
 
-        // Mobile menu toggle (placeholder)
+        // Mobile menu toggle
         function toggleMobileMenu() {
-            console.log("Mobile menu toggled");
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            if (menu && btn) {
+                menu.classList.toggle('hidden');
+                const icon = btn.querySelector('i');
+                if (icon) {
+                    if (menu.classList.contains('hidden')) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    } else {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    }
+                }
+            }
         }
     </script>
     <x-footer />

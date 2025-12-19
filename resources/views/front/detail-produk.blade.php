@@ -3,29 +3,29 @@
 @section('content')
     <x-nav-katalog />
     <!-- Breadcrumb -->
-    <div class="container mx-auto px-6 py-4">
-        <nav class="text-sm text-gray-600">
-            <ol class="flex items-center space-x-2">
+    <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+        <nav class="text-xs sm:text-sm text-gray-600">
+            <ol class="flex items-center space-x-1 sm:space-x-2 flex-wrap">
                 <li><a href="{{ route('front.index') }}" class="hover:text-blue-600">Beranda</a></li>
-                <li><i class="fas fa-chevron-right text-gray-400"></i></li>
+                <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
                 <li><a href="{{ route('front.katalog') }}" class="hover:text-blue-600">Katalog</a></li>
-                <li><i class="fas fa-chevron-right text-gray-400"></i></li>
+                <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
                 <li><span id="breadcrumbCategory" class="hover:text-blue-600 cursor-pointer">-</span></li>
-                <li><i class="fas fa-chevron-right text-gray-400"></i></li>
-                <li class="text-blue-600 font-medium" id="breadcrumbProduct">-</li>
+                <li><i class="fas fa-chevron-right text-gray-400 text-xs"></i></li>
+                <li class="text-blue-600 font-medium truncate max-w-[150px] sm:max-w-none" id="breadcrumbProduct">-</li>
             </ol>
         </nav>
     </div>
 
     <!-- Product Detail Section -->
-    <div class="container mx-auto px-6 mb-12">
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div class="grid lg:grid-cols-2 gap-8 p-8">
+    <div class="container mx-auto px-4 sm:px-6 mb-8 sm:mb-12">
+        <div class="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden">
+            <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 p-4 sm:p-6 md:p-8">
                 <!-- Product Images -->
                 <div class="space-y-4">
                     <!-- Main Image -->
-                    <div class="zoom-container rounded-2xl overflow-hidden bg-gray-100">
-                        <img id="mainImage" src="" alt="" class="zoom-image w-full h-96 object-cover" />
+                    <div class="zoom-container rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100">
+                        <img id="mainImage" src="" alt="" class="zoom-image w-full h-64 sm:h-80 md:h-96 object-cover" />
                     </div>
 
                     <!-- Thumbnail Images -->
@@ -56,7 +56,7 @@
                             <span id="productBadge"
                                 class="badge-bestseller text-white px-3 py-1 rounded-full text-sm font-semibold">-</span>
                         </div>
-                        <h1 id="productTitle" class="text-3xl md:text-4xl font-bold text-gray-800 mb-3">-</h1>
+                        <h1 id="productTitle" class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3">-</h1>
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="flex items-center">
                                 <div class="flex text-yellow-400 mr-2">
@@ -80,14 +80,14 @@
                     </div>
 
                     <!-- Price -->
-                    <div class="border-b pb-6">
-                        <div class="flex items-center space-x-4 mb-2">
-                            <span id="productPrice" class="text-4xl font-bold text-blue-600">Rp -</span>
-                            <span id="originalPrice" class="text-2xl text-gray-400 line-through">Rp -</span>
+                    <div class="border-b pb-4 sm:pb-6">
+                        <div class="flex flex-wrap items-center gap-2 sm:gap-4 mb-2">
+                            <span id="productPrice" class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600">Rp -</span>
+                            <span id="originalPrice" class="text-lg sm:text-xl md:text-2xl text-gray-400 line-through">Rp -</span>
                             <span id="discountPercent"
-                                class="bg-red-500 text-white px-2 py-1 rounded text-sm font-bold"></span>
+                                class="bg-red-500 text-white px-2 py-1 rounded text-xs sm:text-sm font-bold"></span>
                         </div>
-                        <p id="hemat" class="text-gray-600"></p>
+                        <p id="hemat" class="text-gray-600 text-sm sm:text-base"></p>
                     </div>
 
                     <!-- Product Description -->
@@ -136,14 +136,14 @@
                             </div> --}}
                         </div>
 
-                        <div class="flex space-x-4">
+                        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
                             <button onclick="addToCart()"
-                                class="flex-1 btn-primary text-white py-4 rounded-xl font-semibold text-lg shadow-lg">
+                                class="flex-1 btn-primary text-white py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg shadow-lg">
                                 <i class="fas fa-cart-plus mr-2"></i>
                                 Tambah ke Keranjang
                             </button>
                             <button onclick="buyNow()"
-                                class="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-xl font-semibold text-lg hover:bg-blue-600 hover:text-white transition-all">
+                                class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-blue-600 text-blue-600 rounded-xl font-semibold text-base sm:text-lg hover:bg-blue-600 hover:text-white transition-all">
                                 <i class="fas fa-bolt mr-2"></i>
                                 Beli Sekarang
                             </button>
@@ -185,14 +185,14 @@
     </div>
 
     <!-- Product Details Tabs -->
-    <div class="container mx-auto px-6 mb-12">
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6 mb-8 sm:mb-12">
+        <div class="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden">
             <!-- Tab Navigation -->
-            <div class="border-b">
-                <nav class="flex space-x-8 px-8">
-                    <button onclick="switchTab('description')" class="tab-button active py-4 font-semibold">Detail
+            <div class="border-b overflow-x-auto">
+                <nav class="flex space-x-4 sm:space-x-8 px-4 sm:px-8 min-w-max sm:min-w-0">
+                    <button onclick="switchTab('description')" class="tab-button active py-3 sm:py-4 font-semibold text-sm sm:text-base whitespace-nowrap">Detail
                         Produk</button>
-                    <button onclick="switchTab('ingredients')" class="tab-button py-4 font-semibold">Bahan &
+                    <button onclick="switchTab('ingredients')" class="tab-button py-3 sm:py-4 font-semibold text-sm sm:text-base whitespace-nowrap">Bahan &
                         Manfaat</button>
                     {{-- <button onclick="switchTab('reviews')" class="tab-button py-4 font-semibold">Ulasan (156)</button> --}}
                     {{-- <button onclick="switchTab('shipping')" class="tab-button py-4 font-semibold">Pengiriman</button> --}}
@@ -200,7 +200,7 @@
             </div>
 
             <!-- Tab Content -->
-            <div class="p-8">
+            <div class="p-4 sm:p-6 md:p-8">
                 <!-- Description Tab -->
                 <div id="description-tab" class="tab-content">
                     <div class="prose max-w-none">
@@ -863,7 +863,7 @@
 
     <!-- Shopping Cart Sidebar -->
     <div id="cartSidebar"
-        class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300">
+        class="fixed right-0 top-0 h-full w-full sm:w-80 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300">
         <div class="p-6 border-b">
             <div class="flex justify-between items-center">
                 <h3 class="text-xl font-bold">Keranjang Belanja</h3>
